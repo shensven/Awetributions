@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StatusBar, StyleSheet, ScrollView} from 'react-native';
+import {Button} from 'react-native-paper';
 
 const statusBarHeight = StatusBar.currentHeight;
 
@@ -16,6 +17,9 @@ const Dashboard: React.FC = () => {
                 showsHorizontalScrollIndicator={false}
                 overScrollMode="always">
                 <Text style={styles.header_title}>Dashboard</Text>
+                <Button icon="camera" onPress={() => console.log('Pressed')}>
+                    Hola
+                </Button>
                 <Text style={styles.header_subtitle}>Subtitle</Text>
                 <Text style={styles.header_subtitle}>Subtitle</Text>
                 <Text style={styles.header_subtitle}>Subtitle</Text>
