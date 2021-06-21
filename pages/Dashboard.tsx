@@ -7,7 +7,7 @@ const Dashboard: React.FC = () => {
     return (
         <View style={styles.root}>
             <StatusBar
-                // translucent={true}
+                translucent={true}
                 backgroundColor="transparent"
                 barStyle="dark-content"
             />
@@ -65,7 +65,7 @@ const Dashboard: React.FC = () => {
 
 const styles = StyleSheet.create({
     root: {
-        marginTop: statusBarHeight,
+        // marginTop: statusBarHeight,
     },
     header_title: {
         fontSize: 34,
