@@ -1,6 +1,8 @@
 package com.awetributions;
 
 import com.facebook.react.ReactActivity;
+import android.content.res.Configuration;
+
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +14,15 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "Awetributions";
   }
+
+  /**
+   * get Android to react to the system theme using the React Native core API
+   * The following block was added by shensven
+   */  
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    getReactInstanceManager().onConfigurationChanged(this, newConfig);
+  }
+
 }
