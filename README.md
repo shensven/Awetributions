@@ -1,5 +1,9 @@
 # Awetributions
 
+[![](https://img.shields.io/github/package-json/v/shensven/Awetributions?color=%2330A14E)](./package.json)
+[![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react)](./package.json)
+[![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react-native)](./package.json)
+
 ## PREREQUISITES
 
 -   Node 12 or newer
