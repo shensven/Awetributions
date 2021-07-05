@@ -3,8 +3,6 @@ import {useColorScheme} from 'react-native';
 import {
     DefaultTheme as PaperDefaultTheme,
     DarkTheme as PaperDarkTheme,
-    Provider as PaperProvider,
-    useTheme as usePaperTheme,
 } from 'react-native-paper';
 import {
     DefaultTheme as NavigationDefaultTheme,

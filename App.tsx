@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {StyleSheet, useColorScheme, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {
     IconButton,
     Provider as PaperProvider,
@@ -9,12 +9,7 @@ import {
     NavigationContainer,
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
-import {
-    CardStyleInterpolators,
-    createStackNavigator,
-    HeaderStyleInterpolators,
-    TransitionPresets,
-} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {
     NavigationDark,
     NavigationLight,
