@@ -27,28 +27,20 @@ const Stack = createStackNavigator();
 const App: React.FC = () => {
     const {colors: PaperColors} = usePaperTheme();
     const {colors: NavigationColor} = useNavigationTheme();
-    const {appThemeIndex} = useContext(SettingsContext);
+    const {appAppearanceIndex} = useContext(SettingsContext);
 
     const awetributionsPaperTheme = () => {
-        if (appThemeIndex === 0) {
+        if (appAppearanceIndex === 1 || appAppearanceIndex === 3) {
             return PaperLight;
-        } else if (appThemeIndex === 1) {
+        } else if (appAppearanceIndex === 2 || appAppearanceIndex === 4) {
             return PaperDark;
-        } else if (appThemeIndex === 2) {
-            return PaperLight;
-        } else if (appThemeIndex === 4) {
-            return PaperLight;
         }
     };
 
     const awetributionsNavigationTheme = () => {
-        if (appThemeIndex === 0) {
+        if (appAppearanceIndex === 1 || appAppearanceIndex === 3) {
             return NavigationLight;
-        } else if (appThemeIndex === 1) {
-            return NavigationDark;
-        } else if (appThemeIndex === 2) {
-            return NavigationLight;
-        } else if (appThemeIndex === 3) {
+        } else if (appAppearanceIndex === 2 || appAppearanceIndex === 4) {
             return NavigationDark;
         }
     };
@@ -76,31 +68,31 @@ const App: React.FC = () => {
         );
     };
 
-    return (
+    return appAppearanceIndex === 0 ? null : (
         <PaperProvider theme={awetributionsPaperTheme()}>
             <NavigationContainer theme={awetributionsNavigationTheme()}>
                 <Stack.Navigator
                     initialRouteName="Dashboard"
+                    detachInactiveScreens={false}
                     screenOptions={{
                         headerStyle: {
                             elevation: 0, // Android
                             shadowOpacity: 0, // iOS
                         },
-                        ...TransitionPresets.SlideFromRightIOS,
                         gestureEnabled: true,
-                        headerBackAccessibilityLabel: 'go back',
+                        ...TransitionPresets.SlideFromRightIOS,
                     }}>
                     <Stack.Screen
                         name="Dashboard"
                         component={Dashboard}
                         options={({navigation}) => ({
                             title: 'Dashboard',
-                            cardStyle: {
-                                backgroundColor:
-                                    appThemeIndex === 1 || appThemeIndex === 3
-                                        ? '#191919' // Dark Mode
-                                        : '#F2F2F2', // Light Mode
-                            },
+                            // cardStyle: {
+                            //     backgroundColor:
+                            //         appThemeIndex === 1 || appThemeIndex === 3
+                            //             ? '#191919' // Dark Mode
+                            //             : '#F2F2F2', // Light Mode
+                            // },
                             headerRight: () => (
                                 <DashboardHeaderRight navigation={navigation} />
                             ),

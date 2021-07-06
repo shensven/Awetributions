@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import TouchableList from '../components/TouchableList';
 
-const Settings: React.FC = ({navigation}) => {
+const Settings: React.FC = ({navigation}: any) => {
     return (
         <View>
             <TouchableList

@@ -11,9 +11,10 @@ import {useTheme as usePaperTheme} from 'react-native-paper';
 import {SettingsContext} from '../util/SettingsManager';
 
 const Dashboard: React.FC = () => {
-    const systemThemeScheme = useColorScheme();
+    const systemAppearanceScheme = useColorScheme();
     const {colors: PaperColor} = usePaperTheme();
-    const {appThemeScheme, appThemeIndex} = useContext(SettingsContext);
+    const {appAppearanceScheme, appAppearanceIndex} =
+        useContext(SettingsContext);
 
     return (
         <View style={styles.root}>
@@ -35,21 +36,21 @@ const Dashboard: React.FC = () => {
                         styles.header_subtitle,
                         {color: PaperColor.primary},
                     ]}>
-                    systemThemeScheme {systemThemeScheme}
+                    systemAppearanceScheme {systemAppearanceScheme}
                 </Text>
                 <Text
                     style={[
                         styles.header_subtitle,
                         {color: PaperColor.primary},
                     ]}>
-                    appThemeScheme {appThemeScheme}
+                    appAppearanceScheme {appAppearanceScheme}
                 </Text>
                 <Text
                     style={[
                         styles.header_subtitle,
                         {color: PaperColor.primary},
                     ]}>
-                    appThemeIndex {appThemeIndex}
+                    appAppearanceIndex {appAppearanceIndex}
                 </Text>
             </ScrollView>
         </View>

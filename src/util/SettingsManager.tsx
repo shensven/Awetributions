@@ -40,8 +40,6 @@ export const PaperLight = {
 };
 export const PaperDark = {
     ...PaperDarkTheme,
-    // dark: true,
-    // mode: 'adaptive',
     roundness: 2,
     colors: {
         ...PaperDarkTheme.colors,
@@ -72,7 +70,7 @@ export const NavigationLight = {
     colors: {
         ...NavigationDefaultTheme.colors,
         // primary: '',
-        background: '#FFFFFE',
+        background: '#FFFFFF',
         card: '#FFFFFF',
         text: '#000000',
         // border: '',
@@ -93,103 +91,183 @@ export const NavigationDark = {
 };
 
 interface SettingsContext {
-    appThemeScheme: string;
-    appThemeIndex: number;
-    toggleThemeScheme: (props: string) => void;
-    toggleThemeIndex: (props: number) => void;
+    appAppearanceScheme: string | null | undefined;
+    appAppearanceIndex: number;
+    handleAppearanceIndex: (props: number) => void;
+    handleAppearanceScheme: (props: string) => void;
 }
 
-export const SettingsContext = React.createContext<SettingsContext>({
-    appThemeScheme: 'followSystem',
-    appThemeIndex: 2,
-    toggleThemeScheme: () => {},
-    toggleThemeIndex: () => {},
-});
-
-export const SettingsProvider = ({children}) => {
+export const SettingsProvider = ({children}: any) => {
     /**
-     * Possible string ​​for appThemeScheme
+     * Possible string ​​for systemAppearanceScheme
      *
-     * 'followSystem': Automatic
+     * 'light': Light Mode
+     * 'dark' : Dark Mode
+     */
+    const systemAppearanceScheme = useColorScheme();
+
+    /**
+     * Possible string ​​for appAppearanceScheme
+     *
      * 'light'       : Light Mode
      * 'dark'        : Dark Mode
+     * 'followSystem': Automatic
      */
-    const [appThemeScheme, setAppThemeScheme] =
-        useState<string>('followSystem');
+    const [appAppearanceScheme, setAppAppearanceScheme] = useState<
+        string | null | undefined
+    >(systemAppearanceScheme);
 
     /**
-     * Possible index ​​for appThemeIndex
+     * Possible number ​​for appAppearanceIndex
      *
-     * 0: appThemeScheme is 'light' & systemThemeScheme is any
-     * 1: appThemeScheme is 'dark' & systemThemeScheme is any
-     * 2: appThemeScheme is 'followSystem' & systemThemeScheme is 'light'
-     * 3: appThemeScheme is 'followSystem' & systemThemeScheme is 'dark'
+     * 1: appAppearanceScheme is 'light' & systemAppearanceScheme is any
+     * 2: appAppearanceScheme is 'dark' & systemScheme is any
+     * 3: appAppearanceScheme is 'followSystem' & systemAppearanceScheme is 'light'
+     * 4: appAppearanceScheme is 'followSystem' & systemAppearanceScheme is 'dark'
      */
-    const [appThemeIndex, setAppThemeIndex] = useState<number>(2);
+    const [appAppearanceIndex, setAppAppearanceIndex] = useState<number>(0);
 
-    const systemThemeScheme = useColorScheme();
+    // appAppearanceIndex persistence
+    const handleAppearanceIndex = (props: number) => {
+        setAppAppearanceIndex(props);
+        AsyncStorage.setItem('@appAppearanceIndex', props.toString());
+    };
 
-    const toggleThemeScheme = (props: string) => {
-        if (props === 'light') {
-            setAppThemeScheme('light');
-            AsyncStorage.setItem('@appThemeScheme', 'light');
-        } else if (props === 'dark') {
-            setAppThemeScheme('dark');
-            AsyncStorage.setItem('@appThemeScheme', 'dark');
-        } else if (props === 'followSystem') {
-            if (systemThemeScheme === 'light') {
-                setAppThemeScheme('followSystem');
-                AsyncStorage.setItem('@appThemeScheme', 'followSystem');
-            } else if (systemThemeScheme === 'dark') {
-                setAppThemeScheme('followSystem');
-                AsyncStorage.setItem('@appThemeScheme', 'followSystem');
-            }
+    // appAppearanceScheme persistence
+    const handleAppearanceScheme = (props: string) => {
+        switch (props) {
+            case 'light':
+                setAppAppearanceScheme('light');
+                AsyncStorage.setItem('@appAppearanceScheme', 'light');
+                break;
+            case 'dark':
+                setAppAppearanceScheme('dark');
+                AsyncStorage.setItem('@appAppearanceScheme', 'dark');
+                break;
+            case 'followSystem':
+                if (systemAppearanceScheme === 'light') {
+                    setAppAppearanceScheme('light');
+                    AsyncStorage.setItem(
+                        '@appAppearanceScheme',
+                        'followSystem',
+                    );
+                    break;
+                } else if (systemAppearanceScheme === 'dark') {
+                    setAppAppearanceScheme('dark');
+                    AsyncStorage.setItem(
+                        '@appAppearanceScheme',
+                        'followSystem',
+                    );
+                    break;
+                }
+                break;
+            default:
         }
     };
 
-    const toggleThemeIndex = (props: number) => {
-        setAppThemeIndex(props);
-        if (props === 0) {
-            setAppThemeScheme('light');
-        } else if (props === 2) {
-            setAppThemeScheme('dark');
-        } else if (props === 3 || props === 4) {
-            setAppThemeScheme('followSystem');
+    const handleAppAppearance = async () => {
+        switch (appAppearanceIndex) {
+            case 0:
+                // initail app appearance scheme
+                const storageAppearanceIndex: string | null =
+                    await AsyncStorage.getItem('@appAppearanceIndex');
+
+                switch (storageAppearanceIndex) {
+                    case null:
+                        if (systemAppearanceScheme === 'light') {
+                            setAppAppearanceIndex(3);
+                            setAppAppearanceScheme('followSystem');
+                            break;
+                        } else if (systemAppearanceScheme === 'dark') {
+                            setAppAppearanceIndex(4);
+                            setAppAppearanceScheme('followSystem');
+                            break;
+                        }
+                        break;
+                    case '1':
+                        setAppAppearanceIndex(1);
+                        setAppAppearanceScheme('light');
+                        break;
+                    case '2':
+                        setAppAppearanceIndex(2);
+                        setAppAppearanceScheme('dark');
+                        break;
+                    case '3':
+                        if (systemAppearanceScheme === 'light') {
+                            setAppAppearanceIndex(3);
+                            setAppAppearanceScheme('light');
+                            break;
+                        } else if (systemAppearanceScheme === 'dark') {
+                            setAppAppearanceIndex(4);
+                            setAppAppearanceScheme('dark');
+                            break;
+                        }
+                        break;
+                    case '4':
+                        if (systemAppearanceScheme === 'light') {
+                            setAppAppearanceIndex(3);
+                            setAppAppearanceScheme('light');
+                            break;
+                        } else if (systemAppearanceScheme === 'dark') {
+                            setAppAppearanceIndex(4);
+                            setAppAppearanceScheme('dark');
+                            break;
+                        }
+                        break;
+                    default:
+                }
+                break;
+            case 1:
+                handleAppearanceIndex(1);
+                handleAppearanceScheme('light');
+                break;
+            case 2:
+                handleAppearanceIndex(2);
+                handleAppearanceScheme('dark');
+                break;
+            case 3:
+                if (systemAppearanceScheme === 'light') {
+                    handleAppearanceIndex(3);
+                    handleAppearanceScheme('followSystem');
+                } else if (systemAppearanceScheme === 'dark') {
+                    handleAppearanceIndex(4);
+                    handleAppearanceScheme('followSystem');
+                }
+                break;
+            case 4:
+                if (systemAppearanceScheme === 'light') {
+                    handleAppearanceIndex(3);
+                    handleAppearanceScheme('followSystem');
+                } else if (systemAppearanceScheme === 'dark') {
+                    handleAppearanceIndex(4);
+                    handleAppearanceScheme('followSystem');
+                }
+                break;
+            default:
         }
-        AsyncStorage.setItem('@appThemeIndex', props.toString());
     };
 
+    // get app Appearance scheme to react to the system Appearance scheme
     useEffect(() => {
-        if (appThemeScheme === 'light') {
-            toggleThemeIndex(0);
-            toggleThemeScheme('light');
-        } else if (appThemeScheme === 'dark') {
-            toggleThemeIndex(1);
-            toggleThemeScheme('dark');
-        } else if (
-            systemThemeScheme === 'light' &&
-            appThemeScheme === 'followSystem'
-        ) {
-            toggleThemeIndex(2);
-            toggleThemeScheme('followSystem');
-        } else if (
-            systemThemeScheme === 'dark' &&
-            appThemeScheme === 'followSystem'
-        ) {
-            toggleThemeIndex(3);
-            toggleThemeScheme('followSystem');
-        }
-    }, [systemThemeScheme]);
+        handleAppAppearance();
+    }, [systemAppearanceScheme]);
 
     return (
         <SettingsContext.Provider
             value={{
-                appThemeScheme,
-                appThemeIndex,
-                toggleThemeScheme,
-                toggleThemeIndex,
+                appAppearanceScheme,
+                appAppearanceIndex,
+                handleAppearanceIndex,
+                handleAppearanceScheme,
             }}>
             {children}
         </SettingsContext.Provider>
     );
 };
+
+export const SettingsContext = React.createContext<SettingsContext>({
+    appAppearanceScheme: 'followSystem',
+    appAppearanceIndex: 3,
+    handleAppearanceIndex: () => {},
+    handleAppearanceScheme: () => {},
+});

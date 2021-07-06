@@ -4,62 +4,73 @@ import {Checkbox, useTheme as usePaperTheme} from 'react-native-paper';
 import {SettingsContext} from '../util/SettingsManager';
 
 const Theme: React.FC = () => {
+    const {
+        appAppearanceIndex,
+        handleAppearanceIndex,
+        appAppearanceScheme,
+        handleAppearanceScheme,
+    } = useContext(SettingsContext);
+    const systemAppearanceScheme = useColorScheme();
     const {colors: PaperColor} = usePaperTheme();
-    const {appThemeScheme, toggleThemeScheme, appThemeIndex, toggleThemeIndex} =
-        useContext(SettingsContext);
-    const systemThemeScheme = useColorScheme();
 
-    const _toggleTheme = (props: string) => {
+    const _handleAppearance = (props: string) => {
         if (props === 'light') {
-            toggleThemeIndex(0);
-            toggleThemeScheme('light');
+            handleAppearanceIndex(1);
+            handleAppearanceScheme('light');
         } else if (props === 'dark') {
-            toggleThemeIndex(1);
-            toggleThemeScheme('dark');
-        } else if (props === 'followSystem' && systemThemeScheme === 'light') {
-            toggleThemeIndex(2);
-            toggleThemeScheme('followSystem');
-        } else if (props === 'followSystem' && systemThemeScheme === 'dark') {
-            toggleThemeIndex(3);
-            toggleThemeScheme('followSystem');
+            handleAppearanceIndex(2);
+            handleAppearanceScheme('dark');
+        } else if (
+            props === 'followSystem' &&
+            systemAppearanceScheme === 'light'
+        ) {
+            handleAppearanceIndex(3);
+            handleAppearanceScheme('followSystem');
+        } else if (
+            props === 'followSystem' &&
+            systemAppearanceScheme === 'dark'
+        ) {
+            handleAppearanceIndex(4);
+            handleAppearanceScheme('followSystem');
         }
+        console.log('_toggleAppearance', props);
     };
 
     return (
         // UI refactoring needed
         <View>
             <Text style={{color: PaperColor.primary}}>
-                systemTheme {systemThemeScheme}
+                systemAppearance {systemAppearanceScheme}
             </Text>
             <Text style={{color: PaperColor.primary}}>
-                appThemeScheme {appThemeScheme}
+                appAppearanceScheme {appAppearanceScheme}
             </Text>
             <Text style={{color: PaperColor.primary}}>
-                appThemeIndex {appThemeIndex}
+                appAppearanceIndex {appAppearanceIndex}
             </Text>
-            <Text style={{color: PaperColor.accent}}>Light</Text>
+            <Text style={{color: PaperColor.text}}>Light</Text>
             <Checkbox
-                status={appThemeIndex === 0 ? 'checked' : 'unchecked'}
+                status={appAppearanceIndex === 1 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                    _toggleTheme('light');
+                    _handleAppearance('light');
                 }}
             />
-            <Text style={{color: PaperColor.accent}}>Dark</Text>
+            <Text style={{color: PaperColor.text}}>Dark</Text>
             <Checkbox
-                status={appThemeIndex === 1 ? 'checked' : 'unchecked'}
+                status={appAppearanceIndex === 2 ? 'checked' : 'unchecked'}
                 onPress={() => {
-                    _toggleTheme('dark');
+                    _handleAppearance('dark');
                 }}
             />
-            <Text style={{color: PaperColor.accent}}>Automatic</Text>
+            <Text style={{color: PaperColor.text}}>Automatic</Text>
             <Checkbox
                 status={
-                    appThemeIndex === 2 || appThemeIndex === 3
+                    appAppearanceIndex === 3 || appAppearanceIndex === 4
                         ? 'checked'
                         : 'unchecked'
                 }
                 onPress={() => {
-                    _toggleTheme('followSystem');
+                    _handleAppearance('followSystem');
                 }}
             />
         </View>
