@@ -18,11 +18,6 @@ const Dashboard: React.FC = () => {
 
     return (
         <View style={styles.root}>
-            <StatusBar
-                translucent={true}
-                backgroundColor="transparent"
-                barStyle="dark-content"
-            />
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}

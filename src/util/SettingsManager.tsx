@@ -146,14 +146,14 @@ export const SettingsProvider = ({children}: any) => {
                 break;
             case 'followSystem':
                 if (systemAppearanceScheme === 'light') {
-                    setAppAppearanceScheme('light');
+                    setAppAppearanceScheme('followSystem');
                     AsyncStorage.setItem(
                         '@appAppearanceScheme',
                         'followSystem',
                     );
                     break;
                 } else if (systemAppearanceScheme === 'dark') {
-                    setAppAppearanceScheme('dark');
+                    setAppAppearanceScheme('followSystem');
                     AsyncStorage.setItem(
                         '@appAppearanceScheme',
                         'followSystem',

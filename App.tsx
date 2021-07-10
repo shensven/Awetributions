@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import {
     IconButton,
     Provider as PaperProvider,
@@ -71,6 +71,19 @@ const App: React.FC = () => {
     return appAppearanceIndex === 0 ? null : (
         <PaperProvider theme={awetributionsPaperTheme()}>
             <NavigationContainer theme={awetributionsNavigationTheme()}>
+                <StatusBar
+                    // translucent={true}
+                    backgroundColor={
+                        awetributionsNavigationTheme() === NavigationDark
+                            ? '#111111'
+                            : '#FFFFFF'
+                    }
+                    barStyle={
+                        awetributionsNavigationTheme() === NavigationDark
+                            ? 'light-content'
+                            : 'dark-content'
+                    }
+                />
                 <Stack.Navigator
                     initialRouteName="Dashboard"
                     detachInactiveScreens={false}
