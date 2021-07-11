@@ -21,6 +21,7 @@ import {
 import Dashboard from './src/screens/Dashboard';
 import Settings from './src/screens/Settings';
 import Theme from './src/screens/Theme';
+import RNBootSplash from 'react-native-bootsplash';
 
 const Stack = createStackNavigator();
 
@@ -70,7 +71,13 @@ const App: React.FC = () => {
 
     return appAppearanceIndex === 0 ? null : (
         <PaperProvider theme={awetributionsPaperTheme()}>
-            <NavigationContainer theme={awetributionsNavigationTheme()}>
+            <NavigationContainer
+                theme={awetributionsNavigationTheme()}
+                onReady={() =>
+                    setTimeout(() => {
+                        RNBootSplash.hide({fade: true});
+                    }, 250)
+                }>
                 <StatusBar
                     // translucent={true}
                     backgroundColor={

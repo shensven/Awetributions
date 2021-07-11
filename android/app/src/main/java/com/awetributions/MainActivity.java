@@ -1,7 +1,9 @@
 package com.awetributions;
 
+import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import android.content.res.Configuration;
+import com.zoontek.rnbootsplash.RNBootSplash;
 
 
 public class MainActivity extends ReactActivity {
@@ -23,6 +25,12 @@ public class MainActivity extends ReactActivity {
   public void onConfigurationChanged(Configuration newConfig) {
     super.onConfigurationChanged(newConfig);
     getReactInstanceManager().onConfigurationChanged(this, newConfig);
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    RNBootSplash.init(R.drawable.bootsplash, MainActivity.this); // <- display the generated bootsplash.xml drawable over our MainActivity
   }
 
 }

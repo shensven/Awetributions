@@ -267,7 +267,7 @@ export const SettingsProvider = ({children}: any) => {
 
 export const SettingsContext = React.createContext<SettingsContext>({
     appAppearanceScheme: 'followSystem',
-    appAppearanceIndex: 3,
+    appAppearanceIndex: 0,
     handleAppearanceIndex: () => {},
     handleAppearanceScheme: () => {},
 });
