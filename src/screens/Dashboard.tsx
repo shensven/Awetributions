@@ -1,12 +1,5 @@
 import React, {useContext} from 'react';
-import {
-    View,
-    Text,
-    StatusBar,
-    StyleSheet,
-    ScrollView,
-    useColorScheme,
-} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, useColorScheme} from 'react-native';
 import {useTheme as usePaperTheme} from 'react-native-paper';
 import {SettingsContext} from '../util/SettingsManager';
 
