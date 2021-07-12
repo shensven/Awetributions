@@ -10,6 +10,8 @@
 -   Watchman
 -   JDK 8 or newer
 -   Android minSDK 21
+-   Xcode
+-   CocoaPods
 
 ## Run instructions for Android:
 
