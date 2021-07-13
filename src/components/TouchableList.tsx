@@ -1,18 +1,18 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
-import {useTheme as useNavigationTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props {
-    label: string;
     icon?: React.ReactNode;
+    label: string;
+    preferenceValue?: string;
     onPress: () => void;
 }
 
 const TouchableList: React.FC<Props> = props => {
-    const {label, icon, onPress} = props;
-    const {colors: PaperColors} = useNavigationTheme();
+    const {icon, label, preferenceValue, onPress} = props;
+    const {colors: PaperColors} = usePaperTheme();
 
     return (
         <TouchableRipple rippleColor="rgba(0, 0, 0, 0.1)" onPress={onPress}>
@@ -28,10 +28,17 @@ const TouchableList: React.FC<Props> = props => {
                     </Text>
                 </View>
                 <View style={styles.item_right}>
+                    <Text
+                        style={[
+                            styles.item_right_preferenceValue,
+                            {color: PaperColors.disabled},
+                        ]}>
+                        {preferenceValue}
+                    </Text>
                     <Icon
                         name="chevron-forward"
                         size={18}
-                        color={PaperColors.text}
+                        color={PaperColors.disabled}
                     />
                 </View>
             </View>
@@ -58,7 +65,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 16,
     },
-    item_right: {},
+    item_right_preferenceValue: {
+        marginRight: 8,
+    },
+    item_right: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
 });
 
 export default TouchableList;
