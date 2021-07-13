@@ -1,6 +1,7 @@
 # Awetributions
 
-[![](https://img.shields.io/github/package-json/v/shensven/Awetributions?color=%2330A14E)](./package.json)
+[![](https://img.shields.io/github/license/shensven/Awetributions)](./LICENSE)
+[![](https://img.shields.io/github/package-json/v/shensven/Awetributions?color=2DBB60)](./package.json)
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react)](./package.json)
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react-native)](./package.json)
 
