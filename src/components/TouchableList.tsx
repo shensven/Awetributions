@@ -31,14 +31,14 @@ const TouchableList: React.FC<Props> = props => {
                     <Text
                         style={[
                             styles.item_right_preferenceValue,
-                            {color: PaperColors.disabled},
+                            {color: PaperColors.placeholder},
                         ]}>
                         {preferenceValue}
                     </Text>
                     <Icon
                         name="chevron-forward"
                         size={18}
-                        color={PaperColors.disabled}
+                        color={PaperColors.placeholder}
                     />
                 </View>
             </View>
