@@ -1,14 +1,16 @@
 import React, {useContext} from 'react';
 import {View, Text, StyleSheet, ScrollView, useColorScheme} from 'react-native';
 import {useTheme as usePaperTheme} from 'react-native-paper';
+import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
 
 const Dashboard: React.FC = () => {
+    const {t} = useTranslation();
+
     const systemAppearanceScheme = useColorScheme();
     const {colors: PaperColor} = usePaperTheme();
     const {appAppearanceScheme, appAppearanceIndex} =
         useContext(SettingsContext);
-
     return (
         <View style={styles.root}>
             <ScrollView
@@ -17,28 +19,29 @@ const Dashboard: React.FC = () => {
                 overScrollMode="always">
                 <Text
                     style={[styles.header_title, {color: PaperColor.primary}]}>
-                    Dashboard
+                    {t('Dashboard.Dashboard')}
                 </Text>
                 <Text
                     style={[
                         styles.header_subtitle,
                         {color: PaperColor.primary},
                     ]}>
-                    systemAppearanceScheme {systemAppearanceScheme}
+                    {t('Dashboard.systemAppearanceScheme')}{' '}
+                    {systemAppearanceScheme}
                 </Text>
                 <Text
                     style={[
                         styles.header_subtitle,
                         {color: PaperColor.primary},
                     ]}>
-                    appAppearanceScheme {appAppearanceScheme}
+                    {t('Dashboard.appAppearanceScheme')} {appAppearanceScheme}
                 </Text>
                 <Text
                     style={[
                         styles.header_subtitle,
                         {color: PaperColor.primary},
                     ]}>
-                    appAppearanceIndex {appAppearanceIndex}
+                    {t('Dashboard.appAppearanceIndex')} {appAppearanceIndex}
                 </Text>
             </ScrollView>
         </View>

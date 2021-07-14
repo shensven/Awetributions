@@ -1,0 +1,33 @@
+{
+    "App": {
+        "Dashboard": "仪表盘",
+        "Settings": "设置",
+        "Theme": "主题",
+        "Language": "语言"
+    },
+    "Dashboard": {
+        "Dashboard": "仪表盘",
+        "systemAppearanceScheme": "系统外观",
+        "appAppearanceScheme": "app外观",
+        "appAppearanceIndex": "app外观索引"
+    },
+    "Settings": {
+        "Theme": "主题",
+        "Language": "语言",
+        "Light": "浅色",
+        "Dark": "深色",
+        "Automatic": "跟随系统"
+    },
+    "Theme": {
+        "systemAppearanceScheme": "系统外观",
+        "appAppearanceScheme": "app外观",
+        "appAppearanceIndex": "app外观索引",
+        "Light": "浅色",
+        "Dark": "深色",
+        "Automatic": "跟随系统"
+    },
+    "Language": {
+        "Current lang": "当前语言",
+        "Switch": "切换"
+    }
+}

@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
+import RNBootSplash from 'react-native-bootsplash';
 import {
     IconButton,
     Provider as PaperProvider,
@@ -21,11 +22,14 @@ import {
 import Dashboard from './src/screens/Dashboard';
 import Settings from './src/screens/Settings';
 import Theme from './src/screens/Theme';
-import RNBootSplash from 'react-native-bootsplash';
+import Language from './src/screens/Language';
+import {useTranslation} from 'react-i18next';
 
 const Stack = createStackNavigator();
 
 const App: React.FC = () => {
+    const {t} = useTranslation();
+
     const {colors: PaperColors} = usePaperTheme();
     const {colors: NavigationColor} = useNavigationTheme();
     const {appAppearanceIndex} = useContext(SettingsContext);
@@ -106,7 +110,7 @@ const App: React.FC = () => {
                         name="Dashboard"
                         component={Dashboard}
                         options={({navigation}) => ({
-                            title: 'Dashboard',
+                            title: t('App.Dashboard'),
                             // cardStyle: {
                             //     backgroundColor:
                             //         appThemeIndex === 1 || appThemeIndex === 3
@@ -122,14 +126,21 @@ const App: React.FC = () => {
                         name="Settings"
                         component={Settings}
                         options={{
-                            title: 'Settings',
+                            title: t('App.Settings'),
                         }}
                     />
                     <Stack.Screen
                         name="Theme"
                         component={Theme}
                         options={{
-                            title: 'Theme',
+                            title: t('App.Theme'),
+                        }}
+                    />
+                    <Stack.Screen
+                        name="Language"
+                        component={Language}
+                        options={{
+                            title: t('App.Language'),
                         }}
                     />
                 </Stack.Navigator>

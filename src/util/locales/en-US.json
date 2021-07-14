@@ -1,0 +1,33 @@
+{
+    "App": {
+        "Dashboard": "Dashboard",
+        "Settings": "Settings",
+        "Theme": "Theme",
+        "Language": "Language"
+    },
+    "Dashboard": {
+        "Dashboard": "Dashboard",
+        "systemAppearanceScheme": "systemAppearanceScheme",
+        "appAppearanceScheme": "appAppearanceScheme",
+        "appAppearanceIndex": "appAppearanceIndex"
+    },
+    "Settings": {
+        "Theme": "Theme",
+        "Language": "Language",
+        "Light": "Light",
+        "Dark": "Dark",
+        "Automatic": "Automatic"
+    },
+    "Theme": {
+        "systemAppearanceScheme": "systemAppearanceScheme",
+        "appAppearanceScheme": "appAppearanceScheme",
+        "appAppearanceIndex": "appAppearanceIndex",
+        "Light": "Light",
+        "Dark": "Dark",
+        "Automatic": "Automatic"
+    },
+    "Language": {
+        "Current lang": "Current lang",
+        "Switch": "Switch"
+    }
+}

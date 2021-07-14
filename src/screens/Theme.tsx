@@ -1,9 +1,12 @@
 import React, {useContext} from 'react';
+import {useTranslation} from 'react-i18next';
 import {View, Text, useColorScheme} from 'react-native';
 import {Checkbox, useTheme as usePaperTheme} from 'react-native-paper';
 import {SettingsContext} from '../util/SettingsManager';
 
 const Theme: React.FC = () => {
+    const {t} = useTranslation();
+
     const {
         appAppearanceIndex,
         handleAppearanceIndex,
@@ -40,29 +43,29 @@ const Theme: React.FC = () => {
         // UI refactoring needed
         <View>
             <Text style={{color: PaperColor.primary}}>
-                systemAppearance {systemAppearanceScheme}
+                {t('Theme.systemAppearanceScheme')} {systemAppearanceScheme}
             </Text>
             <Text style={{color: PaperColor.primary}}>
-                appAppearanceScheme {appAppearanceScheme}
+                {t('Theme.appAppearanceScheme')} {appAppearanceScheme}
             </Text>
             <Text style={{color: PaperColor.primary}}>
-                appAppearanceIndex {appAppearanceIndex}
+                {t('Theme.appAppearanceIndex')} {appAppearanceIndex}
             </Text>
-            <Text style={{color: PaperColor.text}}>Light</Text>
+            <Text style={{color: PaperColor.text}}>{t('Theme.Light')}</Text>
             <Checkbox
                 status={appAppearanceIndex === 1 ? 'checked' : 'unchecked'}
                 onPress={() => {
                     _handleAppearance('light');
                 }}
             />
-            <Text style={{color: PaperColor.text}}>Dark</Text>
+            <Text style={{color: PaperColor.text}}>{t('Theme.Dark')}</Text>
             <Checkbox
                 status={appAppearanceIndex === 2 ? 'checked' : 'unchecked'}
                 onPress={() => {
                     _handleAppearance('dark');
                 }}
             />
-            <Text style={{color: PaperColor.text}}>Automatic</Text>
+            <Text style={{color: PaperColor.text}}>{t('Theme.Automatic')}</Text>
             <Checkbox
                 status={
                     appAppearanceIndex === 3 || appAppearanceIndex === 4
