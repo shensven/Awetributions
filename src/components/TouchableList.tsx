@@ -39,6 +39,7 @@ const TouchableList: React.FC<Props> = props => {
                         name="chevron-forward"
                         size={18}
                         color={PaperColors.placeholder}
+                        style={styles.item_right_icon_fixed}
                     />
                 </View>
             </View>
@@ -65,12 +66,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 16,
     },
-    item_right_preferenceValue: {
-        marginRight: 8,
-    },
     item_right: {
         flexDirection: 'row',
         alignItems: 'center',
+    },
+    item_right_preferenceValue: {
+        marginRight: 8,
+    },
+    item_right_icon_fixed: {
+        paddingTop: 1,
     },
 });
 
