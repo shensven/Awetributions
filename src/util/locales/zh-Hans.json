@@ -9,14 +9,17 @@
         "Dashboard": "仪表盘",
         "systemAppearanceScheme": "系统外观",
         "appAppearanceScheme": "app外观",
-        "appAppearanceIndex": "app外观索引"
+        "appAppearanceIndex": "app外观索引",
+        "appI18nScheme": "app语言"
     },
     "Settings": {
         "Theme": "主题",
         "Language": "语言",
         "Light": "浅色",
         "Dark": "深色",
-        "Automatic": "跟随系统"
+        "Automatic": "跟随系统",
+        "en": "English",
+        "zh-Hans": "简体中文"
     },
     "Theme": {
         "systemAppearanceScheme": "系统外观",

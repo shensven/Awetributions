@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
 
     const systemAppearanceScheme = useColorScheme();
     const {colors: PaperColor} = usePaperTheme();
-    const {appAppearanceScheme, appAppearanceIndex} =
+    const {appAppearanceScheme, appAppearanceIndex, appI18nScheme} =
         useContext(SettingsContext);
     return (
         <View style={styles.root}>
@@ -42,6 +42,13 @@ const Dashboard: React.FC = () => {
                         {color: PaperColor.primary},
                     ]}>
                     {t('Dashboard.appAppearanceIndex')} {appAppearanceIndex}
+                </Text>
+                <Text
+                    style={[
+                        styles.header_subtitle,
+                        {color: PaperColor.primary},
+                    ]}>
+                    {t('Dashboard.appI18nScheme')} {appI18nScheme}
                 </Text>
             </ScrollView>
         </View>

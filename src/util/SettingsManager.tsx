@@ -10,6 +10,7 @@ import {
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useTranslation} from 'react-i18next';
 
 export const PaperLight = {
     ...PaperDefaultTheme,
@@ -90,11 +91,15 @@ export const NavigationDark = {
     },
 };
 
+// ----------------------------------------------------------------------
+//
 interface SettingsContext {
     appAppearanceScheme: string | null | undefined;
     appAppearanceIndex: number;
+    appI18nScheme: string;
     handleAppearanceIndex: (props: number) => void;
     handleAppearanceScheme: (props: string) => void;
+    handleI18nScheme: (props: string) => void;
 }
 
 export const SettingsProvider = ({children}: any) => {
@@ -127,13 +132,13 @@ export const SettingsProvider = ({children}: any) => {
      */
     const [appAppearanceIndex, setAppAppearanceIndex] = useState<number>(0);
 
-    // appAppearanceIndex persistence
+    // Persisting appAppearanceIndex
     const handleAppearanceIndex = (props: number) => {
         setAppAppearanceIndex(props);
         AsyncStorage.setItem('@appAppearanceIndex', props.toString());
     };
 
-    // appAppearanceScheme persistence
+    // Persisting appAppearanceScheme
     const handleAppearanceScheme = (props: string) => {
         switch (props) {
             case 'light':
@@ -247,9 +252,69 @@ export const SettingsProvider = ({children}: any) => {
         }
     };
 
+    // ----------------------------------------------------------------------
+    /**
+     * Possible string ​​for appI18nScheme
+     *
+     * 'en'          : English
+     * 'zh-Hans'     : Simplified Chinese
+     * 'followSystem': Automatic
+     */
+    const [appI18nScheme, setAppI18nScheme] = useState<string>('');
+    const {i18n} = useTranslation();
+
+    // Persisting appI18nScheme
+    const handleI18nScheme = (props: string) => {
+        switch (props) {
+            case 'en':
+                setAppI18nScheme('en');
+                i18n.changeLanguage('en');
+                AsyncStorage.setItem('@appI18nScheme', 'en');
+                break;
+            case 'zh-Hans':
+                setAppI18nScheme('zh-Hans');
+                i18n.changeLanguage('zh-Hans');
+                AsyncStorage.setItem('@appI18nScheme', 'zh-Hans');
+                break;
+            default:
+        }
+    };
+
+    const handleAppLanguege = async () => {
+        switch (appI18nScheme) {
+            case '':
+                // initail app i18n scheme
+                const storageAppI18nScheme: string | null =
+                    await AsyncStorage.getItem('@appI18nScheme');
+
+                switch (storageAppI18nScheme) {
+                    case null:
+                        handleI18nScheme('en');
+                        break;
+                    case 'en':
+                        handleI18nScheme('en');
+                        break;
+                    case 'zh-Hans':
+                        handleI18nScheme('zh-Hans');
+                        break;
+                    default:
+                }
+                break;
+            case 'en':
+                handleI18nScheme('en');
+                break;
+            case 'zh_Hans':
+                handleI18nScheme('zh-Hans');
+                break;
+            default:
+        }
+    };
+
+    // ----------------------------------------------------------------------
     // get app Appearance scheme to react to the system Appearance scheme
     useEffect(() => {
         handleAppAppearance();
+        handleAppLanguege();
     }, [systemAppearanceScheme]);
 
     return (
@@ -257,8 +322,10 @@ export const SettingsProvider = ({children}: any) => {
             value={{
                 appAppearanceScheme,
                 appAppearanceIndex,
+                appI18nScheme,
                 handleAppearanceIndex,
                 handleAppearanceScheme,
+                handleI18nScheme,
             }}>
             {children}
         </SettingsContext.Provider>
@@ -268,6 +335,8 @@ export const SettingsProvider = ({children}: any) => {
 export const SettingsContext = React.createContext<SettingsContext>({
     appAppearanceScheme: 'followSystem',
     appAppearanceIndex: 0,
+    appI18nScheme: '',
     handleAppearanceIndex: () => {},
     handleAppearanceScheme: () => {},
+    handleI18nScheme: () => {},
 });

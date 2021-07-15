@@ -7,7 +7,7 @@ import {SettingsContext} from '../util/SettingsManager';
 
 const Settings: React.FC = ({navigation}: any) => {
     const {t} = useTranslation();
-    const {appAppearanceScheme} = useContext(SettingsContext);
+    const {appAppearanceScheme, appI18nScheme} = useContext(SettingsContext);
 
     const _themePreferenceValue = () => {
         switch (appAppearanceScheme) {
@@ -17,6 +17,16 @@ const Settings: React.FC = ({navigation}: any) => {
                 return t('Settings.Light');
             case 'dark':
                 return t('Settings.Dark');
+            default:
+                return '';
+        }
+    };
+    const _languagePreferenceValue = () => {
+        switch (appI18nScheme) {
+            case 'en':
+                return t('Settings.en');
+            case 'zh-Hans':
+                return t('Settings.zh-Hans');
             default:
                 return '';
         }
@@ -37,6 +47,7 @@ const Settings: React.FC = ({navigation}: any) => {
                     <Icon name="language-outline" size={18} color="#EB816C" />
                 }
                 label={t('Settings.Language')}
+                preferenceValue={_languagePreferenceValue()}
                 onPress={() => {
                     navigation.navigate('Language');
                 }}

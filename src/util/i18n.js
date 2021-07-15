@@ -1,16 +1,14 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
-import translationEN from './locales/en-US.json';
-import translationCHS from './locales/zh-CHS.json';
+import translationEN from './locales/en.json';
+import translationCHS from './locales/zh-Hans.json';
 
-// the translations
-// (tip move them in a JSON file and import them,
-// or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
 const resources = {
     en: {
         translation: translationEN,
     },
-    zh: {
+    'zh-Hans': {
         translation: translationCHS,
     },
 };

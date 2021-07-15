@@ -28,11 +28,11 @@ import {useTranslation} from 'react-i18next';
 const Stack = createStackNavigator();
 
 const App: React.FC = () => {
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     const {colors: PaperColors} = usePaperTheme();
     const {colors: NavigationColor} = useNavigationTheme();
-    const {appAppearanceIndex} = useContext(SettingsContext);
+    const {appAppearanceIndex, appI18nScheme} = useContext(SettingsContext);
 
     const awetributionsPaperTheme = () => {
         if (appAppearanceIndex === 1 || appAppearanceIndex === 3) {
@@ -73,15 +73,15 @@ const App: React.FC = () => {
         );
     };
 
-    return appAppearanceIndex === 0 ? null : (
+    return appAppearanceIndex === 0 || appI18nScheme === '' ? null : (
         <PaperProvider theme={awetributionsPaperTheme()}>
             <NavigationContainer
                 theme={awetributionsNavigationTheme()}
-                onReady={() =>
+                onReady={() => {
                     setTimeout(() => {
                         RNBootSplash.hide({fade: true});
-                    }, 250)
-                }>
+                    }, 250);
+                }}>
                 <StatusBar
                     // translucent={true}
                     backgroundColor={

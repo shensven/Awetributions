@@ -36,7 +36,6 @@ const Theme: React.FC = () => {
             handleAppearanceIndex(4);
             handleAppearanceScheme('followSystem');
         }
-        console.log('_toggleAppearance', props);
     };
 
     return (
