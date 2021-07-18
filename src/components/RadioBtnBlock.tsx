@@ -76,12 +76,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingLeft: 8,
+        height: 48,
     },
     item_label: {
         fontSize: 16,
         fontWeight: 'bold',
-        height: 48,
-        textAlignVertical: 'center',
     },
 });
 
