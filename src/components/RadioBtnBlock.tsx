@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, StyleProp, ViewStyle} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    StyleProp,
+    ViewStyle,
+    Platform,
+} from 'react-native';
 import {
     RadioButton,
     TouchableRipple,
@@ -50,10 +57,16 @@ const RadioBtnBlock: React.FC<Props> = props => {
                             checked
                                 ? [
                                       styles.item_label,
+                                      Platform.OS === 'android'
+                                          ? {paddingBottom: 1}
+                                          : null,
                                       {color: PaperColor.RadioBtnBlockText},
                                   ]
                                 : [
                                       styles.item_label,
+                                      Platform.OS === 'android'
+                                          ? {paddingBottom: 1}
+                                          : null,
                                       {
                                           color: PaperColor.RadioBtnBlockTextUnchecked,
                                       },
