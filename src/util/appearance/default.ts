@@ -8,14 +8,31 @@ import {
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
 
+declare global {
+    namespace ReactNativePaper {
+        interface ThemeColors {
+            rippleColor: string;
+            RadioBtnBlockText: string;
+            RadioBtnBlockTextUnchecked: string;
+            RadioBtnBlockBackground: string;
+            RadioBtnBlockBackgroundUnchecked: string;
+        }
+    }
+}
+
 export const PaperLight = {
     ...PaperDefaultTheme,
     roundness: 2,
     colors: {
         ...PaperDefaultTheme.colors,
         primary: '#216E39',
-        // accent: '',
+        accent: '#30A14E',
         background: '#FFFFFF',
+        rippleColor: 'rgba(128, 128, 128, 0.1)',
+        RadioBtnBlockBackground: '#216E39',
+        RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
+        RadioBtnBlockText: '#FFFFFF',
+        RadioBtnBlockTextUnchecked: 'rgba(128,128,128,1)',
         // surface: '',
         text: '#000000',
         // disabled: '',
@@ -41,8 +58,13 @@ export const PaperDark = {
     colors: {
         ...PaperDarkTheme.colors,
         primary: '#216E39',
-        // accent: '',
+        accent: '#30A14E',
         background: '#111111',
+        rippleColor: 'rgba(128, 128, 128, 0.1)',
+        RadioBtnBlockBackground: '#216E39',
+        RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
+        RadioBtnBlockText: '#FFFFFF',
+        RadioBtnBlockTextUnchecked: 'rgba(128,128,128,0.5)',
         // surface: '',
         text: '#D0D0D0',
         // disabled: '',
