@@ -12,14 +12,13 @@ import {
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import RNBootSplash from 'react-native-bootsplash';
 import {useTranslation} from 'react-i18next';
+import {SettingsContext, SettingsProvider} from './src/util/SettingsManager';
 import {
     NavigationDark,
     NavigationLight,
     PaperDark,
     PaperLight,
-    SettingsContext,
-    SettingsProvider,
-} from './src/util/SettingsManager';
+} from './src/util/appearance/default';
 import Dashboard from './src/screens/Dashboard';
 import Settings from './src/screens/Settings';
 import Theme from './src/screens/Theme';
