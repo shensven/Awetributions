@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
-import RNBootSplash from 'react-native-bootsplash';
 import {
     IconButton,
     Provider as PaperProvider,
@@ -11,6 +10,8 @@ import {
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import RNBootSplash from 'react-native-bootsplash';
+import {useTranslation} from 'react-i18next';
 import {
     NavigationDark,
     NavigationLight,
@@ -23,12 +24,11 @@ import Dashboard from './src/screens/Dashboard';
 import Settings from './src/screens/Settings';
 import Theme from './src/screens/Theme';
 import Language from './src/screens/Language';
-import {useTranslation} from 'react-i18next';
 
 const Stack = createStackNavigator();
 
 const App: React.FC = () => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const {colors: PaperColors} = usePaperTheme();
     const {colors: NavigationColor} = useNavigationTheme();
