@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     item: {
-        marginBottom: 8,
+        marginBottom: 16,
     },
 });
 
