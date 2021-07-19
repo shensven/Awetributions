@@ -56,14 +56,14 @@ const App: React.FC = () => {
         return (
             <View style={styles.dashboard_header_btn}>
                 <IconButton
-                    size={20}
+                    size={22}
                     color={_PaperColors.text}
                     rippleColor={_PaperColors.IconBtnRippleColor}
                     icon="plus-circle-outline"
                     onPress={() => console.log('AddProfile')}
                 />
                 <IconButton
-                    size={20}
+                    size={22}
                     color={_PaperColors.text}
                     rippleColor={_PaperColors.IconBtnRippleColor}
                     icon="cog-outline"
