@@ -84,11 +84,7 @@ const App: React.FC = () => {
                 }}>
                 <StatusBar
                     // translucent={true}
-                    backgroundColor={
-                        awetributionsNavigationTheme() === NavigationDark
-                            ? '#111111'
-                            : '#FFFFFF'
-                    }
+                    backgroundColor={NavigationColor.background}
                     barStyle={
                         awetributionsNavigationTheme() === NavigationDark
                             ? 'light-content'
@@ -109,7 +105,7 @@ const App: React.FC = () => {
                     <Stack.Screen
                         name="Dashboard"
                         component={Dashboard}
-                        options={({navigation}) => ({
+                        options={{
                             title: t('App.Dashboard'),
                             // cardStyle: {
                             //     backgroundColor:
@@ -117,10 +113,8 @@ const App: React.FC = () => {
                             //             ? '#191919' // Dark Mode
                             //             : '#F2F2F2', // Light Mode
                             // },
-                            headerRight: () => (
-                                <DashboardHeaderRight navigation={navigation} />
-                            ),
-                        })}
+                            headerRight: () => <DashboardHeaderRight />,
+                        }}
                     />
                     <Stack.Screen
                         name="Settings"
