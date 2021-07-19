@@ -12,6 +12,7 @@ declare global {
     namespace ReactNativePaper {
         interface ThemeColors {
             rippleColor: string;
+            IconBtnRippleColor: string;
             RadioBtnBlockText: string;
             RadioBtnBlockTextUnchecked: string;
             RadioBtnBlockBackground: string;
@@ -29,6 +30,7 @@ export const PaperLight = {
         accent: '#30A14E',
         background: '#FFFFFF',
         rippleColor: 'rgba(128, 128, 128, 0.1)',
+        IconBtnRippleColor: 'rgba(128, 128, 128, 0.3)',
         RadioBtnBlockBackground: '#216E39',
         RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
         RadioBtnBlockText: '#FFFFFF',
@@ -61,6 +63,7 @@ export const PaperDark = {
         accent: '#30A14E',
         background: '#111111',
         rippleColor: 'rgba(128, 128, 128, 0.1)',
+        IconBtnRippleColor: 'rgba(128, 128, 128, 0.3)',
         RadioBtnBlockBackground: '#216E39',
         RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
         RadioBtnBlockText: '#FFFFFF',

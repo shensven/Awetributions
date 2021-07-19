@@ -51,23 +51,23 @@ const App: React.FC = () => {
     };
 
     const DashboardHeaderRight = () => {
-        const navigation = useNavigation();
-        const {colors: DashboardHeaderRightNavigationColors} =
-            useNavigationTheme();
-
+        const _navigation = useNavigation();
+        const {colors: _PaperColors} = usePaperTheme();
         return (
             <View style={styles.dashboard_header_btn}>
                 <IconButton
                     size={20}
-                    color={DashboardHeaderRightNavigationColors.text}
+                    color={_PaperColors.text}
+                    rippleColor={_PaperColors.IconBtnRippleColor}
                     icon="plus-circle-outline"
                     onPress={() => console.log('AddProfile')}
                 />
                 <IconButton
                     size={20}
-                    color={DashboardHeaderRightNavigationColors.text}
+                    color={_PaperColors.text}
+                    rippleColor={_PaperColors.IconBtnRippleColor}
                     icon="cog-outline"
-                    onPress={() => navigation.navigate('Settings')}
+                    onPress={() => _navigation.navigate('Settings')}
                 />
             </View>
         );
