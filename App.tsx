@@ -7,6 +7,7 @@ import {
 } from 'react-native-paper';
 import {
     NavigationContainer,
+    useNavigation,
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
@@ -49,8 +50,8 @@ const App: React.FC = () => {
         }
     };
 
-    const DashboardHeaderRight = (props: {navigation: any}) => {
-        const {navigation} = props;
+    const DashboardHeaderRight = () => {
+        const navigation = useNavigation();
         const {colors: DashboardHeaderRightNavigationColors} =
             useNavigationTheme();
 

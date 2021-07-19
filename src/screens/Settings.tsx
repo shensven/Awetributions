@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useContext} from 'react';
 import {useTranslation} from 'react-i18next';
 import {ScrollView, StyleSheet, View} from 'react-native';
@@ -5,8 +6,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import TouchableList from '../components/TouchableList';
 import {SettingsContext} from '../util/SettingsManager';
 
-const Settings: React.FC = ({navigation}: any) => {
+const Settings: React.FC = () => {
+    const navigation = useNavigation();
     const {t} = useTranslation();
+
     const {appAppearanceScheme, appI18nScheme} = useContext(SettingsContext);
 
     const _themePreferenceValue = () => {
