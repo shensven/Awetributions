@@ -27,6 +27,8 @@ const Settings: React.FC = ({navigation}: any) => {
                 return t('Settings.en');
             case 'zh-Hans':
                 return t('Settings.zh-Hans');
+            case 'zh-Hant':
+                return t('Settings.zh-Hant');
             default:
                 return '';
         }

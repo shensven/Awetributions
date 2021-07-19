@@ -19,7 +19,8 @@
         "Dark": "深色",
         "Automatic": "跟随系统",
         "en": "English",
-        "zh-Hans": "简体中文"
+        "zh-Hans": "简体中文",
+        "zh-Hant": "繁体中文"
     },
     "Theme": {
         "systemAppearanceScheme": "系统外观",
@@ -29,8 +30,5 @@
         "Dark": "深色",
         "Automatic": "跟随系统"
     },
-    "Language": {
-        "Current lang": "当前语言",
-        "Switch": "切换"
-    }
+    "Language": {}
 }

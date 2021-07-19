@@ -188,6 +188,11 @@ export const SettingsProvider = ({children}: any) => {
                 i18n.changeLanguage('zh-Hans');
                 AsyncStorage.setItem('@appI18nScheme', 'zh-Hans');
                 break;
+            case 'zh-Hant':
+                setAppI18nScheme('zh-Hant');
+                i18n.changeLanguage('zh-Hant');
+                AsyncStorage.setItem('@appI18nScheme', 'zh-Hant');
+                break;
             default:
         }
     };
@@ -209,6 +214,9 @@ export const SettingsProvider = ({children}: any) => {
                     case 'zh-Hans':
                         handleI18nScheme('zh-Hans');
                         break;
+                    case 'zh-Hant':
+                        handleI18nScheme('zh-Hant');
+                        break;
                     default:
                 }
                 break;
@@ -217,6 +225,9 @@ export const SettingsProvider = ({children}: any) => {
                 break;
             case 'zh_Hans':
                 handleI18nScheme('zh-Hans');
+                break;
+            case 'zh_Hant':
+                handleI18nScheme('zh-Hant');
                 break;
             default:
         }

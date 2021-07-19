@@ -1,8 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import translationEN from './locales/en.json';
 import translationCHS from './locales/zh-Hans.json';
+import translationCHT from './locales/zh-Hant.json';
 
 const resources = {
     en: {
@@ -10,6 +10,9 @@ const resources = {
     },
     'zh-Hans': {
         translation: translationCHS,
+    },
+    'zh-Hant': {
+        translation: translationCHT,
     },
 };
 

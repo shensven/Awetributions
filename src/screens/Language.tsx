@@ -24,6 +24,12 @@ const Language: React.FC = () => {
                         onPress={() => handleI18nScheme('zh-Hans')}
                         style={styles.item}
                     />
+                    <RadioBtnBlock
+                        label="繁体中文"
+                        checked={i18n.language === 'zh-Hant'}
+                        onPress={() => handleI18nScheme('zh-Hant')}
+                        style={styles.item}
+                    />
                 </View>
             </ScrollView>
         </View>

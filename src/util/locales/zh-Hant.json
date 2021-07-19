@@ -1,0 +1,34 @@
+{
+    "App": {
+        "Dashboard": "主面板",
+        "Settings": "設定",
+        "Theme": "主題",
+        "Language": "語言"
+    },
+    "Dashboard": {
+        "Dashboard": "主面板",
+        "systemAppearanceScheme": "系統外觀",
+        "appAppearanceScheme": "程式外觀",
+        "appAppearanceIndex": "程式外觀索引",
+        "appI18nScheme": "程式語言"
+    },
+    "Settings": {
+        "Theme": "主題",
+        "Language": "語言",
+        "Light": "淺色",
+        "Dark": "深色",
+        "Automatic": "與系統同步",
+        "en": "English",
+        "zh-Hans": "简体中文",
+        "zh-Hant": "繁体中文"
+    },
+    "Theme": {
+        "systemAppearanceScheme": "系統外觀",
+        "appAppearanceScheme": "程式外觀",
+        "appAppearanceIndex": "程式外觀索引",
+        "Light": "淺色",
+        "Dark": "深色",
+        "Automatic": "與系統同步"
+    },
+    "Language": {}
+}
