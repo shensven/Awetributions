@@ -1,8 +1,9 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
-import translationEN from './locales/en.json';
-import translationCHS from './locales/zh-Hans.json';
-import translationCHT from './locales/zh-Hant.json';
+
+const translationEN = require('./locales/en.json');
+const translationCHS = require('./locales/zh-Hans.json');
+const translationCHT = require('./locales/zh-Hant.json');
 
 const resources = {
     en: {
