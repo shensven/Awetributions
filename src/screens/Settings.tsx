@@ -62,6 +62,19 @@ const Settings: React.FC = () => {
                         navigation.navigate('Language');
                     }}
                 />
+                <TouchableList
+                    icon={
+                        <Icon
+                            name="code-slash-outline"
+                            size={18}
+                            color="#2FAFFF"
+                        />
+                    }
+                    label={t('Settings.OpenSourceLibraries')}
+                    onPress={() => {
+                        navigation.navigate('OpenSourceLibraries');
+                    }}
+                />
             </ScrollView>
         </View>
     );

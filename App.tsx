@@ -24,6 +24,7 @@ import Dashboard from './src/screens/Dashboard';
 import Settings from './src/screens/Settings';
 import Theme from './src/screens/Theme';
 import Language from './src/screens/Language';
+import OpenSourceLibraries from './src/screens/OpenSourceLibraries';
 
 const Stack = createStackNavigator();
 
@@ -135,6 +136,13 @@ const App: React.FC = () => {
                         component={Language}
                         options={{
                             title: t('App.Language'),
+                        }}
+                    />
+                    <Stack.Screen
+                        name="OpenSourceLibraries"
+                        component={OpenSourceLibraries}
+                        options={{
+                            title: t('App.OpenSourceLibraries'),
                         }}
                     />
                 </Stack.Navigator>

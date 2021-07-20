@@ -3,7 +3,8 @@
         "Dashboard": "Dashboard",
         "Settings": "Settings",
         "Theme": "Theme",
-        "Language": "Language"
+        "Language": "Language",
+        "OpenSourceLibraries": "Open Source Libraries"
     },
     "Dashboard": {
         "Dashboard": "Dashboard",
@@ -20,7 +21,8 @@
         "Automatic": "Automatic",
         "en": "English",
         "zh-Hans": "简体中文",
-        "zh-Hant": "繁体中文"
+        "zh-Hant": "繁体中文",
+        "OpenSourceLibraries": "Open Source Libraries"
     },
     "Theme": {
         "systemAppearanceScheme": "systemAppearanceScheme",
