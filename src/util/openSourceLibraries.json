@@ -1,0 +1,246 @@
+[
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@babel/core/LICENSE",
+    "name": "@babel/core",
+    "path": "node_modules/@babel/core",
+    "repository": "https://github.com/babel/babel",
+    "version": "7.14.6"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@babel/runtime/LICENSE",
+    "name": "@babel/runtime",
+    "path": "node_modules/@babel/runtime",
+    "repository": "https://github.com/babel/babel",
+    "version": "7.14.6"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@react-native-async-storage/async-storage/LICENSE",
+    "name": "@react-native-async-storage/async-storage",
+    "path": "node_modules/@react-native-async-storage/async-storage",
+    "repository": "https://github.com/react-native-async-storage/async-storage",
+    "version": "1.15.5"
+  },
+  {
+    "license": "MIT",
+    "name": "@react-native-community/eslint-config",
+    "path": "node_modules/@react-native-community/eslint-config",
+    "repository": "git@github.com:facebook/react-native",
+    "version": "2.0.0"
+  },
+  {
+    "license": "MIT",
+    "name": "@react-native-community/masked-view",
+    "path": "node_modules/@react-native-community/masked-view",
+    "repository": "https://github.com/react-native-community/react-native-masked-view",
+    "version": "0.1.11"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@react-navigation/native/LICENSE",
+    "name": "@react-navigation/native",
+    "path": "node_modules/@react-navigation/native",
+    "repository": "https://github.com/react-navigation/react-navigation",
+    "version": "5.9.4"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@react-navigation/stack/LICENSE",
+    "name": "@react-navigation/stack",
+    "path": "node_modules/@react-navigation/stack",
+    "repository": "https://github.com/react-navigation/react-navigation",
+    "version": "5.14.5"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@types/jest/LICENSE",
+    "name": "@types/jest",
+    "path": "node_modules/@types/jest",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "version": "26.0.24"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@types/react/LICENSE",
+    "name": "@types/react",
+    "path": "node_modules/@types/react",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "version": "17.0.14"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@types/react-native/LICENSE",
+    "name": "@types/react-native",
+    "path": "node_modules/@types/react-native",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "version": "0.64.12"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@types/react-native-vector-icons/LICENSE",
+    "name": "@types/react-native-vector-icons",
+    "path": "node_modules/@types/react-native-vector-icons",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "version": "6.4.8"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/@types/react-test-renderer/LICENSE",
+    "name": "@types/react-test-renderer",
+    "path": "node_modules/@types/react-test-renderer",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "version": "16.9.5"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/babel-jest/LICENSE",
+    "name": "babel-jest",
+    "path": "node_modules/babel-jest",
+    "repository": "https://github.com/facebook/jest",
+    "version": "26.6.3"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/eslint/LICENSE",
+    "name": "eslint",
+    "path": "node_modules/eslint",
+    "repository": "eslint/eslint",
+    "version": "7.31.0"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/i18next/LICENSE",
+    "name": "i18next",
+    "path": "node_modules/i18next",
+    "repository": "https://github.com/i18next/i18next",
+    "version": "20.3.3"
+  },
+  {
+    "license": "MIT",
+    "name": "i18next-http-backend",
+    "path": "node_modules/i18next-http-backend",
+    "repository": "git@github.com:i18next/i18next-http-backend",
+    "version": "1.2.6"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/jest/LICENSE",
+    "name": "jest",
+    "path": "node_modules/jest",
+    "repository": "https://github.com/facebook/jest",
+    "version": "26.6.3"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/license-compliance/LICENSE",
+    "name": "license-compliance",
+    "path": "node_modules/license-compliance",
+    "repository": "https://github.com/tmorell/license-compliance",
+    "version": "1.2.2"
+  },
+  {
+    "license": "MIT",
+    "name": "metro-react-native-babel-preset",
+    "path": "node_modules/metro-react-native-babel-preset",
+    "repository": "git@github.com:facebook/metro",
+    "version": "0.64.0"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react/LICENSE",
+    "name": "react",
+    "path": "node_modules/react",
+    "repository": "https://github.com/facebook/react",
+    "version": "17.0.1"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-i18next/LICENSE",
+    "name": "react-i18next",
+    "path": "node_modules/react-i18next",
+    "repository": "https://github.com/i18next/react-i18next",
+    "version": "11.11.3"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native/LICENSE",
+    "name": "react-native",
+    "path": "node_modules/react-native",
+    "repository": "https://github.com/facebook/react-native",
+    "version": "0.64.2"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-bootsplash/LICENSE",
+    "name": "react-native-bootsplash",
+    "path": "node_modules/react-native-bootsplash",
+    "repository": "https://github.com/zoontek/react-native-bootsplash",
+    "version": "3.2.4"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-gesture-handler/LICENSE",
+    "name": "react-native-gesture-handler",
+    "path": "node_modules/react-native-gesture-handler",
+    "repository": "https://github.com/software-mansion/react-native-gesture-handler",
+    "version": "1.10.3"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-paper/LICENSE.md",
+    "name": "react-native-paper",
+    "path": "node_modules/react-native-paper",
+    "repository": "https://github.com/callstack/react-native-paper",
+    "version": "4.9.2"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-reanimated/LICENSE",
+    "name": "react-native-reanimated",
+    "path": "node_modules/react-native-reanimated",
+    "repository": "https://github.com/software-mansion/react-native-reanimated",
+    "version": "2.2.0"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-safe-area-context/LICENSE",
+    "name": "react-native-safe-area-context",
+    "path": "node_modules/react-native-safe-area-context",
+    "repository": "https://github.com/th3rdwave/react-native-safe-area-context",
+    "version": "3.2.0"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-screens/LICENSE",
+    "name": "react-native-screens",
+    "path": "node_modules/react-native-screens",
+    "repository": "https://github.com/software-mansion/react-native-screens",
+    "version": "3.4.0"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-vector-icons/LICENSE",
+    "name": "react-native-vector-icons",
+    "path": "node_modules/react-native-vector-icons",
+    "repository": "https://github.com/oblador/react-native-vector-icons",
+    "version": "8.1.0"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-test-renderer/LICENSE",
+    "name": "react-test-renderer",
+    "path": "node_modules/react-test-renderer",
+    "repository": "https://github.com/facebook/react",
+    "version": "17.0.1"
+  },
+  {
+    "license": "Apache-2.0",
+    "licenseFile": "node_modules/typescript/LICENSE.txt",
+    "name": "typescript",
+    "path": "node_modules/typescript",
+    "repository": "https://github.com/Microsoft/TypeScript",
+    "version": "3.9.10"
+  }
+]
