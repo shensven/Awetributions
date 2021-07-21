@@ -6,6 +6,7 @@ import {
     ScrollView,
     Linking,
     TouchableOpacity,
+    StatusBar,
 } from 'react-native';
 import {
     List,
@@ -35,6 +36,10 @@ const OpenSourceLibraries: React.FC = () => {
             const url = repository;
 
             if (await InAppBrowser.isAvailable()) {
+                const oldBarStyle = StatusBar.pushStackEntry({
+                    barStyle: 'light-content',
+                    animated: true,
+                });
                 const result = await InAppBrowser.open(url, {
                     // iOS Properties
                     dismissButtonStyle: 'close',
@@ -45,12 +50,12 @@ const OpenSourceLibraries: React.FC = () => {
                     modalPresentationStyle: 'fullScreen',
                     modalTransitionStyle: 'coverVertical',
                     modalEnabled: true,
-                    enableBarCollapsing: false,
+                    enableBarCollapsing: true,
                     // Android Properties
                     showTitle: true,
                     toolbarColor: PaperColors.primary,
                     secondaryToolbarColor: 'black',
-                    navigationBarColor: 'black',
+                    navigationBarColor: 'transparent',
                     navigationBarDividerColor: 'white',
                     enableUrlBarHiding: true,
                     enableDefaultShare: true,
@@ -67,6 +72,7 @@ const OpenSourceLibraries: React.FC = () => {
                         'my-custom-header': 'my custom header value',
                     },
                 });
+                StatusBar.popStackEntry(oldBarStyle);
                 console.log(JSON.stringify(result));
             } else {
                 Linking.openURL(url);
@@ -98,7 +104,8 @@ const OpenSourceLibraries: React.FC = () => {
                             </TouchableOpacity>
                             <Text style={{color: PaperColors.text}}>
                                 {' '}
-                                is built using open source libraries, written in{' '}
+                                is built using open source libraries, proudly
+                                written in{' '}
                             </Text>
                             <TouchableOpacity
                                 onPress={() => {
@@ -168,7 +175,6 @@ const OpenSourceLibraries: React.FC = () => {
                                                 {item.license}
                                             </Text>
                                             <Icon
-                                                // name="chevron-forward"
                                                 name="open-outline"
                                                 size={12}
                                                 color={PaperColors.text}
@@ -203,7 +209,6 @@ const styles = StyleSheet.create({
     header_title_container: {
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
         flexWrap: 'wrap',
     },
     header_title: {},
