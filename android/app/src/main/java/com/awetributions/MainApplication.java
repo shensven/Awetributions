@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.zoontek.rnbootsplash.RNBootSplashPackage;
+import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
           new VectorIconsPackage();
+          new RNInAppBrowserPackage();
           return packages;
         }
 

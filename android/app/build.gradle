@@ -194,6 +194,8 @@ dependencies {
 
     implementation project(':react-native-bootsplash')
 
+    implementation project(':react-native-inappbrowser-reborn')
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }
