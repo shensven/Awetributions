@@ -115,7 +115,7 @@
     "name": "i18next",
     "path": "node_modules/i18next",
     "repository": "https://github.com/i18next/i18next",
-    "version": "20.3.3"
+    "version": "20.3.4"
   },
   {
     "license": "MIT",
@@ -186,6 +186,14 @@
     "path": "node_modules/react-native-gesture-handler",
     "repository": "https://github.com/software-mansion/react-native-gesture-handler",
     "version": "1.10.3"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-inappbrowser-reborn/LICENSE",
+    "name": "react-native-inappbrowser-reborn",
+    "path": "node_modules/react-native-inappbrowser-reborn",
+    "repository": "git@github.com:proyecto26/react-native-inappbrowser",
+    "version": "3.6.3"
   },
   {
     "license": "MIT",
