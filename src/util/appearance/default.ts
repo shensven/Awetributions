@@ -8,6 +8,8 @@ import {
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
 
+// ----------------------------------------------------------------------
+//
 declare global {
     namespace ReactNativePaper {
         interface ThemeColors {
@@ -87,6 +89,9 @@ export const PaperDark = {
         ...PaperDarkTheme.animation,
     },
 };
+
+// ----------------------------------------------------------------------
+//
 export const NavigationLight = {
     ...NavigationDefaultTheme,
     colors: {
