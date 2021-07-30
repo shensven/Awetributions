@@ -1,0 +1,35 @@
+{
+    "extends": ["config:base"],
+    "baseBranches": ["dev"],
+    "major": false,
+    "packageRules": [
+        {
+            "matchDepTypes": ["devDependencies"],
+            "enabled": false,
+            "excludePackageNames": [""]
+        },
+        {
+            "matchDepTypes": ["dependencies"],
+            "enabled": false,
+            "excludePackageNames": [
+                "@react-native-async-storage/async-storage",
+                "@react-native-community/masked-view",
+                "@react-navigation/native",
+                "@react-navigation/stack",
+                "@types/react",
+                "@types/react-native-vector-icons",
+                "i18next",
+                "i18next-http-backend",
+                "react-i18next",
+                "react-native-bootsplash",
+                "react-native-gesture-handler",
+                "react-native-inappbrowser-reborn",
+                "react-native-paper",
+                "react-native-reanimated",
+                "react-native-safe-area-context",
+                "react-native-screens",
+                "react-native-vector-icons"
+            ]
+        }
+    ]
+}
