@@ -1,0 +1,7 @@
+{
+    "major": {
+        "enabled": false
+    },
+    "baseBranches": ["dev"],
+    "extends": ["config:base"]
+}
