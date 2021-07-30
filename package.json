@@ -20,7 +20,7 @@
         "@types/react-native-vector-icons": "^6.4.7",
         "i18next": "^20.3.4",
         "i18next-http-backend": "^1.2.6",
-        "react": "17.0.1",
+        "react": "17.0.2",
         "react-i18next": "^11.11.1",
         "react-native": "0.64.2",
         "react-native-bootsplash": "^3.2.4",
@@ -35,7 +35,7 @@
     "devDependencies": {
         "@babel/core": "^7.12.9",
         "@babel/runtime": "^7.12.5",
-        "@react-native-community/eslint-config": "^2.0.0",
+        "@react-native-community/eslint-config": "2.0.0",
         "@types/jest": "^26.0.23",
         "@types/react-native": "^0.64.5",
         "@types/react-test-renderer": "^16.9.2",
@@ -45,7 +45,7 @@
         "json": "^11.0.0",
         "license-compliance": "^1.2.2",
         "metro-react-native-babel-preset": "^0.64.0",
-        "react-test-renderer": "17.0.1",
+        "react-test-renderer": "17.0.2",
         "typescript": "^3.8.3"
     },
     "resolutions": {
