@@ -4,6 +4,7 @@
 [![](https://img.shields.io/github/package-json/v/shensven/Awetributions?color=2DBB60)](./package.json)
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react)](./package.json)
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react-native)](./package.json)
+[![Test](https://github.com/shensven/Awetributions/actions/workflows/dev.yml/badge.svg?branch=dev)](https://github.com/shensven/Awetributions/actions/workflows/dev.yml)
 
 ## PREREQUISITES
 
