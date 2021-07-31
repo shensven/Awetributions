@@ -35,7 +35,7 @@
     "devDependencies": {
         "@babel/core": "^7.12.9",
         "@babel/runtime": "^7.12.5",
-        "@react-native-community/eslint-config": "^2.0.0",
+        "@react-native-community/eslint-config": "2.0.0",
         "@types/jest": "^26.0.23",
         "@types/react-native": "^0.64.5",
         "@types/react-test-renderer": "^16.9.2",
@@ -45,7 +45,7 @@
         "json": "^11.0.0",
         "license-compliance": "^1.2.2",
         "metro-react-native-babel-preset": "^0.64.0",
-        "react-test-renderer": "17.0.1",
+        "react-test-renderer": "17.0.2",
         "typescript": "^3.8.3"
     },
     "resolutions": {
