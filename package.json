@@ -16,7 +16,7 @@
         "@react-native-community/masked-view": "^0.1.11",
         "@react-navigation/native": "^5.9.4",
         "@react-navigation/stack": "^5.14.5",
-        "@types/react": "^17",
+        "@types/react": "17.0.15",
         "@types/react-native-vector-icons": "^6.4.7",
         "i18next": "^20.3.4",
         "i18next-http-backend": "^1.2.6",
@@ -49,7 +49,7 @@
         "typescript": "^3.8.3"
     },
     "resolutions": {
-        "@types/react": "^17"
+        "@types/react": "17.0.15"
     },
     "jest": {
         "preset": "react-native",
