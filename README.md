@@ -5,6 +5,7 @@
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react)](./package.json)
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react-native)](./package.json)
 [![Test](https://github.com/shensven/Awetributions/actions/workflows/dev.yml/badge.svg?branch=dev)](https://github.com/shensven/Awetributions/actions/workflows/dev.yml)
+[![Build](https://github.com/shensven/Awetributions/actions/workflows/main.yml/badge.svg)](https://github.com/shensven/Awetributions/actions/workflows/main.yml)
 
 ## PREREQUISITES
 
