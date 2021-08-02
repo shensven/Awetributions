@@ -121,16 +121,16 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
 
-def getVersionName() {
+def getNpmVersionName() {
     def inputFilea = new File("$rootDir/../package.json")
     def packageJsona = new JsonSlurper().parseText(inputFilea.text)
     return packageJsona["version"]
 }
 
-def getBuildNum() {
+def getNpmVersionCode() {
     def inputFileb = new File("$rootDir/../package.json")
     def packageJsonb = new JsonSlurper().parseText(inputFileb.text)
-    return packageJsonb["clientAppBuild"]
+    return packageJsonb["awetributionsBuild"]
 }
 
 android {
@@ -147,8 +147,8 @@ android {
         applicationId "com.awetributions"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode getBuildNum()
-        versionName getVersionName()
+        versionCode getNpmVersionCode()
+        versionName getNpmVersionName()
     }
     splits {
         abi {
