@@ -11,6 +11,7 @@ import {
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import RNBootSplash from 'react-native-bootsplash';
 import {useTranslation} from 'react-i18next';
 import {SettingsContext, SettingsProvider} from './src/util/SettingsManager';
@@ -25,8 +26,14 @@ import Settings from './src/screens/Settings';
 import Theme from './src/screens/Theme';
 import Language from './src/screens/Language';
 import OpenSourceLibraries from './src/screens/OpenSourceLibraries';
+import {Platform} from 'react-native';
 
-const Stack = createStackNavigator();
+let Stack: any;
+if (Platform.OS === 'ios') {
+    Stack = createNativeStackNavigator();
+} else if (Platform.OS === 'android') {
+    Stack = createStackNavigator();
+}
 
 const App: React.FC = () => {
     const {t} = useTranslation();
@@ -68,6 +75,7 @@ const App: React.FC = () => {
                     color={_PaperColors.text}
                     rippleColor={_PaperColors.IconBtnRippleColor}
                     icon="cog-outline"
+                    // @ts-ignore
                     onPress={() => _navigation.navigate('Settings')}
                 />
             </View>
@@ -84,7 +92,6 @@ const App: React.FC = () => {
                     }, 250);
                 }}>
                 <StatusBar
-                    // translucent={true}
                     backgroundColor={NavigationColor.background}
                     barStyle={
                         awetributionsNavigationTheme() === NavigationDark
@@ -94,14 +101,16 @@ const App: React.FC = () => {
                 />
                 <Stack.Navigator
                     initialRouteName="Dashboard"
-                    detachInactiveScreens={false}
+                    detachInactiveScreens={false} // Stack
                     screenOptions={{
                         headerStyle: {
-                            elevation: 0, // Android
-                            shadowOpacity: 0, // iOS
+                            elevation: 0, // Stack, Android only
+                            shadowOpacity: 0, // Stack, iOS only
                         },
-                        gestureEnabled: true,
-                        ...TransitionPresets.SlideFromRightIOS,
+                        headerShadowVisible: false, // Native Stack
+                        gestureEnabled: true, // Native Stack & Stack
+                        ...TransitionPresets.SlideFromRightIOS, // Stack
+                        animation: 'slide_from_right', // Native Stack, Android only
                     }}>
                     <Stack.Screen
                         name="Dashboard"
@@ -129,6 +138,7 @@ const App: React.FC = () => {
                         component={Theme}
                         options={{
                             title: t('App.Theme'),
+                            headerLargeTitle: true, // Native Stack, iOS only
                         }}
                     />
                     <Stack.Screen
@@ -136,6 +146,7 @@ const App: React.FC = () => {
                         component={Language}
                         options={{
                             title: t('App.Language'),
+                            headerLargeTitle: true, // Native Stack, iOS only
                         }}
                     />
                     <Stack.Screen
@@ -143,6 +154,7 @@ const App: React.FC = () => {
                         component={OpenSourceLibraries}
                         options={{
                             title: t('App.OpenSourceLibraries'),
+                            headerLargeTitle: true, // Native Stack, iOS only
                         }}
                     />
                 </Stack.Navigator>
