@@ -1,13 +1,11 @@
 import React, {useContext} from 'react';
-import {StatusBar, StyleSheet, View} from 'react-native';
+import {StatusBar} from 'react-native';
 import {
-    IconButton,
     Provider as PaperProvider,
     useTheme as usePaperTheme,
 } from 'react-native-paper';
 import {
     NavigationContainer,
-    useNavigation,
     useTheme as useNavigationTheme,
 } from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
@@ -31,7 +29,6 @@ const Stack = createStackNavigator();
 const App: React.FC = () => {
     const {t} = useTranslation();
 
-    const {colors: PaperColors} = usePaperTheme();
     const {colors: NavigationColor} = useNavigationTheme();
     const {appAppearanceIndex, appI18nScheme} = useContext(SettingsContext);
 
@@ -49,29 +46,6 @@ const App: React.FC = () => {
         } else if (appAppearanceIndex === 2 || appAppearanceIndex === 4) {
             return NavigationDark;
         }
-    };
-
-    const DashboardHeaderRight = () => {
-        const _navigation = useNavigation();
-        const {colors: _PaperColors} = usePaperTheme();
-        return (
-            <View style={styles.dashboard_header_btn}>
-                <IconButton
-                    size={22}
-                    color={_PaperColors.text}
-                    rippleColor={_PaperColors.IconBtnRippleColor}
-                    icon="plus-circle-outline"
-                    onPress={() => console.log('AddProfile')}
-                />
-                <IconButton
-                    size={22}
-                    color={_PaperColors.text}
-                    rippleColor={_PaperColors.IconBtnRippleColor}
-                    icon="cog-outline"
-                    onPress={() => _navigation.navigate('Settings')}
-                />
-            </View>
-        );
     };
 
     return appAppearanceIndex === 0 || appI18nScheme === '' ? null : (
@@ -93,27 +67,20 @@ const App: React.FC = () => {
                 />
                 <Stack.Navigator
                     initialRouteName="Dashboard"
-                    detachInactiveScreens={false} // Stack
+                    detachInactiveScreens={false}
                     screenOptions={{
                         headerStyle: {
-                            elevation: 0, // Stack, Android only
-                            shadowOpacity: 0, // Stack, iOS only
+                            elevation: 0, // Android only
+                            shadowOpacity: 0, // iOS only
                         },
-                        gestureEnabled: true, // Native Stack & Stack
-                        ...TransitionPresets.SlideFromRightIOS, // Stack
+                        gestureEnabled: true,
+                        ...TransitionPresets.SlideFromRightIOS,
                     }}>
                     <Stack.Screen
                         name="Dashboard"
                         component={Dashboard}
                         options={{
                             title: t('App.Dashboard'),
-                            // cardStyle: {
-                            //     backgroundColor:
-                            //         appThemeIndex === 1 || appThemeIndex === 3
-                            //             ? '#191919' // Dark Mode
-                            //             : '#F2F2F2', // Light Mode
-                            // },
-                            headerRight: () => <DashboardHeaderRight />,
                         }}
                     />
                     <Stack.Screen
@@ -155,10 +122,3 @@ export default () => (
         <App />
     </SettingsProvider>
 );
-
-const styles = StyleSheet.create({
-    dashboard_header_btn: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-});
