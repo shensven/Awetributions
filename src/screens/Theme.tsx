@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
-import {useTranslation} from 'react-i18next';
 import {View, Text, useColorScheme} from 'react-native';
 import {Checkbox, useTheme as usePaperTheme} from 'react-native-paper';
+import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
 
 const Theme: React.FC = () => {

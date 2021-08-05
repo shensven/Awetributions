@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {useTranslation} from 'react-i18next';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import RadioBtnBlock from '../components/RadioBtnBlock';
+import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
+import RadioBtnBlock from '../components/RadioBtnBlock';
 
 const Language: React.FC = () => {
     const {i18n} = useTranslation();

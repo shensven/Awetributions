@@ -1,10 +1,10 @@
-import {useNavigation} from '@react-navigation/native';
 import React, {useContext} from 'react';
-import {useTranslation} from 'react-i18next';
 import {ScrollView, StyleSheet, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import TouchableList from '../components/TouchableList';
+import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
+import TouchableList from '../components/TouchableList';
 
 const Settings: React.FC = () => {
     const navigation = useNavigation();
