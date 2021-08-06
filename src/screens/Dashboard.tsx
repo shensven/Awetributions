@@ -26,13 +26,8 @@ const Dashboard: React.FC = () => {
                     size={22}
                     color={_PaperColor.text}
                     rippleColor={PaperColor.IconBtnRippleColor}
-                    icon={() => (
-                        <Ionicons
-                            name="add-circle-outline"
-                            size={23}
-                            color={_PaperColor.text}
-                        />
-                    )}
+                    icon="plus-circle-outline"
+                    style={styles.header_iconbtn}
                     onPress={() => console.log('AddProfile')}
                 />
                 <IconButton
@@ -125,6 +120,10 @@ const styles = StyleSheet.create({
     },
     header_subtitle: {
         marginLeft: 21,
+    },
+    header_iconbtn: {
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
 
