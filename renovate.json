@@ -15,6 +15,7 @@
                 "@react-native-async-storage/async-storage",
                 "@react-native-community/masked-view",
                 "@react-navigation/native",
+                "@react-navigation/native-stack",
                 "@react-navigation/stack",
                 "@types/react",
                 "@types/react-native-vector-icons",
