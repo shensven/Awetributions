@@ -1,5 +1,6 @@
 # Awetributions
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/38ba286740994a94ad75d9fcf3b2310b)](https://app.codacy.com/gh/shensven/Awetributions?utm_source=github.com&utm_medium=referral&utm_content=shensven/Awetributions&utm_campaign=Badge_Grade_Settings)
 [![](https://img.shields.io/github/license/shensven/Awetributions)](./LICENSE)
 [![](https://img.shields.io/github/package-json/v/shensven/Awetributions?color=2DBB60)](./package.json)
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react)](./package.json)
