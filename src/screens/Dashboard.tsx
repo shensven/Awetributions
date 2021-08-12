@@ -42,6 +42,7 @@ const Dashboard: React.FC = () => {
                         />
                     )}
                     onPress={() => {
+                        // @ts-ignore
                         _navigation.navigate('Settings');
                     }}
                 />

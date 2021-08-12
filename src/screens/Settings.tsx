@@ -45,6 +45,7 @@ const Settings: React.FC = () => {
                     label={t('Settings.Theme')}
                     preferenceValue={_themePreferenceValue()}
                     onPress={() => {
+                        // @ts-ignore
                         navigation.navigate('Theme');
                     }}
                 />
@@ -59,6 +60,7 @@ const Settings: React.FC = () => {
                     label={t('Settings.Language')}
                     preferenceValue={_languagePreferenceValue()}
                     onPress={() => {
+                        // @ts-ignore
                         navigation.navigate('Language');
                     }}
                 />
@@ -72,6 +74,7 @@ const Settings: React.FC = () => {
                     }
                     label={t('Settings.OpenSourceLibraries')}
                     onPress={() => {
+                        // @ts-ignore
                         navigation.navigate('OpenSourceLibraries');
                     }}
                 />
