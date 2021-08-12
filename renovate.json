@@ -6,7 +6,7 @@
         {
             "matchDepTypes": ["devDependencies"],
             "enabled": false,
-            "excludePackageNames": [""]
+            "excludePackageNames": ["json", "license-compliance"]
         },
         {
             "matchDepTypes": ["dependencies"],
