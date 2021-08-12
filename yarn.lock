@@ -1654,7 +1654,7 @@
   dependencies:
     "@types/react" "^16"
 
-"@types/react@*", "@types/react@17.0.17", "@types/react@^16":
+"@types/react@*", "@types/react@17.0.17", "@types/react@^16", "@types/react@^17":
   version "17.0.17"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.17.tgz#1772d3d5425128e0635a716f49ef57c2955df055"
   integrity sha512-nrfi7I13cAmrd0wje8czYpf5SFbryczCtPzFc6ijqvdjKcyA3tCvGxwchOUlxb2ucBPuJ9Y3oUqKrRqZvrz0lw==
@@ -4702,7 +4702,7 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
-json@^11.0.0:
+json@11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/json/-/json-11.0.0.tgz#2e84493134e2f42c131165aa22a124df38b3a3ee"
   integrity sha512-N/ITv3Yw9Za8cGxuQqSqrq6RHnlaHWZkAFavcfpH/R52522c26EbihMxnY7A1chxfXJ4d+cEFIsyTgfi9GihrA==
@@ -4800,7 +4800,7 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-license-compliance@^1.2.2:
+license-compliance@1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/license-compliance/-/license-compliance-1.2.2.tgz#4d578d0a2d81a465282965982bafc12a94311d77"
   integrity sha512-JR0kcHQx9bI4/nk5ZNJfCi6WEPk3NrlxJjN+aPmz9W/lVI11JW2ryDkHdYG+xsTzc/FLDH4V15joDtBS1Ovd0g==
