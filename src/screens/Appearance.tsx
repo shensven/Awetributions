@@ -4,15 +4,11 @@ import {Checkbox, useTheme as usePaperTheme} from 'react-native-paper';
 import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
 
-const Theme: React.FC = () => {
+const Appearance: React.FC = () => {
     const {t} = useTranslation();
 
-    const {
-        appAppearanceIndex,
-        handleAppearanceIndex,
-        appAppearanceScheme,
-        handleAppearanceScheme,
-    } = useContext(SettingsContext);
+    const {appAppearanceIndex, handleAppearanceIndex, appAppearanceScheme, handleAppearanceScheme} =
+        useContext(SettingsContext);
     const systemAppearanceScheme = useColorScheme();
     const {colors: PaperColor} = usePaperTheme();
 
@@ -23,16 +19,10 @@ const Theme: React.FC = () => {
         } else if (props === 'dark') {
             handleAppearanceIndex(2);
             handleAppearanceScheme('dark');
-        } else if (
-            props === 'followSystem' &&
-            systemAppearanceScheme === 'light'
-        ) {
+        } else if (props === 'followSystem' && systemAppearanceScheme === 'light') {
             handleAppearanceIndex(3);
             handleAppearanceScheme('followSystem');
-        } else if (
-            props === 'followSystem' &&
-            systemAppearanceScheme === 'dark'
-        ) {
+        } else if (props === 'followSystem' && systemAppearanceScheme === 'dark') {
             handleAppearanceIndex(4);
             handleAppearanceScheme('followSystem');
         }
@@ -42,41 +32,33 @@ const Theme: React.FC = () => {
         // UI refactoring needed
         <View>
             <Text style={{color: PaperColor.primary}}>
-                {t('Theme.systemAppearanceScheme')} {systemAppearanceScheme}
+                {t('Appearance.systemAppearanceScheme')} {systemAppearanceScheme}
             </Text>
             <Text style={{color: PaperColor.primary}}>
-                {t('Theme.appAppearanceScheme')} {appAppearanceScheme}
+                {t('Appearance.appAppearanceScheme')} {appAppearanceScheme}
             </Text>
             <Text style={{color: PaperColor.primary}}>
-                {t('Theme.appAppearanceIndex')} {appAppearanceIndex}
+                {t('Appearance.appAppearanceIndex')} {appAppearanceIndex}
             </Text>
-            <Text style={{color: PaperColor.text}}>{t('Theme.Light')}</Text>
+            <Text style={{color: PaperColor.text}}>{t('Appearance.Light')}</Text>
             <Checkbox
                 status={appAppearanceIndex === 1 ? 'checked' : 'unchecked'}
-                onPress={() => {
-                    _handleAppearance('light');
-                }}
+                onPress={() => _handleAppearance('light')}
             />
-            <Text style={{color: PaperColor.text}}>{t('Theme.Dark')}</Text>
+            <Text style={{color: PaperColor.text}}>{t('Appearance.Dark')}</Text>
             <Checkbox
                 status={appAppearanceIndex === 2 ? 'checked' : 'unchecked'}
-                onPress={() => {
-                    _handleAppearance('dark');
-                }}
+                onPress={() => _handleAppearance('dark')}
             />
-            <Text style={{color: PaperColor.text}}>{t('Theme.Automatic')}</Text>
+            <Text style={{color: PaperColor.text}}>{t('Appearance.Automatic')}</Text>
             <Checkbox
                 status={
-                    appAppearanceIndex === 3 || appAppearanceIndex === 4
-                        ? 'checked'
-                        : 'unchecked'
+                    appAppearanceIndex === 3 || appAppearanceIndex === 4 ? 'checked' : 'unchecked'
                 }
-                onPress={() => {
-                    _handleAppearance('followSystem');
-                }}
+                onPress={() => _handleAppearance('followSystem')}
             />
         </View>
     );
 };
 
-export default Theme;
+export default Appearance;

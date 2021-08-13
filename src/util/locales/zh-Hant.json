@@ -2,7 +2,7 @@
     "App": {
         "Dashboard": "主面板",
         "Settings": "設定",
-        "Theme": "主題",
+        "Appearance": " 外觀",
         "Language": "語言",
         "OpenSourceLibraries": "開放原始碼程式庫"
     },
@@ -14,7 +14,7 @@
         "appI18nScheme": "程式語言"
     },
     "Settings": {
-        "Theme": "主題",
+        "Appearance": "外觀",
         "Language": "語言",
         "Light": "淺色",
         "Dark": "深色",
@@ -24,7 +24,7 @@
         "zh-Hant": "繁体中文",
         "OpenSourceLibraries": "開放原始碼程式庫"
     },
-    "Theme": {
+    "Appearance": {
         "systemAppearanceScheme": "系統外觀",
         "appAppearanceScheme": "程式外觀",
         "appAppearanceIndex": "程式外觀索引",

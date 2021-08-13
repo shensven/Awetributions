@@ -1,13 +1,7 @@
 import React, {useContext} from 'react';
 import {StatusBar} from 'react-native';
-import {
-    Provider as PaperProvider,
-    useTheme as usePaperTheme,
-} from 'react-native-paper';
-import {
-    NavigationContainer,
-    useTheme as useNavigationTheme,
-} from '@react-navigation/native';
+import {Provider as PaperProvider, useTheme as usePaperTheme} from 'react-native-paper';
+import {NavigationContainer, useTheme as useNavigationTheme} from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import RNBootSplash from 'react-native-bootsplash';
 import {useTranslation} from 'react-i18next';
@@ -20,7 +14,7 @@ import {
 } from './src/util/appearance/default';
 import Dashboard from './src/screens/Dashboard';
 import Settings from './src/screens/Settings';
-import Theme from './src/screens/Theme';
+import Appearance from './src/screens/Appearance';
 import Language from './src/screens/Language';
 import OpenSourceLibraries from './src/screens/OpenSourceLibraries';
 
@@ -91,10 +85,10 @@ const App: React.FC = () => {
                         }}
                     />
                     <Stack.Screen
-                        name="Theme"
-                        component={Theme}
+                        name="Appearance"
+                        component={Appearance}
                         options={{
-                            title: t('App.Theme'),
+                            title: t('App.Appearance'),
                         }}
                     />
                     <Stack.Screen

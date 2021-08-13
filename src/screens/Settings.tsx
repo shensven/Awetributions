@@ -1,30 +1,41 @@
 import React, {useContext} from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {List, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
-import TouchableList from '../components/TouchableList';
+
+interface ListItemProps {
+    label: string;
+    leftIcon: string;
+    leftIconSize?: number;
+    description?: string;
+    hasArrow?: boolean;
+    onPress: () => void;
+}
 
 const Settings: React.FC = () => {
     const navigation = useNavigation();
     const {t} = useTranslation();
+    const {colors: PaperColor} = usePaperTheme();
 
     const {appAppearanceScheme, appI18nScheme} = useContext(SettingsContext);
 
-    const _themePreferenceValue = () => {
+    const appearancePreferenceValue = () => {
         switch (appAppearanceScheme) {
-            case 'followSystem':
-                return t('Settings.Automatic');
             case 'light':
                 return t('Settings.Light');
             case 'dark':
                 return t('Settings.Dark');
+            case 'followSystem':
+                return t('Settings.Automatic');
             default:
                 return '';
         }
     };
-    const _languagePreferenceValue = () => {
+
+    const languagePreferenceValue = () => {
         switch (appI18nScheme) {
             case 'en':
                 return t('Settings.en');
@@ -37,47 +48,75 @@ const Settings: React.FC = () => {
         }
     };
 
+    const ListItem: React.FC<ListItemProps> = props => {
+        const {label, leftIcon, leftIconSize, description, hasArrow, onPress} = props;
+        return (
+            <TouchableRipple onPress={onPress}>
+                <List.Item
+                    title={label}
+                    titleStyle={{color: PaperColor.text}}
+                    left={() => (
+                        <List.Icon
+                            icon={() => (
+                                <Ionicons
+                                    name={leftIcon}
+                                    size={leftIconSize ?? 23}
+                                    color={PaperColor.text}
+                                />
+                            )}
+                        />
+                    )}
+                    right={() =>
+                        hasArrow ?? false ? (
+                            <View style={styles.item_right}>
+                                <Text style={{color: PaperColor.textAccent}}>{description}</Text>
+                                <Ionicons
+                                    name="chevron-forward-outline"
+                                    size={16}
+                                    color={PaperColor.textAccent}
+                                />
+                            </View>
+                        ) : null
+                    }
+                />
+            </TouchableRipple>
+        );
+    };
+
     return (
         <View style={styles.root}>
             <ScrollView>
-                <TouchableList
-                    icon={<Icon name="sunny" size={18} color="#F6C55B" />}
-                    label={t('Settings.Theme')}
-                    preferenceValue={_themePreferenceValue()}
-                    onPress={() => {
-                        // @ts-ignore
-                        navigation.navigate('Theme');
-                    }}
-                />
-                <TouchableList
-                    icon={
-                        <Icon
-                            name="language-outline"
-                            size={18}
-                            color="#EB816C"
-                        />
-                    }
-                    label={t('Settings.Language')}
-                    preferenceValue={_languagePreferenceValue()}
-                    onPress={() => {
-                        // @ts-ignore
-                        navigation.navigate('Language');
-                    }}
-                />
-                <TouchableList
-                    icon={
-                        <Icon
-                            name="code-slash-outline"
-                            size={18}
-                            color="#2FAFFF"
-                        />
-                    }
-                    label={t('Settings.OpenSourceLibraries')}
-                    onPress={() => {
-                        // @ts-ignore
-                        navigation.navigate('OpenSourceLibraries');
-                    }}
-                />
+                <List.Section>
+                    <ListItem
+                        label={t('Settings.Appearance')}
+                        leftIcon="color-palette-outline"
+                        hasArrow={true}
+                        description={appearancePreferenceValue()}
+                        onPress={() =>
+                            // @ts-ignore
+                            navigation.navigate('Appearance')
+                        }
+                    />
+                    <ListItem
+                        label={t('Settings.Language')}
+                        leftIcon="language-outline"
+                        hasArrow={true}
+                        description={languagePreferenceValue()}
+                        onPress={() =>
+                            // @ts-ignore
+                            navigation.navigate('Language')
+                        }
+                    />
+                    <ListItem
+                        label={t('Settings.OpenSourceLibraries')}
+                        leftIcon="code-slash-outline"
+                        hasArrow={true}
+                        onPress={() =>
+                            // @ts-ignore
+                            navigation.navigate('OpenSourceLibraries')
+                        }
+                    />
+                </List.Section>
             </ScrollView>
         </View>
     );
@@ -86,6 +125,26 @@ const Settings: React.FC = () => {
 const styles = StyleSheet.create({
     root: {
         flex: 1,
+    },
+
+    item_right: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginRight: 8,
+    },
+
+    bottom_easter_egg: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        marginBottom: -96,
+    },
+    bottom_easter_egg_text: {
+        fontSize: 12,
     },
 });
 

@@ -1,7 +1,4 @@
-import {
-    DefaultTheme as PaperDefaultTheme,
-    DarkTheme as PaperDarkTheme,
-} from 'react-native-paper';
+import {DefaultTheme as PaperDefaultTheme, DarkTheme as PaperDarkTheme} from 'react-native-paper';
 import {
     DefaultTheme as NavigationDefaultTheme,
     DarkTheme as NavigationDarkTheme,
@@ -13,6 +10,7 @@ import {
 declare global {
     namespace ReactNativePaper {
         interface ThemeColors {
+            textAccent: string;
             rippleColor: string;
             IconBtnRippleColor: string;
             RadioBtnBlockText: string;
@@ -39,6 +37,7 @@ export const PaperLight = {
         RadioBtnBlockTextUnchecked: 'rgba(128,128,128,1)',
         // surface: '',
         text: '#000000',
+        textAccent: '#777777',
         // disabled: '',
         // placeholder: '',
         // backdrop: '',
@@ -72,6 +71,7 @@ export const PaperDark = {
         RadioBtnBlockTextUnchecked: 'rgba(128,128,128,0.5)',
         // surface: '',
         text: '#D0D0D0',
+        textAccent: '#777777',
         // disabled: '',
         // placeholder: '',
         // backdrop: '',

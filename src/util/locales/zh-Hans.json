@@ -2,7 +2,7 @@
     "App": {
         "Dashboard": "仪表盘",
         "Settings": "设置",
-        "Theme": "主题",
+        "Appearance": "外观",
         "Language": "语言",
         "OpenSourceLibraries": "开源库"
     },
@@ -14,7 +14,7 @@
         "appI18nScheme": "app语言"
     },
     "Settings": {
-        "Theme": "主题",
+        "Appearance": "外观",
         "Language": "语言",
         "Light": "浅色",
         "Dark": "深色",
@@ -24,7 +24,7 @@
         "zh-Hant": "繁体中文",
         "OpenSourceLibraries": "开源库"
     },
-    "Theme": {
+    "Appearance": {
         "systemAppearanceScheme": "系统外观",
         "appAppearanceScheme": "app外观",
         "appAppearanceIndex": "app外观索引",

@@ -2,7 +2,7 @@
     "App": {
         "Dashboard": "Dashboard",
         "Settings": "Settings",
-        "Theme": "Theme",
+        "Appearance": "Appearance",
         "Language": "Language",
         "OpenSourceLibraries": "Open Source Libraries"
     },
@@ -14,7 +14,7 @@
         "appI18nScheme": "appI18nScheme"
     },
     "Settings": {
-        "Theme": "Theme",
+        "Appearance": "Appearance",
         "Language": "Language",
         "Light": "Light",
         "Dark": "Dark",
@@ -24,7 +24,7 @@
         "zh-Hant": "繁体中文",
         "OpenSourceLibraries": "Open Source Libraries"
     },
-    "Theme": {
+    "Appearance": {
         "systemAppearanceScheme": "systemAppearanceScheme",
         "appAppearanceScheme": "appAppearanceScheme",
         "appAppearanceIndex": "appAppearanceIndex",
