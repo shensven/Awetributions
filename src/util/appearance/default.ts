@@ -14,11 +14,6 @@ declare global {
             textForceLight: string;
             rippleColor: string;
             rippleReverse: string;
-            IconBtnRippleColor: string;
-            RadioBtnBlockText: string;
-            RadioBtnBlockTextUnchecked: string;
-            RadioBtnBlockBackground: string;
-            RadioBtnBlockBackgroundUnchecked: string;
             btnBackground: string;
         }
     }
@@ -34,11 +29,6 @@ export const PaperLight = {
         background: '#FFFFFF',
         rippleColor: 'rgba(128, 128, 128, 0.1)',
         rippleReverse: 'rgba(128, 128, 128, 0.3)',
-        IconBtnRippleColor: 'rgba(128, 128, 128, 0.3)',
-        RadioBtnBlockBackground: '#216E39',
-        RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
-        RadioBtnBlockText: '#FFFFFF',
-        RadioBtnBlockTextUnchecked: 'rgba(128,128,128,1)',
         btnBackground: 'rgba(128, 128, 128, 0.1)',
         // surface: '',
         text: '#000000',
@@ -71,11 +61,6 @@ export const PaperDark = {
         background: '#111111',
         rippleColor: 'rgba(128, 128, 128, 0.1)',
         rippleReverse: 'rgba(128, 128, 128, 0.3)',
-        IconBtnRippleColor: 'rgba(128, 128, 128, 0.3)',
-        RadioBtnBlockBackground: '#216E39',
-        RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
-        RadioBtnBlockText: '#FFFFFF',
-        RadioBtnBlockTextUnchecked: 'rgba(128,128,128,0.5)',
         btnBackground: 'rgba(128, 128, 128, 0.1)',
         // surface: '',
         text: '#D0D0D0',
