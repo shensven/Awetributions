@@ -11,12 +11,15 @@ declare global {
     namespace ReactNativePaper {
         interface ThemeColors {
             textAccent: string;
+            textForceLight: string;
             rippleColor: string;
+            rippleReverse: string;
             IconBtnRippleColor: string;
             RadioBtnBlockText: string;
             RadioBtnBlockTextUnchecked: string;
             RadioBtnBlockBackground: string;
             RadioBtnBlockBackgroundUnchecked: string;
+            btnBackground: string;
         }
     }
 }
@@ -30,14 +33,17 @@ export const PaperLight = {
         accent: '#30A14E',
         background: '#FFFFFF',
         rippleColor: 'rgba(128, 128, 128, 0.1)',
+        rippleReverse: 'rgba(128, 128, 128, 0.3)',
         IconBtnRippleColor: 'rgba(128, 128, 128, 0.3)',
         RadioBtnBlockBackground: '#216E39',
         RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
         RadioBtnBlockText: '#FFFFFF',
         RadioBtnBlockTextUnchecked: 'rgba(128,128,128,1)',
+        btnBackground: 'rgba(128, 128, 128, 0.1)',
         // surface: '',
         text: '#000000',
         textAccent: '#777777',
+        textForceLight: '#FFFFFF',
         // disabled: '',
         // placeholder: '',
         // backdrop: '',
@@ -64,14 +70,17 @@ export const PaperDark = {
         accent: '#30A14E',
         background: '#111111',
         rippleColor: 'rgba(128, 128, 128, 0.1)',
+        rippleReverse: 'rgba(128, 128, 128, 0.3)',
         IconBtnRippleColor: 'rgba(128, 128, 128, 0.3)',
         RadioBtnBlockBackground: '#216E39',
         RadioBtnBlockBackgroundUnchecked: 'rgba(128,128,128,0.1)',
         RadioBtnBlockText: '#FFFFFF',
         RadioBtnBlockTextUnchecked: 'rgba(128,128,128,0.5)',
+        btnBackground: 'rgba(128, 128, 128, 0.1)',
         // surface: '',
         text: '#D0D0D0',
         textAccent: '#777777',
+        textForceLight: '#FFFFFF',
         // disabled: '',
         // placeholder: '',
         // backdrop: '',

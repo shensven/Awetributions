@@ -19,7 +19,7 @@
         "Light": "浅色",
         "Dark": "深色",
         "Automatic": "跟随系统",
-        "en": "English",
+        "en": "英语",
         "zh-Hans": "简体中文",
         "zh-Hant": "繁体中文",
         "OpenSourceLibraries": "开源库"
@@ -32,5 +32,9 @@
         "Dark": "深色",
         "Automatic": "跟随系统"
     },
-    "Language": {}
+    "Language": {
+        "en": "英语",
+        "zh-Hans": "简体中文",
+        "zh-Hant": "繁体中文"
+    }
 }

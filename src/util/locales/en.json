@@ -20,8 +20,8 @@
         "Dark": "Dark",
         "Automatic": "Automatic",
         "en": "English",
-        "zh-Hans": "简体中文",
-        "zh-Hant": "繁体中文",
+        "zh-Hans": "Simplified Chinese",
+        "zh-Hant": "Traditional Chinese",
         "OpenSourceLibraries": "Open Source Libraries"
     },
     "Appearance": {
@@ -32,5 +32,9 @@
         "Dark": "Dark",
         "Automatic": "Automatic"
     },
-    "Language": {}
+    "Language": {
+        "en": "English",
+        "zh-Hans": "Simplified Chinese",
+        "zh-Hant": "Traditional Chinese"
+    }
 }
