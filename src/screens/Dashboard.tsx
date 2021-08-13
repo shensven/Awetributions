@@ -14,8 +14,7 @@ const Dashboard: React.FC = () => {
     const systemAppearanceScheme = useColorScheme();
     const {colors: PaperColor} = usePaperTheme();
 
-    const {appAppearanceScheme, appAppearanceIndex, appI18nScheme} =
-        useContext(SettingsContext);
+    const {appAppearanceScheme, appAppearanceIndex, appI18nScheme} = useContext(SettingsContext);
 
     const HeaderRight: React.FC = () => {
         const _navigation = useNavigation();
@@ -34,13 +33,7 @@ const Dashboard: React.FC = () => {
                     size={22}
                     color={_PaperColor.text}
                     rippleColor={_PaperColor.IconBtnRippleColor}
-                    icon={() => (
-                        <Ionicons
-                            name="cog-outline"
-                            size={24}
-                            color={_PaperColor.text}
-                        />
-                    )}
+                    icon={() => <Ionicons name="cog-outline" size={24} color={_PaperColor.text} />}
                     onPress={() => {
                         // @ts-ignore
                         _navigation.navigate('Settings');
@@ -65,37 +58,19 @@ const Dashboard: React.FC = () => {
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
                 overScrollMode="always">
-                <Text
-                    style={[styles.header_title, {color: PaperColor.primary}]}>
+                <Text style={[styles.header_title, {color: PaperColor.primary}]}>
                     {t('Dashboard.Dashboard')}
                 </Text>
-                <Text
-                    style={[
-                        styles.header_subtitle,
-                        {color: PaperColor.primary},
-                    ]}>
-                    {t('Dashboard.systemAppearanceScheme')}{' '}
-                    {systemAppearanceScheme}
+                <Text style={[styles.header_subtitle, {color: PaperColor.primary}]}>
+                    {t('Dashboard.systemAppearanceScheme')} {systemAppearanceScheme}
                 </Text>
-                <Text
-                    style={[
-                        styles.header_subtitle,
-                        {color: PaperColor.primary},
-                    ]}>
+                <Text style={[styles.header_subtitle, {color: PaperColor.primary}]}>
                     {t('Dashboard.appAppearanceScheme')} {appAppearanceScheme}
                 </Text>
-                <Text
-                    style={[
-                        styles.header_subtitle,
-                        {color: PaperColor.primary},
-                    ]}>
+                <Text style={[styles.header_subtitle, {color: PaperColor.primary}]}>
                     {t('Dashboard.appAppearanceIndex')} {appAppearanceIndex}
                 </Text>
-                <Text
-                    style={[
-                        styles.header_subtitle,
-                        {color: PaperColor.primary},
-                    ]}>
+                <Text style={[styles.header_subtitle, {color: PaperColor.primary}]}>
                     {t('Dashboard.appI18nScheme')} {appI18nScheme}
                 </Text>
             </ScrollView>

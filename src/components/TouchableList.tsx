@@ -15,19 +15,11 @@ const TouchableList: React.FC<Props> = props => {
     const {colors: PaperColors} = usePaperTheme();
 
     return (
-        <TouchableRipple
-            rippleColor={PaperColors.rippleColor}
-            onPress={onPress}>
+        <TouchableRipple rippleColor={PaperColors.rippleColor} onPress={onPress}>
             <View style={styles.item}>
                 <View style={styles.item_left}>
                     {icon}
-                    <Text
-                        style={[
-                            styles.item_left_label,
-                            {color: PaperColors.text},
-                        ]}>
-                        {label}
-                    </Text>
+                    <Text style={[styles.item_left_label, {color: PaperColors.text}]}>{label}</Text>
                 </View>
                 <View style={styles.item_right}>
                     <Text

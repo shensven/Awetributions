@@ -1,17 +1,6 @@
 import React from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    StyleProp,
-    ViewStyle,
-    Platform,
-} from 'react-native';
-import {
-    RadioButton,
-    TouchableRipple,
-    useTheme as usePaperTheme,
-} from 'react-native-paper';
+import {View, Text, StyleSheet, StyleProp, ViewStyle, Platform} from 'react-native';
+import {RadioButton, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 
 interface Props {
     label: string;
@@ -29,16 +18,11 @@ const RadioBtnBlock: React.FC<Props> = props => {
         <View
             style={
                 checked
-                    ? [
-                          styles.item,
-                          {backgroundColor: PaperColor.RadioBtnBlockBackground},
-                          style,
-                      ]
+                    ? [styles.item, {backgroundColor: PaperColor.RadioBtnBlockBackground}, style]
                     : [
                           styles.item,
                           {
-                              backgroundColor:
-                                  PaperColor.RadioBtnBlockBackgroundUnchecked,
+                              backgroundColor: PaperColor.RadioBtnBlockBackgroundUnchecked,
                           },
                           style,
                       ]
@@ -57,16 +41,12 @@ const RadioBtnBlock: React.FC<Props> = props => {
                             checked
                                 ? [
                                       styles.item_label,
-                                      Platform.OS === 'android'
-                                          ? {paddingBottom: 1}
-                                          : null,
+                                      Platform.OS === 'android' ? {paddingBottom: 1} : null,
                                       {color: PaperColor.RadioBtnBlockText},
                                   ]
                                 : [
                                       styles.item_label,
-                                      Platform.OS === 'android'
-                                          ? {paddingBottom: 1}
-                                          : null,
+                                      Platform.OS === 'android' ? {paddingBottom: 1} : null,
                                       {
                                           color: PaperColor.RadioBtnBlockTextUnchecked,
                                       },

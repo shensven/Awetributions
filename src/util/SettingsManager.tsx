@@ -30,9 +30,9 @@ export const SettingsProvider = ({children}: any) => {
      * 'dark'        : Dark Mode
      * 'followSystem': Automatic
      */
-    const [appAppearanceScheme, setAppAppearanceScheme] = useState<
-        string | null | undefined
-    >(systemAppearanceScheme);
+    const [appAppearanceScheme, setAppAppearanceScheme] = useState<string | null | undefined>(
+        systemAppearanceScheme,
+    );
 
     /**
      * Possible number ​​for appAppearanceIndex
@@ -64,17 +64,11 @@ export const SettingsProvider = ({children}: any) => {
             case 'followSystem':
                 if (systemAppearanceScheme === 'light') {
                     setAppAppearanceScheme('followSystem');
-                    AsyncStorage.setItem(
-                        '@appAppearanceScheme',
-                        'followSystem',
-                    );
+                    AsyncStorage.setItem('@appAppearanceScheme', 'followSystem');
                     break;
                 } else if (systemAppearanceScheme === 'dark') {
                     setAppAppearanceScheme('followSystem');
-                    AsyncStorage.setItem(
-                        '@appAppearanceScheme',
-                        'followSystem',
-                    );
+                    AsyncStorage.setItem('@appAppearanceScheme', 'followSystem');
                     break;
                 }
                 break;
@@ -86,8 +80,9 @@ export const SettingsProvider = ({children}: any) => {
         switch (appAppearanceIndex) {
             case 0:
                 // initail app appearance scheme
-                const storageAppearanceIndex: string | null =
-                    await AsyncStorage.getItem('@appAppearanceIndex');
+                const storageAppearanceIndex: string | null = await AsyncStorage.getItem(
+                    '@appAppearanceIndex',
+                );
 
                 switch (storageAppearanceIndex) {
                     case null:
@@ -201,8 +196,9 @@ export const SettingsProvider = ({children}: any) => {
         switch (appI18nScheme) {
             case '':
                 // initail app i18n scheme
-                const storageAppI18nScheme: string | null =
-                    await AsyncStorage.getItem('@appI18nScheme');
+                const storageAppI18nScheme: string | null = await AsyncStorage.getItem(
+                    '@appI18nScheme',
+                );
 
                 switch (storageAppI18nScheme) {
                     case null:

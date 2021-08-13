@@ -8,11 +8,7 @@ import {
     TouchableOpacity,
     StatusBar,
 } from 'react-native';
-import {
-    List,
-    TouchableRipple,
-    useTheme as usePaperTheme,
-} from 'react-native-paper';
+import {List, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 
@@ -90,9 +86,7 @@ const OpenSourceLibraries: React.FC = () => {
                         <View style={styles.header_title_container}>
                             <TouchableOpacity
                                 onPress={() => {
-                                    openLink(
-                                        'https://github.com/shensven/Awetributions',
-                                    );
+                                    openLink('https://github.com/shensven/Awetributions');
                                 }}>
                                 <Text
                                     style={[
@@ -104,8 +98,7 @@ const OpenSourceLibraries: React.FC = () => {
                             </TouchableOpacity>
                             <Text style={{color: PaperColors.text}}>
                                 {' '}
-                                is built using open source libraries, proudly
-                                written in{' '}
+                                is built using open source libraries, proudly written in{' '}
                             </Text>
                             <TouchableOpacity
                                 onPress={() => {
@@ -119,10 +112,7 @@ const OpenSourceLibraries: React.FC = () => {
                                     React Native
                                 </Text>
                             </TouchableOpacity>
-                            <Text style={{color: PaperColors.text}}>
-                                {' '}
-                                framework using{' '}
-                            </Text>
+                            <Text style={{color: PaperColors.text}}> framework using </Text>
                             <TouchableOpacity
                                 onPress={() => {
                                     openLink('https://www.typescriptlang.org/');
@@ -149,42 +139,37 @@ const OpenSourceLibraries: React.FC = () => {
                             />
                         ))}
                     </View>
-                    {openSourceLibrariesArr.map(
-                        (item: PackageDetail, index: number) => (
-                            <TouchableRipple
-                                key={index}
-                                rippleColor={PaperColors.rippleColor}
-                                onPress={() => {
-                                    openLink(item.repository);
-                                }}>
-                                <List.Item
-                                    title={item.name}
-                                    titleStyle={[
-                                        styles.item_title,
-                                        {color: PaperColors.text},
-                                    ]}
-                                    right={() => (
-                                        <View style={styles.item_right}>
-                                            <Text
-                                                style={[
-                                                    styles.item_right_type,
-                                                    {
-                                                        color: PaperColors.placeholder,
-                                                    },
-                                                ]}>
-                                                {item.license}
-                                            </Text>
-                                            <Icon
-                                                name="open-outline"
-                                                size={12}
-                                                color={PaperColors.text}
-                                            />
-                                        </View>
-                                    )}
-                                />
-                            </TouchableRipple>
-                        ),
-                    )}
+                    {openSourceLibrariesArr.map((item: PackageDetail, index: number) => (
+                        <TouchableRipple
+                            key={index}
+                            rippleColor={PaperColors.rippleColor}
+                            onPress={() => {
+                                openLink(item.repository);
+                            }}>
+                            <List.Item
+                                title={item.name}
+                                titleStyle={[styles.item_title, {color: PaperColors.text}]}
+                                right={() => (
+                                    <View style={styles.item_right}>
+                                        <Text
+                                            style={[
+                                                styles.item_right_type,
+                                                {
+                                                    color: PaperColors.placeholder,
+                                                },
+                                            ]}>
+                                            {item.license}
+                                        </Text>
+                                        <Icon
+                                            name="open-outline"
+                                            size={12}
+                                            color={PaperColors.text}
+                                        />
+                                    </View>
+                                )}
+                            />
+                        </TouchableRipple>
+                    ))}
                 </View>
             </ScrollView>
         </View>
