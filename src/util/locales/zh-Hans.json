@@ -4,7 +4,8 @@
         "Settings": "设置",
         "Appearance": "外观",
         "Language": "语言",
-        "OpenSourceLibraries": "开源库"
+        "OpenSourceLibraries": "开源库",
+        "About": "关于"
     },
     "Dashboard": {
         "Dashboard": "仪表盘",
@@ -22,7 +23,8 @@
         "en": "英语",
         "zh-Hans": "简体中文",
         "zh-Hant": "繁体中文",
-        "OpenSourceLibraries": "开源库"
+        "OpenSourceLibraries": "开源库",
+        "About": "关于"
     },
     "Appearance": {
         "systemAppearanceScheme": "系统外观",
@@ -36,5 +38,13 @@
         "en": "英语",
         "zh-Hans": "简体中文",
         "zh-Hant": "繁体中文"
+    },
+    "About": {
+        "Awetributions": "Awetributions",
+        "Version": "Version",
+        "Check_for_Updates": "检查更新",
+        "AlertTitle": "前往应用商店",
+        "AlertDismiss": "取消",
+        "AlertGo": "Go"
     }
 }

@@ -116,6 +116,15 @@ const Settings: React.FC = () => {
                             navigation.navigate('OpenSourceLibraries')
                         }
                     />
+                    <ListItem
+                        label={t('Settings.About')}
+                        leftIcon="happy-outline"
+                        hasArrow={true}
+                        onPress={() =>
+                            // @ts-ignore
+                            navigation.navigate('About')
+                        }
+                    />
                 </List.Section>
             </ScrollView>
         </View>

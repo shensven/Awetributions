@@ -4,7 +4,8 @@
         "Settings": "Settings",
         "Appearance": "Appearance",
         "Language": "Language",
-        "OpenSourceLibraries": "Open Source Libraries"
+        "OpenSourceLibraries": "Open Source Libraries",
+        "About": "About"
     },
     "Dashboard": {
         "Dashboard": "Dashboard",
@@ -22,7 +23,8 @@
         "en": "English",
         "zh-Hans": "Simplified Chinese",
         "zh-Hant": "Traditional Chinese",
-        "OpenSourceLibraries": "Open Source Libraries"
+        "OpenSourceLibraries": "Open Source Libraries",
+        "About": "About"
     },
     "Appearance": {
         "systemAppearanceScheme": "systemAppearanceScheme",
@@ -36,5 +38,13 @@
         "en": "English",
         "zh-Hans": "Simplified Chinese",
         "zh-Hant": "Traditional Chinese"
+    },
+    "About": {
+        "Awetributions": "Awetributions",
+        "Version": "Version",
+        "Check_for_Updates": "Check for Updates",
+        "AlertTitle": "Goto App Store",
+        "AlertDismiss": "Dismiss",
+        "AlertGo": "Go"
     }
 }

@@ -4,7 +4,8 @@
         "Settings": "設定",
         "Appearance": " 外觀",
         "Language": "語言",
-        "OpenSourceLibraries": "開放原始碼程式庫"
+        "OpenSourceLibraries": "開放原始碼程式庫",
+        "About": "關於"
     },
     "Dashboard": {
         "Dashboard": "主面板",
@@ -22,7 +23,8 @@
         "en": "英文",
         "zh-Hans": "簡體中文",
         "zh-Hant": "繁體中文",
-        "OpenSourceLibraries": "開放原始碼程式庫"
+        "OpenSourceLibraries": "開放原始碼程式庫",
+        "About": "關於"
     },
     "Appearance": {
         "systemAppearanceScheme": "系統外觀",
@@ -36,5 +38,13 @@
         "en": "英文",
         "zh-Hans": "簡體中文",
         "zh-Hant": "繁體中文"
+    },
+    "About": {
+        "Awetributions": "Awetributions",
+        "Version": "Version",
+        "Check_for_Updates": "檢查更新",
+        "AlertTitle": "前往應用商店",
+        "AlertDismiss": "取消",
+        "AlertGo": "Go"
     }
 }
