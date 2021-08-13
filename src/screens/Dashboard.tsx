@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
                 <IconButton
                     size={22}
                     color={_PaperColor.text}
-                    rippleColor={PaperColor.IconBtnRippleColor}
+                    rippleColor={PaperColor.ripple}
                     icon="plus-circle-outline"
                     style={styles.header_iconbtn}
                     onPress={() => console.log('AddProfile')}
@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
                 <IconButton
                     size={22}
                     color={_PaperColor.text}
-                    rippleColor={_PaperColor.IconBtnRippleColor}
+                    rippleColor={_PaperColor.ripple}
                     icon={() => <Ionicons name="cog-outline" size={24} color={_PaperColor.text} />}
                     onPress={() => {
                         // @ts-ignore

@@ -142,7 +142,7 @@ const OpenSourceLibraries: React.FC = () => {
                     {openSourceLibrariesArr.map((item: PackageDetail, index: number) => (
                         <TouchableRipple
                             key={index}
-                            rippleColor={PaperColors.rippleColor}
+                            rippleColor={PaperColors.ripple}
                             onPress={() => {
                                 openLink(item.repository);
                             }}>

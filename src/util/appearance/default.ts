@@ -12,7 +12,7 @@ declare global {
         interface ThemeColors {
             textAccent: string;
             textForceLight: string;
-            rippleColor: string;
+            ripple: string;
             rippleReverse: string;
             btnBackground: string;
         }
@@ -27,7 +27,7 @@ export const PaperLight = {
         primary: '#216E39',
         accent: '#30A14E',
         background: '#FFFFFF',
-        rippleColor: 'rgba(128, 128, 128, 0.1)',
+        ripple: 'rgba(128, 128, 128, 0.1)',
         rippleReverse: 'rgba(128, 128, 128, 0.3)',
         btnBackground: 'rgba(128, 128, 128, 0.1)',
         // surface: '',
@@ -59,7 +59,7 @@ export const PaperDark = {
         primary: '#216E39',
         accent: '#30A14E',
         background: '#111111',
-        rippleColor: 'rgba(128, 128, 128, 0.1)',
+        ripple: 'rgba(128, 128, 128, 0.1)',
         rippleReverse: 'rgba(128, 128, 128, 0.3)',
         btnBackground: 'rgba(128, 128, 128, 0.1)',
         // surface: '',
