@@ -16,6 +16,7 @@
                 "@react-native-community/masked-view",
                 "@react-navigation/native",
                 "@react-navigation/native-stack",
+                "@types/react",
                 "@react-navigation/stack",
                 "@types/react-native-vector-icons",
                 "i18next",
@@ -29,6 +30,7 @@
                 "react-native-reanimated",
                 "react-native-safe-area-context",
                 "react-native-screens",
+                "react-native-tab-view",
                 "react-native-vector-icons"
             ]
         }
