@@ -14,6 +14,7 @@ import java.util.List;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.zoontek.rnbootsplash.RNBootSplashPackage;
 import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
+import com.reactnativepagerview.PagerViewPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -32,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           new VectorIconsPackage();
           new RNInAppBrowserPackage();
+          new PagerViewPackage();
           return packages;
         }
 
