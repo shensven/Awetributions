@@ -17,7 +17,6 @@
                 "@react-navigation/native",
                 "@react-navigation/native-stack",
                 "@react-navigation/stack",
-                "@types/react",
                 "@types/react-native-vector-icons",
                 "i18next",
                 "i18next-http-backend",
