@@ -73,12 +73,6 @@ const Language: React.FC = () => {
             <ScrollView>
                 <View style={styles.bg}>
                     <ToogleBtn
-                        label="English"
-                        description={t('Language.en')}
-                        i18nKey="en"
-                        onPress={() => handleI18nScheme('en')}
-                    />
-                    <ToogleBtn
                         label="简体中文"
                         description={t('Language.zh-Hans')}
                         i18nKey="zh-Hans"
@@ -89,6 +83,12 @@ const Language: React.FC = () => {
                         description={t('Language.zh-Hant')}
                         i18nKey="zh-Hant"
                         onPress={() => handleI18nScheme('zh-Hant')}
+                    />
+                    <ToogleBtn
+                        label="English"
+                        description={t('Language.en')}
+                        i18nKey="en"
+                        onPress={() => handleI18nScheme('en')}
                     />
                 </View>
             </ScrollView>
