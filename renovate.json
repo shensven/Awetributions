@@ -25,6 +25,7 @@
                 "react-native-bootsplash",
                 "react-native-gesture-handler",
                 "react-native-inappbrowser-reborn",
+                "react-native-pager-view",
                 "react-native-paper",
                 "react-native-reanimated",
                 "react-native-safe-area-context",
