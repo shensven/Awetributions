@@ -41,7 +41,8 @@
     },
     "About": {
         "Awetributions": "Awetributions",
-        "Version": "Version",
+        "Version": "版本",
+        "Codesign": "代碼設計",
         "Check_for_Updates": "檢查更新",
         "AlertTitle": "前往應用商店",
         "AlertDismiss": "取消",

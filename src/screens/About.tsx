@@ -55,16 +55,25 @@ const About: React.FC = () => {
                     {t('About.Awetributions')}
                 </Text>
                 <View style={styles.header_description}>
-                    <Text style={[styles.header_title_ver, {color: PaperColor.text}]}>
+                    <Text style={[styles.header_description_ver, {color: PaperColor.text}]}>
                         {t('About.Version')}
                     </Text>
-                    <Text style={[styles.header_title_ver, {color: PaperColor.text}]}>
+                    <Text style={[styles.header_description_ver, {color: PaperColor.text}]}>
                         {packageJson.version}
                     </Text>
-                    <Text style={[styles.header_title_ver, {color: PaperColor.text}]}>
-                        {'('}
-                        {packageJson.awetributionsBuild}
-                        {')'}
+                    <Text style={[styles.header_description_ver, {color: PaperColor.text}]}>
+                        {`(${packageJson.awetributionsBuild})`}
+                    </Text>
+                </View>
+                <View style={styles.header_description}>
+                    <Text style={[styles.header_description_codesign, {color: PaperColor.text}]}>
+                        {t('About.Codesign')}
+                    </Text>
+                    <Text style={[styles.header_description_codesign, {color: PaperColor.text}]}>
+                        {' - '}
+                    </Text>
+                    <Text style={[styles.header_description_codesign, {color: PaperColor.text}]}>
+                        GeniuSven
                     </Text>
                 </View>
             </View>
@@ -105,10 +114,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 4,
     },
-    header_title_ver: {
+    header_description_ver: {
         fontSize: 10,
         fontWeight: 'bold',
         marginLeft: 4,
+    },
+    header_description_codesign: {
+        fontSize: 10,
+        fontWeight: 'bold',
     },
     footer: {
         flexDirection: 'row',

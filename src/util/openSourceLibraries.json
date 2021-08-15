@@ -13,7 +13,7 @@
     "name": "@babel/runtime",
     "path": "node_modules/@babel/runtime",
     "repository": "https://github.com/babel/babel",
-    "version": "7.14.8"
+    "version": "7.15.3"
   },
   {
     "license": "MIT",
@@ -75,7 +75,7 @@
     "name": "@types/react",
     "path": "node_modules/@types/react",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "version": "17.0.17"
+    "version": "17.0.18"
   },
   {
     "license": "MIT",
@@ -83,7 +83,7 @@
     "name": "@types/react-native",
     "path": "node_modules/@types/react-native",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "version": "0.64.12"
+    "version": "0.64.13"
   },
   {
     "license": "MIT",
@@ -209,6 +209,14 @@
     "path": "node_modules/react-native-inappbrowser-reborn",
     "repository": "git@github.com:proyecto26/react-native-inappbrowser",
     "version": "3.6.3"
+  },
+  {
+    "license": "MIT",
+    "licenseFile": "node_modules/react-native-pager-view/LICENSE",
+    "name": "react-native-pager-view",
+    "path": "node_modules/react-native-pager-view",
+    "repository": "https://github.com/callstack/react-native-pager-view",
+    "version": "5.4.0"
   },
   {
     "license": "MIT",

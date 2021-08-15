@@ -26,7 +26,7 @@ export const PaperLight = {
         ...PaperDefaultTheme.colors,
         primary: '#216E39',
         accent: '#30A14E',
-        background: '#FFFFFF',
+        background: '#F5F5F5',
         ripple: 'rgba(128, 128, 128, 0.1)',
         rippleReverse: 'rgba(128, 128, 128, 0.3)',
         btnBackground: 'rgba(128, 128, 128, 0.1)',
