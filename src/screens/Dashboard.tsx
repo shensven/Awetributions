@@ -1,18 +1,9 @@
-import React, {useContext, useLayoutEffect} from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    ScrollView,
-    useColorScheme,
-    Animated,
-    Dimensions,
-} from 'react-native';
+import React, {useLayoutEffect} from 'react';
+import {View, Text, StyleSheet, ScrollView, Animated, Dimensions} from 'react-native';
 import {IconButton, useTheme as usePaperTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import {SettingsContext} from '../util/SettingsManager';
 import PagerView from 'react-native-pager-view';
 
 const screenWidth = Dimensions.get('screen').width;
@@ -129,26 +120,95 @@ const Dashboard: React.FC = () => {
             <ScrollView>
                 <HeaderPaperView />
                 <View>
-                    <Text style={styles.mid_section_title}>总览</Text>
-                    <View
-                        style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
-                        <KeyValueEl label="今日提交" value="2" valueSize={20} unit="次" />
+                    <View style={styles.mif_section_title}>
+                        <Text style={styles.mid_section_title_left}>
+                            {t('Dashboard.Today_Activity')}
+                        </Text>
+                        <Ionicons
+                            name="reorder-three-outline"
+                            size={16}
+                            color={PaperColor.textAccent}
+                        />
                     </View>
-                    <Text style={styles.mid_section_title}>我的贡献榜单</Text>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
-                        <KeyValueEl label="当前连续" value="17" unit="天" />
-                        <KeyValueEl label="最长连续" value="17" unit="天" />
-                        <KeyValueEl label="单日最多" value="30" unit="次" />
-                        <KeyValueEl label="全年平均" value="3.11" unit="次/天" />
+                        <KeyValueEl
+                            label="2021-08-16"
+                            value="2"
+                            valueSize={20}
+                            unit={t('Dashboard.commits')}
+                        />
                     </View>
-                    <Text style={styles.mid_section_title}>过去的提交活动</Text>
+                    <View style={styles.mif_section_title}>
+                        <Text style={styles.mid_section_title_left}>
+                            {t('Dashboard.Best_Ever')}
+                        </Text>
+                        <Ionicons
+                            name="reorder-three-outline"
+                            size={16}
+                            color={PaperColor.textAccent}
+                        />
+                    </View>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
-                        <KeyValueEl label="最近一周" value="50" unit="次" />
-                        <KeyValueEl label="最近一月" value="100" unit="次" />
-                        <KeyValueEl label="最近半年" value="500" unit="次" />
-                        <KeyValueEl label="最近365天" value="900" unit="次" />
+                        <KeyValueEl
+                            label={t('Dashboard.ANNUAL_AVERAGE')}
+                            value="3.11"
+                            unit={t('Dashboard.commits/day')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.MAX_ONE_DAY')}
+                            value="30"
+                            unit={t('Dashboard.commits')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.CAREER')}
+                            value="2000"
+                            unit={t('Dashboard.commits')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.CURRENT_CONTINUITY')}
+                            value="17"
+                            unit={t('Dashboard.day')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.MAX_CONTINUITY')}
+                            value="17"
+                            unit={t('Dashboard.day')}
+                        />
+                    </View>
+                    <View style={styles.mif_section_title}>
+                        <Text style={styles.mid_section_title_left}>
+                            {t('Dashboard.All_Contribution_Activity')}
+                        </Text>
+                        <Ionicons
+                            name="reorder-three-outline"
+                            size={16}
+                            color={PaperColor.textAccent}
+                        />
+                    </View>
+                    <View
+                        style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
+                        <KeyValueEl
+                            label={t('Dashboard.LAST_WEEK')}
+                            value="50"
+                            unit={t('Dashboard.commits')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.LAST_MONTH')}
+                            value="100"
+                            unit={t('Dashboard.commits')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.LAST_HALF_YEAR')}
+                            value="500"
+                            unit={t('Dashboard.commits')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.LAST_365_DAYS')}
+                            value="900"
+                            unit={t('Dashboard.commits')}
+                        />
                     </View>
                 </View>
             </ScrollView>
@@ -196,11 +256,18 @@ const styles = StyleSheet.create({
         marginTop: 8,
         marginLeft: 16,
     },
-    mid_section_title: {
-        fontSize: 12,
+    mif_section_title: {
         marginLeft: 24,
+        marginRight: 24,
         marginBottom: 4,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems: 'center',
     },
+    mid_section_title_left: {
+        fontSize: 12,
+    },
+    mid_section_title_right: {},
     mid_section: {
         marginLeft: 16,
         marginRight: 16,
@@ -229,7 +296,6 @@ const styles = StyleSheet.create({
     mid_section_bottom_unit: {
         fontSize: 10,
         marginLeft: 1,
-        marginBottom: 1,
     },
     mid_section_bottom_value_spacial: {
         fontSize: 20,

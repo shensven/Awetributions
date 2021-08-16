@@ -9,10 +9,21 @@
     },
     "Dashboard": {
         "Dashboard": "仪表盘",
-        "systemAppearanceScheme": "系统外观",
-        "appAppearanceScheme": "app外观",
-        "appAppearanceIndex": "app外观索引",
-        "appI18nScheme": "app语言"
+        "commits": "次",
+        "commits/day": "次/天",
+        "day": "天",
+        "Today_Activity": "今日提交",
+        "Best_Ever": "历史最佳",
+        "ANNUAL_AVERAGE": "全年平均",
+        "MAX_ONE_DAY": "单日最多",
+        "CAREER": "生涯",
+        "CURRENT_CONTINUITY": "当前连续",
+        "MAX_CONTINUITY": "最长连续",
+        "All_Contribution_Activity": "过去的提交活动",
+        "LAST_WEEK": "最近一周",
+        "LAST_MONTH": "最近一月",
+        "LAST_HALF_YEAR": "最近半年",
+        "LAST_365_DAYS": "最近365天"
     },
     "Settings": {
         "Appearance": "外观",

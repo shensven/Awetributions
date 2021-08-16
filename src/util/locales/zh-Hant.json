@@ -9,10 +9,21 @@
     },
     "Dashboard": {
         "Dashboard": "主面板",
-        "systemAppearanceScheme": "系統外觀",
-        "appAppearanceScheme": "程式外觀",
-        "appAppearanceIndex": "程式外觀索引",
-        "appI18nScheme": "程式語言"
+        "commits": "次",
+        "commits/day": "次/天",
+        "day": "天",
+        "Today_Activity": "今日提交",
+        "Best_Ever": "歷史最佳",
+        "ANNUAL_AVERAGE": "全年平均",
+        "MAX_ONE_DAY": "單日最多",
+        "CAREER": "生涯",
+        "CURRENT_CONTINUITY": "當前連續",
+        "MAX_CONTINUITY": "最長連續",
+        "All_Contribution_Activity": "過去的提交活動",
+        "LAST_WEEK": "最近一禮拜",
+        "LAST_MONTH": "最近一月",
+        "LAST_HALF_YEAR": "最近半年",
+        "LAST_365_DAYS": "最近365天"
     },
     "Settings": {
         "Appearance": "外觀",

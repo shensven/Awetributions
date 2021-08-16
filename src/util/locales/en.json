@@ -9,10 +9,21 @@
     },
     "Dashboard": {
         "Dashboard": "Dashboard",
-        "systemAppearanceScheme": "systemAppearanceScheme",
-        "appAppearanceScheme": "appAppearanceScheme",
-        "appAppearanceIndex": "appAppearanceIndex",
-        "appI18nScheme": "appI18nScheme"
+        "commits": "commits",
+        "commits/day": "commits/day",
+        "day": "day",
+        "Today_Activity": "Today Activity",
+        "Best_Ever": "Best Ever",
+        "ANNUAL_AVERAGE": "ANN AVG",
+        "MAX_ONE_DAY": "MAX ONE DAY",
+        "CAREER": "CAREER",
+        "CURRENT_CONTINUITY": "CUR CONT",
+        "MAX_CONTINUITY": "MAX CONT",
+        "All_Contribution_Activity": "All Contribution Activity",
+        "LAST_WEEK": "LAST WEEK",
+        "LAST_MONTH": "LAST MONTH",
+        "LAST_HALF_YEAR": "LAST HY",
+        "LAST_365_DAYS": "LAST 365 DAYS"
     },
     "Settings": {
         "Appearance": "Appearance",
