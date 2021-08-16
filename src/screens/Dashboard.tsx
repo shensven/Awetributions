@@ -7,10 +7,10 @@ import {useTranslation} from 'react-i18next';
 import PagerView from 'react-native-pager-view';
 
 const screenWidth = Dimensions.get('screen').width;
-const screenHeight = Dimensions.get('screen').height;
+// const screenHeight = Dimensions.get('screen').height;
 const blockWidth = (screenWidth - 32 - 2 * 18) / 18;
 
-const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
+// const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const Dashboard: React.FC = () => {
     const navigation = useNavigation();
@@ -55,12 +55,30 @@ const Dashboard: React.FC = () => {
         });
     }, [navigation, route]);
 
-    const HeaderPaperView = () => {
+    const HeaderPaperView: React.FC = () => {
         const ARRAY = Array(123).fill(0);
 
         return (
             <PagerView style={styles.header_root}>
                 <View style={styles.header_month_wing}>
+                    <View style={styles.header_month_tag}>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            1月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            2月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            3月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            4月
+                        </Text>
+                    </View>
                     <View style={styles.header_month}>
                         {ARRAY.map((item: any, index: number) => (
                             <View
@@ -71,6 +89,52 @@ const Dashboard: React.FC = () => {
                     </View>
                 </View>
                 <View style={styles.header_month_wing}>
+                    <View style={styles.header_month_tag}>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            5月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            6月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            7月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            8月
+                        </Text>
+                    </View>
+                    <View style={styles.header_month}>
+                        {ARRAY.map((item: any, index: number) => (
+                            <View
+                                style={[styles.header_block, {backgroundColor: PaperColor.primary}]}
+                                key={index}
+                            />
+                        ))}
+                    </View>
+                </View>
+                <View style={styles.header_month_wing}>
+                    <View style={styles.header_month_tag}>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            9月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            10月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            11月
+                        </Text>
+                        <Text
+                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
+                            12月
+                        </Text>
+                    </View>
                     <View style={styles.header_month}>
                         {ARRAY.map((item: any, index: number) => (
                             <View
@@ -124,11 +188,11 @@ const Dashboard: React.FC = () => {
                         <Text style={styles.mid_section_title_left}>
                             {t('Dashboard.Today_Activity')}
                         </Text>
-                        <Ionicons
+                        {/* <Ionicons
                             name="reorder-three-outline"
                             size={16}
                             color={PaperColor.textAccent}
-                        />
+                        /> */}
                     </View>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
@@ -143,11 +207,11 @@ const Dashboard: React.FC = () => {
                         <Text style={styles.mid_section_title_left}>
                             {t('Dashboard.Best_Ever')}
                         </Text>
-                        <Ionicons
+                        {/* <Ionicons
                             name="reorder-three-outline"
                             size={16}
                             color={PaperColor.textAccent}
-                        />
+                        /> */}
                     </View>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
@@ -181,11 +245,11 @@ const Dashboard: React.FC = () => {
                         <Text style={styles.mid_section_title_left}>
                             {t('Dashboard.All_Contribution_Activity')}
                         </Text>
-                        <Ionicons
+                        {/* <Ionicons
                             name="reorder-three-outline"
                             size={16}
                             color={PaperColor.textAccent}
-                        />
+                        /> */}
                     </View>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
@@ -235,9 +299,17 @@ const styles = StyleSheet.create({
     },
     header_month_wing: {
         justifyContent: 'center',
-        paddingTop: 8,
+        paddingBottom: 8,
         paddingLeft: 16,
         paddingRight: 16,
+    },
+    header_month_tag: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    header_month_tag_label: {
+        flex: 1,
+        fontSize: 10,
     },
     header_month: {
         height: blockWidth * 8,
@@ -262,7 +334,6 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // alignItems: 'center',
     },
     mid_section_title_left: {
         fontSize: 12,
