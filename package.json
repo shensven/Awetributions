@@ -12,7 +12,7 @@
         "license-compliance": "license-compliance --direct --report detailed --format json > ./src/util/openSourceLibraries.json"
     },
     "dependencies": {
-        "@react-native-async-storage/async-storage": "1.15.5",
+        "@react-native-async-storage/async-storage": "1.15.6",
         "@react-native-community/masked-view": "0.1.11",
         "@react-navigation/native": "6.0.2",
         "@react-navigation/native-stack": "6.0.5",
