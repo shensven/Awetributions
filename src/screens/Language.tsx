@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
 
 const screenWidth = Dimensions.get('screen').width;
-const screenHeight = Dimensions.get('screen').height;
+// const screenHeight = Dimensions.get('screen').height;
 
 interface ToogleBtnProps {
     label: string;
