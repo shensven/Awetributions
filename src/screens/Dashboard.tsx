@@ -1,10 +1,11 @@
-import React, {useLayoutEffect} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {View, Text, StyleSheet, ScrollView, Animated, Dimensions} from 'react-native';
 import {IconButton, useTheme as usePaperTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import PagerView from 'react-native-pager-view';
+import appAxios from '../util/appAxios';
 
 const screenWidth = Dimensions.get('screen').width;
 // const screenHeight = Dimensions.get('screen').height;
@@ -12,12 +13,35 @@ const blockWidth = (screenWidth - 32 - 2 * 18) / 18;
 
 // const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
+interface Repo {
+    name: string;
+}
+interface Commit {
+    date: string;
+}
+
 const Dashboard: React.FC = () => {
     const navigation = useNavigation();
     const route = useRoute();
     const {t} = useTranslation();
-
     const {colors: PaperColor} = usePaperTheme();
+
+    const [userPublicReposCount, setUserPublicReposCount] = useState<number>(0);
+    const [repos, setRepos] = useState<Repo[]>([]);
+    const [commits, setCommits] = useState<Commit[]>([]);
+
+    const getData = async () => {
+        const _user = await appAxios.get('/users/shensven');
+        setUserPublicReposCount(_user.data.public_repos);
+
+        // const _resRepos = await appAxios.get('users/shensven/repos');
+        // const _repos = _resRepos.data.map((item: Repo) => item.name);
+        // setRepos(_repos);
+
+        // const _resCommits = await appAxios.get('/repos/shensven/Awetributions/commits');
+        // const _commits = _resCommits.data.map((item: any) => item.commit.author.date);
+        // console.log(_commits);
+    };
 
     const RNHeaderRight: React.FC = () => {
         const _navigation = useNavigation();
@@ -45,6 +69,9 @@ const Dashboard: React.FC = () => {
             </View>
         );
     };
+    useEffect(() => {
+        getData();
+    }, []);
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -198,7 +225,7 @@ const Dashboard: React.FC = () => {
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
                         <KeyValueEl
                             label="2021-08-16"
-                            value="2"
+                            value="x"
                             valueSize={20}
                             unit={t('Dashboard.commits')}
                         />
@@ -216,29 +243,34 @@ const Dashboard: React.FC = () => {
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
                         <KeyValueEl
-                            label={t('Dashboard.ANNUAL_AVERAGE')}
-                            value="3.11"
+                            label={t('Dashboard.annual_average')}
+                            value="x.xx"
                             unit={t('Dashboard.commits/day')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.MAX_ONE_DAY')}
-                            value="30"
+                            label={t('Dashboard.max_one_day')}
+                            value="xx"
                             unit={t('Dashboard.commits')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.CAREER')}
-                            value="2000"
+                            label={t('Dashboard.career')}
+                            value="xxxx"
                             unit={t('Dashboard.commits')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.CURRENT_CONTINUITY')}
-                            value="17"
+                            label={t('Dashboard.current_continuity')}
+                            value="xx"
                             unit={t('Dashboard.day')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.MAX_CONTINUITY')}
-                            value="17"
+                            label={t('Dashboard.max_continuity')}
+                            value="xx"
                             unit={t('Dashboard.day')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.repo')}
+                            value={userPublicReposCount.toString()}
+                            unit={t('Dashboard.ge')}
                         />
                     </View>
                     <View style={styles.mif_section_title}>
@@ -254,23 +286,23 @@ const Dashboard: React.FC = () => {
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
                         <KeyValueEl
-                            label={t('Dashboard.LAST_WEEK')}
-                            value="50"
+                            label={t('Dashboard.last_week')}
+                            value="xx"
                             unit={t('Dashboard.commits')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.LAST_MONTH')}
-                            value="100"
+                            label={t('Dashboard.last_month')}
+                            value="xxx"
                             unit={t('Dashboard.commits')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.LAST_HALF_YEAR')}
-                            value="500"
+                            label={t('Dashboard.last_half_year')}
+                            value="xxx"
                             unit={t('Dashboard.commits')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.LAST_365_DAYS')}
-                            value="900"
+                            label={t('Dashboard.last_365_days')}
+                            value="xxx"
                             unit={t('Dashboard.commits')}
                         />
                     </View>
@@ -367,6 +399,7 @@ const styles = StyleSheet.create({
     mid_section_bottom_unit: {
         fontSize: 10,
         marginLeft: 1,
+        marginBottom: 1,
     },
     mid_section_bottom_value_spacial: {
         fontSize: 20,
