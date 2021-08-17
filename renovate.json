@@ -19,6 +19,7 @@
                 "@types/react",
                 "@react-navigation/stack",
                 "@types/react-native-vector-icons",
+                "axios",
                 "i18next",
                 "i18next-http-backend",
                 "react-i18next",
