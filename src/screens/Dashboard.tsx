@@ -7,15 +7,13 @@ import {useTranslation} from 'react-i18next';
 import PagerView from 'react-native-pager-view';
 import appAxios from '../util/appAxios';
 
-const screenWidth = Dimensions.get('screen').width;
+// const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 // const screenHeight = Dimensions.get('screen').height;
+const screenWidth = Dimensions.get('screen').width;
 const blockWidth = (screenWidth - 32 - 2 * 18) / 18;
 
-// const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
+const owner: string = 'shensven';
 
-interface Repo {
-    name: string;
-}
 interface Commit {
     date: string;
 }
@@ -27,20 +25,93 @@ const Dashboard: React.FC = () => {
     const {colors: PaperColor} = usePaperTheme();
 
     const [userPublicReposCount, setUserPublicReposCount] = useState<number>(0);
-    const [repos, setRepos] = useState<Repo[]>([]);
+    const [repos, setRepos] = useState<string[]>([]);
     const [commits, setCommits] = useState<Commit[]>([]);
 
     const getData = async () => {
-        const _user = await appAxios.get('/users/shensven');
+        /*
+         * Get a user
+         * eg: {
+         *      'login': 'shensven',
+         *      'public_repos': 20,
+         *       ...
+         *     }
+         */
+        const _user = await appAxios.get(`/users/${owner}`);
         setUserPublicReposCount(_user.data.public_repos);
 
-        // const _resRepos = await appAxios.get('users/shensven/repos');
-        // const _repos = _resRepos.data.map((item: Repo) => item.name);
-        // setRepos(_repos);
+        /*
+         * List the first 100 public repositories
+         * eg: [
+         *      {'name':'Awetributions', ...},
+         *      {'name':'docker-android', ...},
+         *      {'name':'winstagram_98', ...},
+         *       ...
+         *     ]
+         */
+        const _resRepos = await appAxios.get(`users/${owner}/repos`, {params: {per_page: 100}});
 
-        // const _resCommits = await appAxios.get('/repos/shensven/Awetributions/commits');
-        // const _commits = _resCommits.data.map((item: any) => item.commit.author.date);
-        // console.log(_commits);
+        /*
+         * Put repositories name into an array
+         * eg: [
+         *      'Awetributions',
+         *      'docker-android',
+         *      'winstagram_98',
+         *       ...
+         *     ]
+         */
+        const _repos: string[] = _resRepos.data.map((item: {name: string}) => item.name);
+        setRepos(_repos);
+
+        /*
+         * List the first 100 commits for Awetributions
+         * eg: [
+         *      {"sha": "9510xxx", commit: { "message": "fix: minor UI update",}},
+         *      {"sha": "e24axxx", commit: { "message": "fix: minor UX update",}},
+         *      ...
+         *     ]
+         */
+        const _resCommits = await appAxios.get(`/repos/${owner}/${_repos[1]}/commits`, {
+            params: {
+                per_page: 100,
+            },
+        });
+
+        /*
+         * Get url for the last page
+         * eg: https://api.github.com/repositories/366780714/commits?per_page=100&page=2
+         */
+        const lastUri = _resCommits.headers.link
+            .split(',')[1]
+            .split(';')[0]
+            .split('<')[1]
+            .split('>')[0];
+
+        /*
+         * Get last page
+         * eg: 2
+         */
+        const lastPage: number = lastUri.charAt(lastUri.length - 1);
+
+        /*
+         * Get Initial commit hash
+         */
+        let lastPageLength: number = 0;
+        if (lastPage !== 1) {
+            const _resLastPageCommits = await appAxios.get(`/repos/${owner}/${_repos[1]}/commits`, {
+                params: {
+                    per_page: 100,
+                    page: lastPage,
+                },
+            });
+            lastPageLength = _resLastPageCommits.data.length;
+        }
+
+        /*
+         * Get total commit counts
+         */
+        const totalCommitCounts = 100 * (lastPage - 1) + lastPageLength;
+        console.log(totalCommitCounts);
     };
 
     const RNHeaderRight: React.FC = () => {
