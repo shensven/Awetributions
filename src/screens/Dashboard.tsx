@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
                 <IconButton
                     size={22}
                     color={_PaperColor.text}
-                    rippleColor={PaperColor.ripple}
+                    rippleColor={_PaperColor.ripple}
                     icon="plus-circle-outline"
                     style={styles.RN_header_iconbtn}
                     onPress={() => console.log('AddProfile')}
