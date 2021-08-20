@@ -10,7 +10,7 @@ import appAxios from '../util/appAxios';
 // const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 // const screenHeight = Dimensions.get('screen').height;
 const screenWidth = Dimensions.get('screen').width;
-const blockWidth = (screenWidth - 32 - 2 * 18) / 18;
+const blockWidth = (screenWidth - 34 - 2 * 18) / 18;
 
 const owner: string = 'shensven';
 
@@ -25,8 +25,8 @@ const Dashboard: React.FC = () => {
     const {colors: PaperColor} = usePaperTheme();
 
     const [userPublicReposCount, setUserPublicReposCount] = useState<number>(0);
-    const [repos, setRepos] = useState<string[]>([]);
-    const [commits, setCommits] = useState<Commit[]>([]);
+    const [reposArray, setReposArray] = useState<string[]>([]);
+    const [commitsArray, setCommitsArray] = useState<Commit[]>([]);
 
     const getData = async () => {
         /*
@@ -37,8 +37,8 @@ const Dashboard: React.FC = () => {
          *       ...
          *     }
          */
-        const _user = await appAxios.get(`/users/${owner}`);
-        setUserPublicReposCount(_user.data.public_repos);
+        const _rspUser = await appAxios.get(`/users/${owner}`);
+        setUserPublicReposCount(_rspUser.data.public_repos);
 
         /*
          * List the first 100 public repositories
@@ -49,7 +49,8 @@ const Dashboard: React.FC = () => {
          *       ...
          *     ]
          */
-        const _resRepos = await appAxios.get(`users/${owner}/repos`, {params: {per_page: 100}});
+        const _rspReposArray = await appAxios.get(`users/${owner}/repos`, {params: {per_page: 20}});
+        console.log(_rspReposArray);
 
         /*
          * Put repositories name into an array
@@ -60,8 +61,8 @@ const Dashboard: React.FC = () => {
          *       ...
          *     ]
          */
-        const _repos: string[] = _resRepos.data.map((item: {name: string}) => item.name);
-        setRepos(_repos);
+        const _reposArray: string[] = _rspReposArray.data.map((item: {name: string}) => item.name);
+        setReposArray(_reposArray);
 
         /*
          * List the first 100 commits for Awetributions
@@ -71,7 +72,7 @@ const Dashboard: React.FC = () => {
          *      ...
          *     ]
          */
-        const _resCommits = await appAxios.get(`/repos/${owner}/${_repos[1]}/commits`, {
+        const _resCommits = await appAxios.get(`/repos/${owner}/${reposArray[1]}/commits`, {
             params: {
                 per_page: 100,
             },
@@ -98,12 +99,15 @@ const Dashboard: React.FC = () => {
          */
         let lastPageLength: number = 0;
         if (lastPage !== 1) {
-            const _resLastPageCommits = await appAxios.get(`/repos/${owner}/${_repos[1]}/commits`, {
-                params: {
-                    per_page: 100,
-                    page: lastPage,
+            const _resLastPageCommits = await appAxios.get(
+                `/repos/${owner}/${reposArray[1]}/commits`,
+                {
+                    params: {
+                        per_page: 100,
+                        page: lastPage,
+                    },
                 },
-            });
+            );
             lastPageLength = _resLastPageCommits.data.length;
         }
 
@@ -319,16 +323,6 @@ const Dashboard: React.FC = () => {
                             unit={t('Dashboard.commits/day')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.max_one_day')}
-                            value="xx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.career')}
-                            value="xxxx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
                             label={t('Dashboard.current_continuity')}
                             value="xx"
                             unit={t('Dashboard.day')}
@@ -337,6 +331,11 @@ const Dashboard: React.FC = () => {
                             label={t('Dashboard.max_continuity')}
                             value="xx"
                             unit={t('Dashboard.day')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.max_one_day')}
+                            value="xx"
+                            unit={t('Dashboard.commits')}
                         />
                         <KeyValueEl
                             label={t('Dashboard.repo')}
@@ -376,6 +375,11 @@ const Dashboard: React.FC = () => {
                             value="xxx"
                             unit={t('Dashboard.commits')}
                         />
+                        <KeyValueEl
+                            label={t('Dashboard.career')}
+                            value="xxxx"
+                            unit={t('Dashboard.commits')}
+                        />
                     </View>
                 </View>
             </ScrollView>
@@ -403,8 +407,8 @@ const styles = StyleSheet.create({
     header_month_wing: {
         justifyContent: 'center',
         paddingBottom: 8,
-        paddingLeft: 16,
-        paddingRight: 16,
+        paddingLeft: 17,
+        paddingRight: 17,
     },
     header_month_tag: {
         flexDirection: 'row',
