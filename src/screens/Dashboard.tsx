@@ -319,16 +319,6 @@ const Dashboard: React.FC = () => {
                             unit={t('Dashboard.commits/day')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.max_one_day')}
-                            value="xx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.career')}
-                            value="xxxx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
                             label={t('Dashboard.current_continuity')}
                             value="xx"
                             unit={t('Dashboard.day')}
@@ -337,6 +327,11 @@ const Dashboard: React.FC = () => {
                             label={t('Dashboard.max_continuity')}
                             value="xx"
                             unit={t('Dashboard.day')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.max_one_day')}
+                            value="xx"
+                            unit={t('Dashboard.commits')}
                         />
                         <KeyValueEl
                             label={t('Dashboard.repo')}
@@ -374,6 +369,11 @@ const Dashboard: React.FC = () => {
                         <KeyValueEl
                             label={t('Dashboard.last_365_days')}
                             value="xxx"
+                            unit={t('Dashboard.commits')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.career')}
+                            value="xxxx"
                             unit={t('Dashboard.commits')}
                         />
                     </View>
