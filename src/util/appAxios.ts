@@ -8,9 +8,11 @@ const appAxios = axios.create({
 
 appAxios.interceptors.request.use(
     config => {
+        config.headers.accept = 'application/vnd.github.v3+json';
         return config;
     },
     error => {
+        console.log(error);
         return Promise.reject(error);
     },
 );
@@ -20,6 +22,7 @@ appAxios.interceptors.response.use(
         return config;
     },
     error => {
+        console.log(error);
         return Promise.reject(error);
     },
 );

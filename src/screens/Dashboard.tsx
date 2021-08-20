@@ -6,6 +6,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import PagerView from 'react-native-pager-view';
 import appAxios from '../util/appAxios';
+import axios from 'axios';
 
 // const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 // const screenHeight = Dimensions.get('screen').height;
@@ -13,9 +14,35 @@ const screenWidth = Dimensions.get('screen').width;
 const blockWidth = (screenWidth - 34 - 2 * 18) / 18;
 
 const owner: string = 'shensven';
+const PER_PAGE: number = 100;
+const COMMIT_PER_PAGE: number = 40;
+
+interface Owner {
+    data: {
+        public_repos: number;
+    };
+}
+
+interface RspRepos {
+    data: {
+        name: string;
+    }[];
+    headers: {
+        link?: string;
+    };
+}
 
 interface Commit {
     date: string;
+}
+
+interface RemoteCommit {
+    name: string;
+    commit: {
+        author: {
+            date: string;
+        };
+    };
 }
 
 const Dashboard: React.FC = () => {
@@ -24,99 +51,105 @@ const Dashboard: React.FC = () => {
     const {t} = useTranslation();
     const {colors: PaperColor} = usePaperTheme();
 
-    const [userPublicReposCount, setUserPublicReposCount] = useState<number>(0);
+    const [ownerReposCount, setOwnerReposCount] = useState<number>(-1);
+
+    const [lastReposPage, setLastReposPage] = useState<number>(-1);
     const [reposArray, setReposArray] = useState<string[]>([]);
-    const [commitsArray, setCommitsArray] = useState<Commit[]>([]);
 
-    const getData = async () => {
-        /*
-         * Get a user
-         * eg: {
-         *      'login': 'shensven',
-         *      'public_repos': 20,
-         *       ...
-         *     }
-         */
-        const _rspUser = await appAxios.get(`/users/${owner}`);
-        setUserPublicReposCount(_rspUser.data.public_repos);
+    const [lastCommitsPage, setLastCommitsPage] = useState<number>(1);
+    const [commitsArray, setCommitsArray] = useState<[]>([]);
 
-        /*
-         * List the first 100 public repositories
-         * eg: [
-         *      {'name':'Awetributions', ...},
-         *      {'name':'docker-android', ...},
-         *      {'name':'winstagram_98', ...},
-         *       ...
-         *     ]
-         */
-        const _rspReposArray = await appAxios.get(`users/${owner}/repos`, {params: {per_page: 20}});
-        console.log(_rspReposArray);
+    const getOwnerReposCount = async () => {
+        if (ownerReposCount === -1) {
+            const _resReposCount: Owner = await appAxios.get(`/users/${owner}`);
+            setOwnerReposCount(_resReposCount.data.public_repos);
+        }
+    };
 
-        /*
-         * Put repositories name into an array
-         * eg: [
-         *      'Awetributions',
-         *      'docker-android',
-         *      'winstagram_98',
-         *       ...
-         *     ]
-         */
-        const _reposArray: string[] = _rspReposArray.data.map((item: {name: string}) => item.name);
-        setReposArray(_reposArray);
-
-        /*
-         * List the first 100 commits for Awetributions
-         * eg: [
-         *      {"sha": "9510xxx", commit: { "message": "fix: minor UI update",}},
-         *      {"sha": "e24axxx", commit: { "message": "fix: minor UX update",}},
-         *      ...
-         *     ]
-         */
-        const _resCommits = await appAxios.get(`/repos/${owner}/${reposArray[1]}/commits`, {
-            params: {
-                per_page: 100,
-            },
-        });
-
-        /*
-         * Get url for the last page
-         * eg: https://api.github.com/repositories/366780714/commits?per_page=100&page=2
-         */
-        const lastUri = _resCommits.headers.link
-            .split(',')[1]
-            .split(';')[0]
-            .split('<')[1]
-            .split('>')[0];
-
-        /*
-         * Get last page
-         * eg: 2
-         */
-        const lastPage: number = lastUri.charAt(lastUri.length - 1);
-
-        /*
-         * Get Initial commit hash
-         */
-        let lastPageLength: number = 0;
-        if (lastPage !== 1) {
-            const _resLastPageCommits = await appAxios.get(
-                `/repos/${owner}/${reposArray[1]}/commits`,
-                {
-                    params: {
-                        per_page: 100,
-                        page: lastPage,
-                    },
-                },
+    const getFirstArray = async () => {
+        if (lastReposPage === -1) {
+            const _rspReposFirstArray: RspRepos = await appAxios.get(`users/${owner}/repos`, {
+                params: {per_page: PER_PAGE},
+            });
+            const _reposFirstArray: string[] = _rspReposFirstArray.data.map(
+                (item: {name: string}) => item.name,
             );
-            lastPageLength = _resLastPageCommits.data.length;
+            setReposArray(_reposFirstArray);
+
+            let _rspReposLastPage: number = 1;
+            if ('link' in _rspReposFirstArray.headers) {
+                const _rspReposLastURL: string = (_rspReposFirstArray.headers.link as string)
+                    .split(',')[1]
+                    .split(';')[0]
+                    .split('<')[1]
+                    .split('>')[0];
+                _rspReposLastPage = Number(_rspReposLastURL.charAt(_rspReposLastURL.length - 1));
+            }
+            setLastReposPage(_rspReposLastPage);
+        }
+    };
+
+    const getNextReposArray = async () => {
+        if (reposArray.length < ownerReposCount) {
+            let _tempReposArray: string[] = [];
+
+            for (let i = 1; i < lastReposPage; i++) {
+                const _rspReposNextArray = await appAxios.get(`users/${owner}/repos`, {
+                    params: {per_page: PER_PAGE, page: i + 1},
+                });
+                _rspReposNextArray.data.map((item: {name: string}) =>
+                    _tempReposArray.push(item.name),
+                );
+            }
+            setReposArray([...reposArray].concat(_tempReposArray));
+        }
+    };
+
+    const getFirstCommitsArray = async () => {
+        // const _tempObj: {name?: string; date?: string} = {};
+        if (reposArray.length === ownerReposCount) {
+            axios
+                .all(
+                    reposArray.map((repoName: string) =>
+                        appAxios.get(`/repos/${owner}/${repoName}/commits`),
+                    ),
+                )
+                .then(
+                    axios.spread((...res) => {
+                        res.map(item => {
+                            console.log(item);
+                        });
+                    }),
+                );
         }
 
-        /*
-         * Get total commit counts
-         */
-        const totalCommitCounts = 100 * (lastPage - 1) + lastPageLength;
-        console.log(totalCommitCounts);
+        // const _resCommitsFirstArray = await appAxios.get(
+        //     `/repos/${owner}/${reposArray[0]}/commits`,
+        //     {
+        //         params: {
+        //             per_page: COMMIT_PER_PAGE,
+        //         },
+        //     },
+        // );
+        // const _commitsFirstArray: string[] = _resCommitsFirstArray.data.map(
+        //     (item: RemoteCommit) => item.commit.author.date,
+        // );
+        // setCommitsArray(_commitsFirstArray);
+        // setLastReposPage(_rspReposLastPage);
     };
+
+    const getNextCommitsArray = async () => {
+        if (lastCommitsPage === 1) {
+        }
+    };
+
+    useLayoutEffect(() => {
+        getOwnerReposCount();
+        getFirstArray();
+        getNextReposArray();
+        getFirstCommitsArray();
+        // getNextCommitsArray();
+    }, [lastReposPage]);
 
     const RNHeaderRight: React.FC = () => {
         const _navigation = useNavigation();
@@ -144,9 +177,6 @@ const Dashboard: React.FC = () => {
             </View>
         );
     };
-    useEffect(() => {
-        getData();
-    }, []);
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -339,7 +369,7 @@ const Dashboard: React.FC = () => {
                         />
                         <KeyValueEl
                             label={t('Dashboard.repo')}
-                            value={userPublicReposCount.toString()}
+                            value={reposArray.length.toString()}
                             unit={t('Dashboard.ge')}
                         />
                     </View>
@@ -382,6 +412,8 @@ const Dashboard: React.FC = () => {
                         />
                     </View>
                 </View>
+                <Text>ownerReposCount: {ownerReposCount}</Text>
+                <Text>lastReposPage: {lastReposPage}</Text>
             </ScrollView>
         </View>
     );
