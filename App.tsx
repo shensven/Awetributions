@@ -14,6 +14,7 @@ import {
 } from './src/util/appearance/default';
 import Dashboard from './src/screens/Dashboard';
 import Settings from './src/screens/Settings';
+import OAuth2Token from './src/screens/OAuth2Token';
 import Appearance from './src/screens/Appearance';
 import Language from './src/screens/Language';
 import OpenSourceLibraries from './src/screens/OpenSourceLibraries';
@@ -71,6 +72,13 @@ const App: React.FC = () => {
                         gestureEnabled: true,
                         ...TransitionPresets.SlideFromRightIOS,
                     }}>
+                    <Stack.Screen
+                        name="OAuth2Token"
+                        component={OAuth2Token}
+                        options={{
+                            title: t('App.OAuth2_Token'),
+                        }}
+                    />
                     <Stack.Screen
                         name="Dashboard"
                         component={Dashboard}

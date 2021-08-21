@@ -1,5 +1,6 @@
 {
     "App": {
+        "OAuth2_Token": "OAuth2 Token",
         "Dashboard": "Dashboard",
         "Settings": "Settings",
         "Appearance": "Appearance",
@@ -28,6 +29,7 @@
         "last_365_days": "LAST 365 DAYS"
     },
     "Settings": {
+        "OAuth2_Token": "OAuth2 Token",
         "Appearance": "Appearance",
         "Language": "Language",
         "Light": "Light",
@@ -38,6 +40,12 @@
         "zh-Hant": "Traditional Chinese",
         "OpenSourceLibraries": "Open Source Libraries",
         "About": "About"
+    },
+    "OAuth2Token": {
+        "Enter_Your_GitHub_Access_Token": "Enter Your GitHub Access Token",
+        "CURRENT_TOKEN": "CURRENT TOKEN",
+        "SAVE": "SAVE",
+        "UPDATE": "UPDATE"
     },
     "Appearance": {
         "systemAppearanceScheme": "systemAppearanceScheme",

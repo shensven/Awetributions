@@ -1,5 +1,6 @@
 {
     "App": {
+        "OAuth2_Token": "訪問令牌",
         "Dashboard": "主面板",
         "Settings": "設定",
         "Appearance": " 外觀",
@@ -28,6 +29,7 @@
         "last_365_days": "最近365天"
     },
     "Settings": {
+        "OAuth2_Token": "訪問令牌",
         "Appearance": "外觀",
         "Language": "語言",
         "Light": "淺色",
@@ -38,6 +40,12 @@
         "zh-Hant": "繁體中文",
         "OpenSourceLibraries": "開放原始碼程式庫",
         "About": "關於"
+    },
+    "OAuth2Token": {
+        "Enter_Your_GitHub_Access_Token": "輸入您的 GitHub 訪問令牌",
+        "CURRENT_TOKEN": "當前令牌",
+        "SAVE": "保存",
+        "UPDATE": "更新"
     },
     "Appearance": {
         "systemAppearanceScheme": "系統外觀",

@@ -16,6 +16,7 @@ declare global {
             rippleReverse: string;
             btnBackground: string;
             cardBackground: string;
+            boaderBackground: string;
         }
     }
 }
@@ -30,6 +31,7 @@ export const PaperLight = {
         background: '#F5F5F5',
         btnBackground: 'rgba(128, 128, 128, 0.1)',
         cardBackground: '#FFFFFF',
+        boaderBackground: 'rgba(128, 128, 128, 0.3)',
         ripple: 'rgba(128, 128, 128, 0.1)',
         rippleReverse: 'rgba(128, 128, 128, 0.3)',
         // surface: '',
@@ -62,7 +64,8 @@ export const PaperDark = {
         accent: '#30A14E',
         background: '#111111',
         btnBackground: 'rgba(128, 128, 128, 0.1)',
-        cardBackground: '#111111',
+        cardBackground: 'rgba(128, 128, 128, 0.1)',
+        boaderBackground: 'rgba(128, 128, 128, 0.3)',
         ripple: 'rgba(128, 128, 128, 0.1)',
         rippleReverse: 'rgba(128, 128, 128, 0.3)',
         // surface: '',

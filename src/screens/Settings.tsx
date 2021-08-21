@@ -88,6 +88,16 @@ const Settings: React.FC = () => {
             <ScrollView>
                 <List.Section>
                     <ListItem
+                        label={t('Settings.OAuth2_Token')}
+                        leftIcon="logo-github"
+                        hasArrow={true}
+                        // description={appearancePreferenceValue()}
+                        onPress={() =>
+                            // @ts-ignore
+                            navigation.navigate('OAuth2Token')
+                        }
+                    />
+                    <ListItem
                         label={t('Settings.Appearance')}
                         leftIcon="color-palette-outline"
                         hasArrow={true}
