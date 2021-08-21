@@ -39,6 +39,7 @@
         "zh-Hans": "Simplified Chinese",
         "zh-Hant": "Traditional Chinese",
         "OpenSourceLibraries": "Open Source Libraries",
+        "Feedback": "Feedback",
         "About": "About"
     },
     "OAuth2Token": {

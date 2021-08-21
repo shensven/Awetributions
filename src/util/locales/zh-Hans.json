@@ -39,6 +39,7 @@
         "zh-Hans": "简体中文",
         "zh-Hant": "繁体中文",
         "OpenSourceLibraries": "开源库",
+        "Feedback": "软件反馈",
         "About": "关于"
     },
     "OAuth2Token": {

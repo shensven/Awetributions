@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Linking, ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {List, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTranslation} from 'react-i18next';
 import {SettingsContext} from '../util/SettingsManager';
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 
 interface ListItemProps {
     label: string;
@@ -12,6 +13,7 @@ interface ListItemProps {
     leftIconSize?: number;
     description?: string;
     hasArrow?: boolean;
+    arrowName?: string;
     onPress: () => void;
 }
 
@@ -48,8 +50,59 @@ const Settings: React.FC = () => {
         }
     };
 
+    const openLink = async (repository: string) => {
+        try {
+            const url = repository;
+
+            if (await InAppBrowser.isAvailable()) {
+                const oldBarStyle = StatusBar.pushStackEntry({
+                    barStyle: 'light-content',
+                    animated: true,
+                });
+                const result = await InAppBrowser.open(url, {
+                    // iOS Properties
+                    dismissButtonStyle: 'close',
+                    preferredBarTintColor: PaperColor.primary,
+                    preferredControlTintColor: 'white',
+                    readerMode: false,
+                    animated: true,
+                    modalPresentationStyle: 'fullScreen',
+                    modalTransitionStyle: 'coverVertical',
+                    modalEnabled: true,
+                    enableBarCollapsing: true,
+                    // Android Properties
+                    showTitle: true,
+                    toolbarColor: PaperColor.primary,
+                    secondaryToolbarColor: 'black',
+                    navigationBarColor: 'transparent',
+                    navigationBarDividerColor: 'white',
+                    enableUrlBarHiding: true,
+                    enableDefaultShare: true,
+                    forceCloseOnRedirection: false,
+                    // Specify full animation resource identifier(package:anim/name)
+                    // or only resource name(in case of animation bundled with app).
+                    animations: {
+                        startEnter: 'slide_in_right',
+                        startExit: 'slide_out_left',
+                        endEnter: 'slide_in_left',
+                        endExit: 'slide_out_right',
+                    },
+                    headers: {
+                        'my-custom-header': 'my custom header value',
+                    },
+                });
+                StatusBar.popStackEntry(oldBarStyle);
+                console.log(JSON.stringify(result));
+            } else {
+                Linking.openURL(url);
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
     const ListItem: React.FC<ListItemProps> = props => {
-        const {label, leftIcon, leftIconSize, description, hasArrow, onPress} = props;
+        const {label, leftIcon, leftIconSize, description, hasArrow, arrowName, onPress} = props;
         return (
             <TouchableRipple onPress={onPress}>
                 <List.Item
@@ -71,7 +124,7 @@ const Settings: React.FC = () => {
                             <View style={styles.item_right}>
                                 <Text style={{color: PaperColor.textAccent}}>{description}</Text>
                                 <Ionicons
-                                    name="chevron-forward-outline"
+                                    name={arrowName ?? 'chevron-forward-outline'}
                                     size={16}
                                     color={PaperColor.textAccent}
                                 />
@@ -91,7 +144,6 @@ const Settings: React.FC = () => {
                         label={t('Settings.OAuth2_Token')}
                         leftIcon="logo-github"
                         hasArrow={true}
-                        // description={appearancePreferenceValue()}
                         onPress={() =>
                             // @ts-ignore
                             navigation.navigate('OAuth2Token')
@@ -125,6 +177,13 @@ const Settings: React.FC = () => {
                             // @ts-ignore
                             navigation.navigate('OpenSourceLibraries')
                         }
+                    />
+                    <ListItem
+                        label={t('Settings.Feedback')}
+                        leftIcon="bug-outline"
+                        hasArrow={true}
+                        arrowName="open-outline"
+                        onPress={() => openLink('https://github.com/shensven/Awetributions/issues')}
                     />
                     <ListItem
                         label={t('Settings.About')}
