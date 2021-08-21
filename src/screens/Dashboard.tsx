@@ -144,10 +144,10 @@ const Dashboard: React.FC = () => {
     };
 
     useLayoutEffect(() => {
-        getOwnerReposCount();
-        getFirstArray();
-        getNextReposArray();
-        getFirstCommitsArray();
+        // getOwnerReposCount();
+        // getFirstArray();
+        // getNextReposArray();
+        // getFirstCommitsArray();
         // getNextCommitsArray();
     }, [lastReposPage]);
 
@@ -291,7 +291,7 @@ const Dashboard: React.FC = () => {
         const {label, value, valueSize, unit} = props;
         return (
             <View style={styles.mid_section_item}>
-                <Text style={[styles.mid_section_top_label, {color: PaperColor.textAccent}]}>
+                <Text style={[styles.mid_section_top_label, {color: PaperColor.primary}]}>
                     {label}
                 </Text>
                 <View style={styles.mid_section_bottom}>
@@ -317,7 +317,8 @@ const Dashboard: React.FC = () => {
                 <HeaderPaperView />
                 <View>
                     <View style={styles.mif_section_title}>
-                        <Text style={styles.mid_section_title_left}>
+                        <Text
+                            style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.Today_Activity')}
                         </Text>
                         {/* <Ionicons
@@ -336,7 +337,8 @@ const Dashboard: React.FC = () => {
                         />
                     </View>
                     <View style={styles.mif_section_title}>
-                        <Text style={styles.mid_section_title_left}>
+                        <Text
+                            style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.Best_Ever')}
                         </Text>
                         {/* <Ionicons
@@ -374,7 +376,8 @@ const Dashboard: React.FC = () => {
                         />
                     </View>
                     <View style={styles.mif_section_title}>
-                        <Text style={styles.mid_section_title_left}>
+                        <Text
+                            style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.All_Contribution_Activity')}
                         </Text>
                         {/* <Ionicons
