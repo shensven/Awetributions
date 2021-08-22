@@ -28,6 +28,28 @@ const About: React.FC = () => {
         ]);
     };
 
+    interface TranslatorProops {
+        language: string;
+        translator: string;
+    }
+
+    const Translator: React.FC<TranslatorProops> = props => {
+        const {language, translator} = props;
+        return (
+            <View style={styles.mid_description}>
+                <Text style={[styles.header_description_codesign, {color: PaperColor.text}]}>
+                    {language}
+                </Text>
+                <Text style={[styles.header_description_codesign, {color: PaperColor.text}]}>
+                    {' - '}
+                </Text>
+                <Text style={[styles.header_description_codesign, {color: PaperColor.text}]}>
+                    {translator}
+                </Text>
+            </View>
+        );
+    };
+
     return (
         <View style={[styles.root, {backgroundColor: PaperColor.background}]}>
             <View style={styles.header}>
@@ -76,6 +98,11 @@ const About: React.FC = () => {
                         GeniuSven
                     </Text>
                 </View>
+                <View style={styles.mid}>
+                    <Translator language={t('About.en')} translator="GeniuSven" />
+                    <Translator language={t('About.zh-Hans')} translator="GeniuSven" />
+                    <Translator language={t('About.zh-Hant')} translator="GeniuSven" />
+                </View>
             </View>
             <View style={styles.footer}>
                 <Button
@@ -122,6 +149,15 @@ const styles = StyleSheet.create({
     header_description_codesign: {
         fontSize: 10,
         fontWeight: 'bold',
+    },
+
+    mid: {
+        marginTop: 32,
+        alignItems: 'center',
+    },
+    mid_description: {
+        flexDirection: 'row',
+        marginTop: 4,
     },
     footer: {
         flexDirection: 'row',

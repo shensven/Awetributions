@@ -1,17 +1,20 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, Animated, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Animated} from 'react-native';
 import {IconButton, useTheme as usePaperTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import PagerView from 'react-native-pager-view';
-import appAxios from '../util/appAxios';
+import DeviceInfo from 'react-native-device-info';
 import axios from 'axios';
+import appAxios from '../util/appAxios';
+import {
+    useAbsoluteScreenHeight,
+    useAbsoluteWindowHeight,
+    useAbsoluteWindowWidth,
+} from '../util/absoluteScreen';
 
 // const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
-// const screenHeight = Dimensions.get('screen').height;
-const screenWidth = Dimensions.get('screen').width;
-const blockWidth = (screenWidth - 34 - 2 * 18) / 18;
 
 const owner: string = 'shensven';
 const PER_PAGE: number = 100;
@@ -50,6 +53,7 @@ const Dashboard: React.FC = () => {
     const route = useRoute();
     const {t} = useTranslation();
     const {colors: PaperColor} = usePaperTheme();
+    const deviceType = DeviceInfo.getDeviceType();
 
     const [ownerReposCount, setOwnerReposCount] = useState<number>(-1);
 
@@ -188,10 +192,49 @@ const Dashboard: React.FC = () => {
     }, [navigation, route]);
 
     const HeaderPaperView: React.FC = () => {
+        const absoluteWindowWidth = useAbsoluteWindowWidth();
+        const absoluteScreenHeight = useAbsoluteScreenHeight();
+
+        // const [ARRAY, setARRAY] = useState<number[]>(Array(123).fill(0));
+
+        const [headerRootHeight, setHeaderRootHeight] = useState<number>(0);
+        const [monthWidth, setMonthWidth] = useState<number>(0);
+        const [blockWidth, setBlockWidth] = useState<number>(0);
+        const [blockBorderRadius, setBlockBorderRadius] = useState<number>(0);
+
+        DeviceInfo.isLandscape().then(isLandscape => {
+            if (isLandscape === false && deviceType === 'Handset') {
+                setHeaderRootHeight(Math.ceil((blockWidth + 2) * 9));
+                setMonthWidth((blockWidth + 2) * 18);
+                setBlockWidth(Math.floor((absoluteWindowWidth - 34 - 2 * 18) / 18));
+                setBlockBorderRadius(4);
+                // setARRAY(Array(123).fill(0));
+            } else if (isLandscape === false && deviceType === 'Tablet') {
+                setHeaderRootHeight(Math.ceil((blockWidth + 2) * 9));
+                setMonthWidth((blockWidth + 2) * 53);
+                setBlockWidth(Math.floor((absoluteWindowWidth - 0 - 2 * 53) / 53));
+                setBlockBorderRadius(3);
+                // setARRAY(Array(366).fill(0));
+            } else if (isLandscape === true && deviceType === 'Handset') {
+                setHeaderRootHeight(Math.ceil((blockWidth + 2) * 9));
+                setMonthWidth((blockWidth + 2) * 53);
+                setBlockWidth(Math.floor((absoluteScreenHeight - 34 - 2 * 53) / 53));
+                setBlockBorderRadius(3);
+                // setARRAY(Array(366).fill(0));
+            } else if (isLandscape === true && deviceType === 'Tablet') {
+                setHeaderRootHeight(Math.ceil((blockWidth + 2) * 9));
+                setMonthWidth((blockWidth + 2) * 53);
+                setBlockWidth(Math.floor((absoluteScreenHeight - 34 - 2 * 53) / 53));
+                setBlockBorderRadius(4);
+                // setARRAY(Array(366).fill(0));
+            }
+        });
+
         const ARRAY = Array(123).fill(0);
+        // const ARRAY = Array(366).fill(0);
 
         return (
-            <PagerView style={styles.header_root}>
+            <PagerView style={[styles.header, {height: headerRootHeight}]}>
                 <View style={styles.header_month_wing}>
                     <View style={styles.header_month_tag}>
                         <Text
@@ -211,66 +254,22 @@ const Dashboard: React.FC = () => {
                             4月
                         </Text>
                     </View>
-                    <View style={styles.header_month}>
+                    <View
+                        style={[
+                            styles.header_month,
+                            {width: monthWidth, height: (blockWidth + 2) * 7},
+                        ]}>
                         {ARRAY.map((item: any, index: number) => (
                             <View
-                                style={[styles.header_block, {backgroundColor: PaperColor.primary}]}
-                                key={index}
-                            />
-                        ))}
-                    </View>
-                </View>
-                <View style={styles.header_month_wing}>
-                    <View style={styles.header_month_tag}>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            5月
-                        </Text>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            6月
-                        </Text>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            7月
-                        </Text>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            8月
-                        </Text>
-                    </View>
-                    <View style={styles.header_month}>
-                        {ARRAY.map((item: any, index: number) => (
-                            <View
-                                style={[styles.header_block, {backgroundColor: PaperColor.primary}]}
-                                key={index}
-                            />
-                        ))}
-                    </View>
-                </View>
-                <View style={styles.header_month_wing}>
-                    <View style={styles.header_month_tag}>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            9月
-                        </Text>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            10月
-                        </Text>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            11月
-                        </Text>
-                        <Text
-                            style={[styles.header_month_tag_label, {color: PaperColor.textAccent}]}>
-                            12月
-                        </Text>
-                    </View>
-                    <View style={styles.header_month}>
-                        {ARRAY.map((item: any, index: number) => (
-                            <View
-                                style={[styles.header_block, {backgroundColor: PaperColor.primary}]}
+                                style={[
+                                    styles.header_block,
+                                    {
+                                        width: blockWidth,
+                                        height: blockWidth,
+                                        borderRadius: blockBorderRadius,
+                                        backgroundColor: PaperColor.primary,
+                                    },
+                                ]}
                                 key={index}
                             />
                         ))}
@@ -289,8 +288,26 @@ const Dashboard: React.FC = () => {
 
     const KeyValueEl: React.FC<KeyValueElProps> = props => {
         const {label, value, valueSize, unit} = props;
+
+        const [midSectionItemWidth, setMidSectionItemWidth] = useState<number>(0);
+
+        const absoluteWindowWidth = useAbsoluteWindowWidth();
+        const absoluteWindowHeight = useAbsoluteWindowHeight();
+
+        DeviceInfo.isLandscape().then(isLandscape => {
+            if (isLandscape === false && deviceType === 'Handset') {
+                setMidSectionItemWidth((absoluteWindowWidth - 32 - 32) / 3);
+            } else if (isLandscape === false && deviceType === 'Tablet') {
+                setMidSectionItemWidth((absoluteWindowWidth - 32 - 32) / 5);
+            } else if (isLandscape === true && deviceType === 'Handset') {
+                setMidSectionItemWidth((absoluteWindowHeight - 32 - 32) / 5);
+            } else if (isLandscape === true && deviceType === 'Tablet') {
+                setMidSectionItemWidth((absoluteWindowHeight - 32 - 32) / 5);
+            }
+        });
+
         return (
-            <View style={styles.mid_section_item}>
+            <View style={[styles.mid_section_item, {width: midSectionItemWidth}]}>
                 <Text style={[styles.mid_section_top_label, {color: PaperColor.primary}]}>
                     {label}
                 </Text>
@@ -316,7 +333,7 @@ const Dashboard: React.FC = () => {
             <ScrollView>
                 <HeaderPaperView />
                 <View>
-                    <View style={styles.mif_section_title}>
+                    <View style={styles.mid_section_title}>
                         <Text
                             style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.Today_Activity')}
@@ -336,7 +353,7 @@ const Dashboard: React.FC = () => {
                             unit={t('Dashboard.commits')}
                         />
                     </View>
-                    <View style={styles.mif_section_title}>
+                    <View style={styles.mid_section_title}>
                         <Text
                             style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.Best_Ever')}
@@ -375,7 +392,7 @@ const Dashboard: React.FC = () => {
                             unit={t('Dashboard.ge')}
                         />
                     </View>
-                    <View style={styles.mif_section_title}>
+                    <View style={styles.mid_section_title}>
                         <Text
                             style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.All_Contribution_Activity')}
@@ -436,12 +453,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
-    header_root: {
-        height: screenWidth * 0.5,
+    header: {
+        marginBottom: 12,
     },
     header_month_wing: {
         justifyContent: 'center',
-        paddingBottom: 8,
+        alignItems: 'center',
         paddingLeft: 17,
         paddingRight: 17,
     },
@@ -454,14 +471,11 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
     header_month: {
-        height: blockWidth * 8,
         flexWrap: 'wrap',
     },
     header_block: {
-        width: blockWidth,
-        height: blockWidth,
         margin: 1,
-        borderRadius: 4,
+        // borderRadius: 4,
     },
 
     mid_title: {
@@ -470,7 +484,7 @@ const styles = StyleSheet.create({
         marginTop: 8,
         marginLeft: 16,
     },
-    mif_section_title: {
+    mid_section_title: {
         marginLeft: 24,
         marginRight: 24,
         marginBottom: 4,
@@ -492,8 +506,8 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
     },
     mid_section_item: {
-        width: (screenWidth - 32 - 32) / 3,
         marginBottom: 16,
+        alignItems: 'center',
     },
     mid_section_top_label: {
         fontSize: 12,

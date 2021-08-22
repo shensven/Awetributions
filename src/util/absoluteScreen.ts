@@ -38,9 +38,9 @@ export const useAbsoluteWindowWidth = () => {
 
     DeviceInfo.isLandscape().then(isLandscape => {
         if (isLandscape === false) {
-            setAbsoluteWindowWidth(dimensions.screen.width);
+            setAbsoluteWindowWidth(dimensions.window.width);
         } else {
-            setAbsoluteWindowWidth(dimensions.screen.height);
+            setAbsoluteWindowWidth(dimensions.window.height);
         }
     });
 
