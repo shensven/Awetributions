@@ -3,10 +3,29 @@ import {View, Text, StyleSheet, Keyboard, Platform} from 'react-native';
 import {Button, TextInput, useTheme as usePaperTheme} from 'react-native-paper';
 import {useTranslation} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import DeviceInfo from 'react-native-device-info';
+import {useAbsoluteWindowHeight, useAbsoluteWindowWidth} from '../util/absoluteScreen';
 
 const OAuthToken: React.FC = () => {
     const {t} = useTranslation();
     const {colors: PaperColor} = usePaperTheme();
+    const [rootWingPadding, setRootWingPadding] = useState<number>(0);
+
+    const absoluteWindowWidth = useAbsoluteWindowWidth();
+    const absoluteWindowHeight = useAbsoluteWindowHeight();
+    const deviceType = DeviceInfo.getDeviceType();
+
+    DeviceInfo.isLandscape().then(isLandscape => {
+        if (isLandscape === false && deviceType === 'Handset') {
+            setRootWingPadding(16);
+        } else if (isLandscape === false && deviceType === 'Tablet') {
+            setRootWingPadding(16 + absoluteWindowWidth / 5);
+        } else if (isLandscape === true && deviceType === 'Handset') {
+            setRootWingPadding(16 + absoluteWindowHeight / 5);
+        } else if (isLandscape === true && deviceType === 'Tablet') {
+            setRootWingPadding(16 + absoluteWindowHeight / 4);
+        }
+    });
 
     const [currentLocalToken, setCurrentLocalToken] = useState<string | null>(null);
     const [gitHubToken, setGitHubToken] = useState<string>('');
@@ -47,7 +66,7 @@ const OAuthToken: React.FC = () => {
         }
     };
     return (
-        <View style={styles.root}>
+        <View style={[styles.root, {paddingLeft: rootWingPadding, paddingRight: rootWingPadding}]}>
             <TextInput
                 mode="outlined"
                 keyboardType="ascii-capable"
@@ -55,7 +74,7 @@ const OAuthToken: React.FC = () => {
                 value={gitHubToken}
                 label={t('OAuth2Token.Enter_Your_GitHub_Access_Token')}
                 right={<TextInput.Affix text={gitHubToken.length.toString() + '/40'} />}
-                outlineColor={PaperColor.boaderBackground}
+                outlineColor={'rgba(0,0,0,0)'}
                 theme={{
                     roundness: 10,
                     colors: {
@@ -94,8 +113,6 @@ const OAuthToken: React.FC = () => {
 const styles = StyleSheet.create({
     root: {
         flex: 1,
-        paddingLeft: 16,
-        paddingRight: 16,
     },
     input: {
         fontSize: 14,

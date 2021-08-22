@@ -1,11 +1,10 @@
-import React, {useContext} from 'react';
-import {View, StyleSheet, ScrollView, Dimensions, Text} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, StyleSheet, ScrollView, Text} from 'react-native';
 import {TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import {useTranslation} from 'react-i18next';
+import DeviceInfo from 'react-native-device-info';
 import {SettingsContext} from '../util/SettingsManager';
-
-const screenWidth = Dimensions.get('screen').width;
-// const screenHeight = Dimensions.get('screen').height;
+import {useAbsoluteWindowWidth, useAbsoluteWindowHeight} from '../util/absoluteScreen';
 
 interface ToogleBtnProps {
     label: string;
@@ -19,17 +18,42 @@ const Language: React.FC = () => {
     const {colors: PaperColor} = usePaperTheme();
     const {t, i18n} = useTranslation();
 
+    const absoluteWindowWidth = useAbsoluteWindowWidth();
+    const absoluteWindowHeight = useAbsoluteWindowHeight();
+
+    const [toogleBtnWidth, setToogleBtnWidth] = useState<number>(0);
+    const [toogleBtnHeight, setToogleBtnHeight] = useState<number>(0);
+
+    const deviceType = DeviceInfo.getDeviceType();
+
+    DeviceInfo.isLandscape().then(isLandscape => {
+        if (isLandscape === false && deviceType === 'Handset') {
+            setToogleBtnWidth((absoluteWindowWidth - 32) / 2);
+            setToogleBtnHeight(((absoluteWindowWidth - 32) / 2) * 0.55);
+        } else if (isLandscape === false && deviceType === 'Tablet') {
+            setToogleBtnWidth((absoluteWindowWidth - 32) / 4);
+            setToogleBtnHeight(((absoluteWindowWidth - 32) / 4) * 0.55);
+        } else if (isLandscape === true && deviceType === 'Handset') {
+            setToogleBtnWidth((absoluteWindowHeight - 32) / 4);
+            setToogleBtnHeight(((absoluteWindowHeight - 32) / 4) * 0.55);
+        } else if (isLandscape === true && deviceType === 'Tablet') {
+            setToogleBtnWidth((absoluteWindowHeight - 32) / 6);
+            setToogleBtnHeight(((absoluteWindowHeight - 32) / 6) * 0.55);
+        }
+    });
+
     const ToogleBtn: React.FC<ToogleBtnProps> = props => {
         const {label, description, i18nKey, onPress} = props;
 
         return (
-            <View style={styles.toogle_btn_root}>
+            <View style={[styles.toogle_btn_root, {width: toogleBtnWidth}]}>
                 <TouchableRipple
                     borderless={true}
                     rippleColor={PaperColor.rippleReverse}
                     style={[
                         styles.toogle_btn,
                         {
+                            height: toogleBtnHeight,
                             backgroundColor:
                                 i18n.language === i18nKey
                                     ? PaperColor.accent
@@ -107,11 +131,8 @@ const styles = StyleSheet.create({
         marginLeft: 16,
         marginRight: 16,
     },
-    toogle_btn_root: {
-        width: '50%',
-    },
+    toogle_btn_root: {},
     toogle_btn: {
-        height: screenWidth * 0.25,
         borderRadius: 16,
         padding: 16,
         marginBottom: 16,

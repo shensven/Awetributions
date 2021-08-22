@@ -31,3 +31,33 @@ export const useAbsoluteScreenHeight = () => {
 
     return absoluteScreenHeight;
 };
+
+export const useAbsoluteWindowWidth = () => {
+    const dimensions = useDimensions();
+    const [absoluteWindowWidth, setAbsoluteWindowWidth] = useState(0);
+
+    DeviceInfo.isLandscape().then(isLandscape => {
+        if (isLandscape === false) {
+            setAbsoluteWindowWidth(dimensions.screen.width);
+        } else {
+            setAbsoluteWindowWidth(dimensions.screen.height);
+        }
+    });
+
+    return absoluteWindowWidth;
+};
+
+export const useAbsoluteWindowHeight = () => {
+    const dimensions = useDimensions();
+    const [absoluteWindowHeight, setAbsoluteWindowHeight] = useState(0);
+
+    DeviceInfo.isLandscape().then(isLandscape => {
+        if (isLandscape === false) {
+            setAbsoluteWindowHeight(dimensions.window.height);
+        } else {
+            setAbsoluteWindowHeight(dimensions.window.width);
+        }
+    });
+
+    return absoluteWindowHeight;
+};
