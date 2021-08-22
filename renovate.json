@@ -13,6 +13,7 @@
             "enabled": false,
             "excludePackageNames": [
                 "@react-native-async-storage/async-storage",
+                "@react-native-community/hooks",
                 "@react-native-community/masked-view",
                 "@react-navigation/native",
                 "@react-navigation/native-stack",
