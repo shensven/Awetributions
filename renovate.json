@@ -24,6 +24,7 @@
                 "i18next-http-backend",
                 "react-i18next",
                 "react-native-bootsplash",
+                "react-native-device-info",
                 "react-native-gesture-handler",
                 "react-native-inappbrowser-reborn",
                 "react-native-pager-view",
