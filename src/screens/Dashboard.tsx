@@ -1,5 +1,5 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, Animated} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Animated, RefreshControl} from 'react-native';
 import {IconButton, useTheme as usePaperTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -19,6 +19,10 @@ import {
 const owner: string = 'shensven';
 const PER_PAGE: number = 100;
 const COMMIT_PER_PAGE: number = 40;
+
+const wait = (timeout: number) => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+};
 
 interface Owner {
     data: {
@@ -55,6 +59,8 @@ const Dashboard: React.FC = () => {
     const {colors: PaperColor} = usePaperTheme();
     const deviceType = DeviceInfo.getDeviceType();
 
+    const [refreshing, setRefreshing] = useState<boolean>(false);
+
     const [ownerReposCount, setOwnerReposCount] = useState<number>(-1);
 
     const [lastReposPage, setLastReposPage] = useState<number>(-1);
@@ -62,6 +68,11 @@ const Dashboard: React.FC = () => {
 
     const [lastCommitsPage, setLastCommitsPage] = useState<number>(1);
     const [commitsArray, setCommitsArray] = useState<[]>([]);
+
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        wait(3000).then(() => setRefreshing(false));
+    }, []);
 
     const getOwnerReposCount = async () => {
         if (ownerReposCount === -1) {
@@ -330,7 +341,15 @@ const Dashboard: React.FC = () => {
 
     return (
         <View style={[styles.root, {backgroundColor: PaperColor.background}]}>
-            <ScrollView>
+            <ScrollView
+                refreshControl={
+                    <RefreshControl
+                        colors={[PaperColor.primary, PaperColor.accent]}
+                        tintColor={PaperColor.accent}
+                        refreshing={refreshing}
+                        onRefresh={onRefresh}
+                    />
+                }>
                 <HeaderPaperView />
                 <View>
                     <View style={styles.mid_section_title}>
