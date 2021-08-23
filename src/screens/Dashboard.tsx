@@ -507,7 +507,7 @@ const styles = StyleSheet.create({
     },
     mid_section_item: {
         marginBottom: 16,
-        alignItems: 'center',
+        // alignItems: 'center',
     },
     mid_section_top_label: {
         fontSize: 12,
