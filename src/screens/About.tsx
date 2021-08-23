@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Platform, ToastAndroid} from 'react-native';
+import {Platform} from 'react-native';
 import {View, Text, StyleSheet, Linking, Alert, Image, Vibration} from 'react-native';
-import {Button, IconButton, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
+import {
+    Button,
+    IconButton,
+    Snackbar,
+    TouchableRipple,
+    useTheme as usePaperTheme,
+} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const packageJson = require('../../package.json');
@@ -10,11 +16,12 @@ const packageJson = require('../../package.json');
 const About: React.FC = () => {
     const {t} = useTranslation();
     const {colors: PaperColor} = usePaperTheme();
+    const [hasEasterEgg, setHasEasterEgg] = useState<boolean>(false);
 
     const handleEasterEgg = () => {
         if (Platform.OS === 'android') {
             Vibration.vibrate(90);
-            ToastAndroid.show('Made with ❤️ in Kunming', ToastAndroid.LONG);
+            setHasEasterEgg(true);
         }
     };
 
@@ -113,6 +120,14 @@ const About: React.FC = () => {
                     {t('About.Check_for_Updates')}
                 </Button>
             </View>
+            <Snackbar
+                visible={hasEasterEgg}
+                onDismiss={() => setHasEasterEgg(false)}
+                theme={{
+                    roundness: 6,
+                }}>
+                Made with ❤️ in Kunming
+            </Snackbar>
         </View>
     );
 };
