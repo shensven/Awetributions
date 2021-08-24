@@ -60,7 +60,7 @@ const About: React.FC = () => {
     return (
         <View style={[styles.root, {backgroundColor: PaperColor.background}]}>
             <View style={styles.header}>
-                {/* <TouchableRipple
+                <TouchableRipple
                     rippleColor={PaperColor.ripple}
                     borderless={true}
                     disabled={Platform.OS === 'android' ? false : true}
@@ -68,18 +68,10 @@ const About: React.FC = () => {
                     onPress={() => {}}
                     onLongPress={() => handleEasterEgg()}>
                     <Image
-                        source={require('../../assets/AppIcon/AppIconRound288.png')}
+                        source={require('../assets/AppIconRound288.png')}
                         style={styles.header_img}
                     />
-                </TouchableRipple> */}
-                <IconButton
-                    icon={() => (
-                        <Ionicons name="flask-outline" size={40} color={PaperColor.textAccent} />
-                    )}
-                    color={PaperColor.textAccent}
-                    size={40}
-                    onPress={() => handleEasterEgg()}
-                />
+                </TouchableRipple>
                 <Text style={[styles.header_title, {color: PaperColor.text}]}>
                     {t('About.Awetributions')}
                 </Text>
