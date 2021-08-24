@@ -2,14 +2,7 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Platform} from 'react-native';
 import {View, Text, StyleSheet, Linking, Alert, Image, Vibration} from 'react-native';
-import {
-    Button,
-    IconButton,
-    Snackbar,
-    TouchableRipple,
-    useTheme as usePaperTheme,
-} from 'react-native-paper';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Button, Snackbar, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 
 const packageJson = require('../../package.json');
 
