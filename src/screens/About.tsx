@@ -12,7 +12,7 @@ const About: React.FC = () => {
     const [hasEasterEgg, setHasEasterEgg] = useState<boolean>(false);
 
     const handleEasterEgg = () => {
-        if (Platform.OS === 'android') {
+        if (Platform.OS === 'android' && hasEasterEgg === false) {
             Vibration.vibrate(90);
             setHasEasterEgg(true);
         }
