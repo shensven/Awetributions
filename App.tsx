@@ -73,13 +73,6 @@ const App: React.FC = () => {
                         ...TransitionPresets.SlideFromRightIOS,
                     }}>
                     <Stack.Screen
-                        name="OAuth2Token"
-                        component={OAuth2Token}
-                        options={{
-                            title: t('App.OAuth2_Token'),
-                        }}
-                    />
-                    <Stack.Screen
                         name="Dashboard"
                         component={Dashboard}
                         options={{
@@ -91,6 +84,13 @@ const App: React.FC = () => {
                         component={Settings}
                         options={{
                             title: t('App.Settings'),
+                        }}
+                    />
+                    <Stack.Screen
+                        name="OAuth2Token"
+                        component={OAuth2Token}
+                        options={{
+                            title: t('App.OAuth2_Token'),
                         }}
                     />
                     <Stack.Screen

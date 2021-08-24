@@ -71,6 +71,7 @@
         "Check_for_Updates": "檢查更新",
         "AlertTitle": "前往應用商店",
         "AlertDismiss": "取消",
-        "AlertGo": "Go"
+        "AlertGo": "Go",
+        "DISSMISS": "取消"
     }
 }

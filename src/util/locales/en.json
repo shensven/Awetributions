@@ -71,6 +71,7 @@
         "Check_for_Updates": "Check for Updates",
         "AlertTitle": "Goto App Store",
         "AlertDismiss": "Dismiss",
-        "AlertGo": "Go"
+        "AlertGo": "Go",
+        "DISSMISS": "DISSMISS"
     }
 }

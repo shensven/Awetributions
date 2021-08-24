@@ -123,9 +123,14 @@ const About: React.FC = () => {
             <Snackbar
                 visible={hasEasterEgg}
                 onDismiss={() => setHasEasterEgg(false)}
+                action={{
+                    label: t('About.DISSMISS'),
+                    onPress: () => setHasEasterEgg(false),
+                }}
                 theme={{
                     roundness: 6,
-                }}>
+                }}
+                style={styles.snackbar}>
                 Made with ❤️ in Kunming
             </Snackbar>
         </View>
@@ -177,6 +182,9 @@ const styles = StyleSheet.create({
     footer: {
         flexDirection: 'row',
         justifyContent: 'center',
+    },
+    snackbar: {
+        marginBottom: 24,
     },
 });
 
