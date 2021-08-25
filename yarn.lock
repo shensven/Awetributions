@@ -6122,7 +6122,7 @@ react-native-screens@3.6.0:
   dependencies:
     warn-once "^0.1.0"
 
-react-native-transparent-status-and-navigation-bar@^1.0.1:
+react-native-transparent-status-and-navigation-bar@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-native-transparent-status-and-navigation-bar/-/react-native-transparent-status-and-navigation-bar-1.0.1.tgz#da199ae8818b6452581676717b31bfa7f8220781"
   integrity sha512-4c1rq7MJ2pOfF6aw6pgqXAqunnicpifk3lpjX+x2Px6u5W9m68j/jh9isekUDpkyn8siSmUSuGlHxqpKAw1Rzw==
