@@ -1,5 +1,13 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, Animated, RefreshControl} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    ScrollView,
+    Animated,
+    RefreshControl,
+    StatusBar,
+} from 'react-native';
 import {IconButton, useTheme as usePaperTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -344,7 +352,7 @@ const Dashboard: React.FC = () => {
             <ScrollView
                 refreshControl={
                     <RefreshControl
-                        colors={[PaperColor.primary, PaperColor.accent]}
+                        colors={[PaperColor.accent]}
                         tintColor={PaperColor.accent}
                         refreshing={refreshing}
                         onRefresh={onRefresh}

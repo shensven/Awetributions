@@ -1,9 +1,12 @@
 import React, {useContext} from 'react';
 import {StatusBar} from 'react-native';
-import {Provider as PaperProvider, useTheme as usePaperTheme} from 'react-native-paper';
-import {NavigationContainer, useTheme as useNavigationTheme} from '@react-navigation/native';
+import {Provider as PaperProvider /*useTheme as usePaperTheme*/} from 'react-native-paper';
+import {NavigationContainer /*useTheme as useNavigationTheme*/} from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import RNBootSplash from 'react-native-bootsplash';
+//@ts-ignore
+import * as TransparentStatusAndNavigationBar from 'react-native-transparent-status-and-navigation-bar';
+
 import {useTranslation} from 'react-i18next';
 import {SettingsContext, SettingsProvider} from './src/util/SettingsManager';
 import {
@@ -20,12 +23,15 @@ import Language from './src/screens/Language';
 import OpenSourceLibraries from './src/screens/OpenSourceLibraries';
 import About from './src/screens/About';
 
+TransparentStatusAndNavigationBar.init();
+
 const Stack = createStackNavigator();
 
 const App: React.FC = () => {
     const {t} = useTranslation();
 
-    const {colors: NavigationColor} = useNavigationTheme();
+    // const {colors: NavigationColor} = useNavigationTheme();
+    // const {colors: PaperColor} = usePaperTheme();
     const {appAppearanceIndex, appI18nScheme} = useContext(SettingsContext);
 
     const awetributionsPaperTheme = () => {
@@ -54,7 +60,6 @@ const App: React.FC = () => {
                     }, 250);
                 }}>
                 <StatusBar
-                    backgroundColor={NavigationColor.background}
                     barStyle={
                         awetributionsNavigationTheme() === NavigationDark
                             ? 'light-content'
