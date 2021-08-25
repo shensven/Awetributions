@@ -6122,6 +6122,11 @@ react-native-screens@3.6.0:
   dependencies:
     warn-once "^0.1.0"
 
+react-native-transparent-status-and-navigation-bar@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-transparent-status-and-navigation-bar/-/react-native-transparent-status-and-navigation-bar-1.0.1.tgz#da199ae8818b6452581676717b31bfa7f8220781"
+  integrity sha512-4c1rq7MJ2pOfF6aw6pgqXAqunnicpifk3lpjX+x2Px6u5W9m68j/jh9isekUDpkyn8siSmUSuGlHxqpKAw1Rzw==
+
 react-native-vector-icons@8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-8.1.0.tgz#e8ee2b17bc4d9f636da1c6f67feee8e2a850c3d8"
