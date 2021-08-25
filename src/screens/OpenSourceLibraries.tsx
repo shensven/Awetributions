@@ -7,10 +7,12 @@ import {
     Linking,
     TouchableOpacity,
     StatusBar,
+    Platform,
 } from 'react-native';
 import {List, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface PackageDetail {
     license: string;
@@ -25,6 +27,8 @@ const openSourceLibrariesArr: PackageDetail[] = require('./../util/openSourceLib
 
 const OpenSourceLibraries: React.FC = () => {
     const {colors: PaperColors} = usePaperTheme();
+    const insets = useSafeAreaInsets();
+
     const dashedArrr = Array(100).fill(0);
 
     const openLink = async (repository: string) => {
@@ -79,9 +83,21 @@ const OpenSourceLibraries: React.FC = () => {
     };
 
     return (
-        <View style={styles.root}>
+        <View
+            style={[
+                styles.root,
+                {
+                    paddingBottom: Platform.OS === 'android' ? insets.bottom : 0,
+                    paddingLeft: insets.left,
+                    paddingRight: insets.right,
+                },
+            ]}>
             <ScrollView>
-                <View style={styles.scrollview_padding}>
+                <View
+                    style={[
+                        styles.scrollview_padding,
+                        {paddingBottom: Platform.OS === 'ios' ? insets.bottom : 0},
+                    ]}>
                     <View style={styles.header}>
                         <View style={styles.header_title_container}>
                             <TouchableOpacity
@@ -181,7 +197,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     scrollview_padding: {
-        paddingBottom: 16,
+        // paddingBottom: 16,
     },
     header: {
         marginLeft: 16,

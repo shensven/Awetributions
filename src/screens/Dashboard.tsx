@@ -7,6 +7,7 @@ import {
     Animated,
     RefreshControl,
     StatusBar,
+    Platform,
 } from 'react-native';
 import {IconButton, useTheme as usePaperTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,6 +22,7 @@ import {
     useAbsoluteWindowHeight,
     useAbsoluteWindowWidth,
 } from '../util/absoluteScreen';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 // const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
@@ -65,6 +67,7 @@ const Dashboard: React.FC = () => {
     const route = useRoute();
     const {t} = useTranslation();
     const {colors: PaperColor} = usePaperTheme();
+    const insets = useSafeAreaInsets();
     const deviceType = DeviceInfo.getDeviceType();
 
     const [refreshing, setRefreshing] = useState<boolean>(false);
@@ -348,7 +351,14 @@ const Dashboard: React.FC = () => {
     };
 
     return (
-        <View style={[styles.root, {backgroundColor: PaperColor.background}]}>
+        <View
+            style={[
+                styles.root,
+                {
+                    backgroundColor: PaperColor.background,
+                    paddingBottom: Platform.OS === 'android' ? insets.bottom : 0,
+                },
+            ]}>
             <ScrollView
                 refreshControl={
                     <RefreshControl
@@ -358,109 +368,136 @@ const Dashboard: React.FC = () => {
                         onRefresh={onRefresh}
                     />
                 }>
-                <HeaderPaperView />
-                <View>
-                    <View style={styles.mid_section_title}>
-                        <Text
-                            style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
-                            {t('Dashboard.Today_Activity')}
-                        </Text>
-                        {/* <Ionicons
+                <View
+                    style={{
+                        paddingBottom: Platform.OS === 'ios' ? insets.bottom : 0,
+                        paddingLeft: insets.left,
+                        paddingRight: insets.right,
+                    }}>
+                    <HeaderPaperView />
+                    <View>
+                        <View style={styles.mid_section_title}>
+                            <Text
+                                style={[
+                                    styles.mid_section_title_left,
+                                    {color: PaperColor.textAccent},
+                                ]}>
+                                {t('Dashboard.Today_Activity')}
+                            </Text>
+                            {/* <Ionicons
                             name="reorder-three-outline"
                             size={16}
                             color={PaperColor.textAccent}
                         /> */}
-                    </View>
-                    <View
-                        style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
-                        <KeyValueEl
-                            label="2021-08-16"
-                            value="x"
-                            valueSize={20}
-                            unit={t('Dashboard.commits')}
-                        />
-                    </View>
-                    <View style={styles.mid_section_title}>
-                        <Text
-                            style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
-                            {t('Dashboard.Best_Ever')}
-                        </Text>
-                        {/* <Ionicons
+                        </View>
+                        <View
+                            style={[
+                                styles.mid_section,
+                                {backgroundColor: PaperColor.cardBackground},
+                            ]}>
+                            <KeyValueEl
+                                label="2021-08-16"
+                                value="x"
+                                valueSize={20}
+                                unit={t('Dashboard.commits')}
+                            />
+                        </View>
+                        <View style={styles.mid_section_title}>
+                            <Text
+                                style={[
+                                    styles.mid_section_title_left,
+                                    {color: PaperColor.textAccent},
+                                ]}>
+                                {t('Dashboard.Best_Ever')}
+                            </Text>
+                            {/* <Ionicons
                             name="reorder-three-outline"
                             size={16}
                             color={PaperColor.textAccent}
                         /> */}
-                    </View>
-                    <View
-                        style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
-                        <KeyValueEl
-                            label={t('Dashboard.annual_average')}
-                            value="x.xx"
-                            unit={t('Dashboard.commits/day')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.current_continuity')}
-                            value="xx"
-                            unit={t('Dashboard.day')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.max_continuity')}
-                            value="xx"
-                            unit={t('Dashboard.day')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.max_one_day')}
-                            value="xx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.repo')}
-                            value={reposArray.length.toString()}
-                            unit={t('Dashboard.ge')}
-                        />
-                    </View>
-                    <View style={styles.mid_section_title}>
-                        <Text
-                            style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
-                            {t('Dashboard.All_Contribution_Activity')}
-                        </Text>
-                        {/* <Ionicons
+                        </View>
+                        <View
+                            style={[
+                                styles.mid_section,
+                                {backgroundColor: PaperColor.cardBackground},
+                            ]}>
+                            <KeyValueEl
+                                label={t('Dashboard.annual_average')}
+                                value="x.xx"
+                                unit={t('Dashboard.commits/day')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.current_continuity')}
+                                value="xx"
+                                unit={t('Dashboard.day')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.max_continuity')}
+                                value="xx"
+                                unit={t('Dashboard.day')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.max_one_day')}
+                                value="xx"
+                                unit={t('Dashboard.commits')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.repo')}
+                                value={reposArray.length.toString()}
+                                unit={t('Dashboard.ge')}
+                            />
+                        </View>
+                        <View style={styles.mid_section_title}>
+                            <Text
+                                style={[
+                                    styles.mid_section_title_left,
+                                    {color: PaperColor.textAccent},
+                                ]}>
+                                {t('Dashboard.All_Contribution_Activity')}
+                            </Text>
+                            {/* <Ionicons
                             name="reorder-three-outline"
                             size={16}
                             color={PaperColor.textAccent}
                         /> */}
-                    </View>
-                    <View
-                        style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
-                        <KeyValueEl
-                            label={t('Dashboard.last_week')}
-                            value="xx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.last_month')}
-                            value="xxx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.last_half_year')}
-                            value="xxx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.last_365_days')}
-                            value="xxx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.career')}
-                            value="xxxx"
-                            unit={t('Dashboard.commits')}
-                        />
+                        </View>
+                        <View
+                            style={[
+                                styles.mid_section,
+                                {backgroundColor: PaperColor.cardBackground},
+                            ]}>
+                            <KeyValueEl
+                                label={t('Dashboard.last_week')}
+                                value="xx"
+                                unit={t('Dashboard.commits')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.last_month')}
+                                value="xxx"
+                                unit={t('Dashboard.commits')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.last_half_year')}
+                                value="xxx"
+                                unit={t('Dashboard.commits')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.last_365_days')}
+                                value="xxx"
+                                unit={t('Dashboard.commits')}
+                            />
+                            <KeyValueEl
+                                label={t('Dashboard.career')}
+                                value="xxxx"
+                                unit={t('Dashboard.commits')}
+                            />
+                        </View>
+                        <Text>ownerReposCount: {ownerReposCount}</Text>
+                        <Text>lastReposPage: {lastReposPage}</Text>
+                        <Text>lastReposPage: {lastReposPage}</Text>
+                        <Text>lastReposPage: {lastReposPage}</Text>
                     </View>
                 </View>
-                <Text>ownerReposCount: {ownerReposCount}</Text>
-                <Text>lastReposPage: {lastReposPage}</Text>
             </ScrollView>
         </View>
     );

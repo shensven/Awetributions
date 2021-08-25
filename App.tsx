@@ -3,6 +3,7 @@ import {StatusBar} from 'react-native';
 import {Provider as PaperProvider /*useTheme as usePaperTheme*/} from 'react-native-paper';
 import {NavigationContainer /*useTheme as useNavigationTheme*/} from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import RNBootSplash from 'react-native-bootsplash';
 //@ts-ignore
 import * as TransparentStatusAndNavigationBar from 'react-native-transparent-status-and-navigation-bar';
@@ -52,82 +53,84 @@ const App: React.FC = () => {
 
     return appAppearanceIndex === 0 || appI18nScheme === '' ? null : (
         <PaperProvider theme={awetributionsPaperTheme()}>
-            <NavigationContainer
-                theme={awetributionsNavigationTheme()}
-                onReady={() => {
-                    setTimeout(() => {
-                        RNBootSplash.hide({fade: true});
-                    }, 250);
-                }}>
-                <StatusBar
-                    barStyle={
-                        awetributionsNavigationTheme() === NavigationDark
-                            ? 'light-content'
-                            : 'dark-content'
-                    }
-                />
-                <Stack.Navigator
-                    initialRouteName="Dashboard"
-                    detachInactiveScreens={false}
-                    screenOptions={{
-                        headerStyle: {
-                            elevation: 0, // Android only
-                            shadowOpacity: 0, // iOS only
-                        },
-                        gestureEnabled: true,
-                        ...TransitionPresets.SlideFromRightIOS,
+            <SafeAreaProvider>
+                <NavigationContainer
+                    theme={awetributionsNavigationTheme()}
+                    onReady={() => {
+                        setTimeout(() => {
+                            RNBootSplash.hide({fade: true});
+                        }, 250);
                     }}>
-                    <Stack.Screen
-                        name="Dashboard"
-                        component={Dashboard}
-                        options={{
-                            title: t('App.Dashboard'),
-                        }}
+                    <StatusBar
+                        barStyle={
+                            awetributionsNavigationTheme() === NavigationDark
+                                ? 'light-content'
+                                : 'dark-content'
+                        }
                     />
-                    <Stack.Screen
-                        name="Settings"
-                        component={Settings}
-                        options={{
-                            title: t('App.Settings'),
-                        }}
-                    />
-                    <Stack.Screen
-                        name="OAuth2Token"
-                        component={OAuth2Token}
-                        options={{
-                            title: t('App.OAuth2_Token'),
-                        }}
-                    />
-                    <Stack.Screen
-                        name="Appearance"
-                        component={Appearance}
-                        options={{
-                            title: t('App.Appearance'),
-                        }}
-                    />
-                    <Stack.Screen
-                        name="Language"
-                        component={Language}
-                        options={{
-                            title: t('App.Language'),
-                        }}
-                    />
-                    <Stack.Screen
-                        name="OpenSourceLibraries"
-                        component={OpenSourceLibraries}
-                        options={{
-                            title: t('App.OpenSourceLibraries'),
-                        }}
-                    />
-                    <Stack.Screen
-                        name="About"
-                        component={About}
-                        options={{
-                            title: t('App.About'),
-                        }}
-                    />
-                </Stack.Navigator>
-            </NavigationContainer>
+                    <Stack.Navigator
+                        initialRouteName="Dashboard"
+                        detachInactiveScreens={false}
+                        screenOptions={{
+                            headerStyle: {
+                                elevation: 0, // Android only
+                                shadowOpacity: 0, // iOS only
+                            },
+                            gestureEnabled: true,
+                            ...TransitionPresets.SlideFromRightIOS,
+                        }}>
+                        <Stack.Screen
+                            name="Dashboard"
+                            component={Dashboard}
+                            options={{
+                                title: t('App.Dashboard'),
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Settings"
+                            component={Settings}
+                            options={{
+                                title: t('App.Settings'),
+                            }}
+                        />
+                        <Stack.Screen
+                            name="OAuth2Token"
+                            component={OAuth2Token}
+                            options={{
+                                title: t('App.OAuth2_Token'),
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Appearance"
+                            component={Appearance}
+                            options={{
+                                title: t('App.Appearance'),
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Language"
+                            component={Language}
+                            options={{
+                                title: t('App.Language'),
+                            }}
+                        />
+                        <Stack.Screen
+                            name="OpenSourceLibraries"
+                            component={OpenSourceLibraries}
+                            options={{
+                                title: t('App.OpenSourceLibraries'),
+                            }}
+                        />
+                        <Stack.Screen
+                            name="About"
+                            component={About}
+                            options={{
+                                title: t('App.About'),
+                            }}
+                        />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </SafeAreaProvider>
         </PaperProvider>
     );
 };

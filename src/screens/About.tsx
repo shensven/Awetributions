@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {Platform} from 'react-native';
-import {View, Text, StyleSheet, Linking, Alert, Image, Vibration} from 'react-native';
+import {View, Text, StyleSheet, Linking, Alert, Image, Vibration, Platform} from 'react-native';
 import {Button, Snackbar, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useTranslation} from 'react-i18next';
 
 const packageJson = require('../../package.json');
 
 const About: React.FC = () => {
     const {t} = useTranslation();
     const {colors: PaperColor} = usePaperTheme();
+    const insets = useSafeAreaInsets();
     const [hasEasterEgg, setHasEasterEgg] = useState<boolean>(false);
 
     const handleEasterEgg = () => {
@@ -51,7 +52,11 @@ const About: React.FC = () => {
     };
 
     return (
-        <View style={[styles.root, {backgroundColor: PaperColor.background}]}>
+        <View
+            style={[
+                styles.root,
+                {backgroundColor: PaperColor.background, paddingBottom: insets.bottom + 16},
+            ]}>
             <View style={styles.header}>
                 <TouchableRipple
                     rippleColor={PaperColor.ripple}
@@ -126,7 +131,6 @@ const styles = StyleSheet.create({
     root: {
         flex: 1,
         paddingTop: 24,
-        paddingBottom: 32,
         justifyContent: 'space-between',
     },
     header: {
