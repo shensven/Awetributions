@@ -24,7 +24,7 @@
         "i18next": "20.4.0",
         "i18next-http-backend": "1.2.6",
         "react": "17.0.1",
-        "react-i18next": "11.11.3",
+        "react-i18next": "11.11.4",
         "react-native": "0.64.2",
         "react-native-bootsplash": "3.2.4",
         "react-native-device-info": "8.3.1",
