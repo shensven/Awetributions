@@ -202,7 +202,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     compile project(':react-native-vector-icons')
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation project(':react-native-bootsplash')
     implementation project(':react-native-inappbrowser-reborn')
     implementation project(':react-native-pager-view')
