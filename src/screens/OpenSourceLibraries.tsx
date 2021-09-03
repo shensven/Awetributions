@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    ScrollView,
-    Linking,
-    TouchableOpacity,
-    StatusBar,
-    Platform,
-} from 'react-native';
+import {View, Text, StyleSheet, Linking, StatusBar, Platform, FlatList} from 'react-native';
 import {List, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
@@ -23,13 +14,17 @@ interface PackageDetail {
     version: string;
 }
 
+interface TouchableRippleProps {
+    repository: string;
+    name: string;
+    license: string;
+}
+
 const openSourceLibrariesArr: PackageDetail[] = require('./../util/openSourceLibraries.json');
 
 const OpenSourceLibraries: React.FC = () => {
     const {colors: PaperColors} = usePaperTheme();
     const insets = useSafeAreaInsets();
-
-    const dashedArrr = Array(100).fill(0);
 
     const openLink = async (repository: string) => {
         try {
@@ -82,6 +77,35 @@ const OpenSourceLibraries: React.FC = () => {
         }
     };
 
+    const renderTouchableRipple = ({item}: {item: TouchableRippleProps}) => {
+        return (
+            <TouchableRipple
+                rippleColor={PaperColors.ripple}
+                onPress={() => {
+                    openLink(item.repository);
+                }}>
+                <List.Item
+                    title={item.name}
+                    titleStyle={[styles.item_title, {color: PaperColors.text}]}
+                    right={() => (
+                        <View style={styles.item_right}>
+                            <Text
+                                style={[
+                                    styles.item_right_type,
+                                    {
+                                        color: PaperColors.placeholder,
+                                    },
+                                ]}>
+                                {item.license}
+                            </Text>
+                            <Icon name="open-outline" size={12} color={PaperColors.text} />
+                        </View>
+                    )}
+                />
+            </TouchableRipple>
+        );
+    };
+
     return (
         <View
             style={[
@@ -92,102 +116,11 @@ const OpenSourceLibraries: React.FC = () => {
                     paddingRight: insets.right,
                 },
             ]}>
-            <ScrollView>
-                <View
-                    style={[
-                        styles.scrollview_padding,
-                        {paddingBottom: Platform.OS === 'ios' ? insets.bottom : 0},
-                    ]}>
-                    <View style={styles.header}>
-                        <View style={styles.header_title_container}>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    openLink('https://github.com/shensven/Awetributions');
-                                }}>
-                                <Text
-                                    style={[
-                                        styles.header_title_spicial,
-                                        {color: PaperColors.primary},
-                                    ]}>
-                                    Awetributions
-                                </Text>
-                            </TouchableOpacity>
-                            <Text style={{color: PaperColors.text}}>
-                                {' '}
-                                is built using open source libraries, proudly written in{' '}
-                            </Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    openLink('https://reactnative.dev/');
-                                }}>
-                                <Text
-                                    style={[
-                                        styles.header_title_spicial,
-                                        {color: PaperColors.primary},
-                                    ]}>
-                                    React Native
-                                </Text>
-                            </TouchableOpacity>
-                            <Text style={{color: PaperColors.text}}> framework using </Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    openLink('https://www.typescriptlang.org/');
-                                }}>
-                                <Text
-                                    style={[
-                                        styles.header_title_spicial,
-                                        {color: PaperColors.primary},
-                                    ]}>
-                                    TypeScript
-                                </Text>
-                            </TouchableOpacity>
-                            <Text style={{color: PaperColors.text}}>.</Text>
-                        </View>
-                    </View>
-                    <View style={styles.header_divider_flex}>
-                        {dashedArrr.map((item, index) => (
-                            <View
-                                style={[
-                                    styles.header_divider,
-                                    {backgroundColor: PaperColors.disabled},
-                                ]}
-                                key={index}
-                            />
-                        ))}
-                    </View>
-                    {openSourceLibrariesArr.map((item: PackageDetail, index: number) => (
-                        <TouchableRipple
-                            key={index}
-                            rippleColor={PaperColors.ripple}
-                            onPress={() => {
-                                openLink(item.repository);
-                            }}>
-                            <List.Item
-                                title={item.name}
-                                titleStyle={[styles.item_title, {color: PaperColors.text}]}
-                                right={() => (
-                                    <View style={styles.item_right}>
-                                        <Text
-                                            style={[
-                                                styles.item_right_type,
-                                                {
-                                                    color: PaperColors.placeholder,
-                                                },
-                                            ]}>
-                                            {item.license}
-                                        </Text>
-                                        <Icon
-                                            name="open-outline"
-                                            size={12}
-                                            color={PaperColors.text}
-                                        />
-                                    </View>
-                                )}
-                            />
-                        </TouchableRipple>
-                    ))}
-                </View>
-            </ScrollView>
+            <FlatList
+                data={openSourceLibrariesArr}
+                renderItem={renderTouchableRipple}
+                keyExtractor={(item, index) => index.toString()}
+            />
         </View>
     );
 };
@@ -195,39 +128,6 @@ const OpenSourceLibraries: React.FC = () => {
 const styles = StyleSheet.create({
     root: {
         flex: 1,
-    },
-    scrollview_padding: {
-        // paddingBottom: 16,
-    },
-    header: {
-        marginLeft: 16,
-        marginRight: 16,
-        marginTop: 16,
-        marginBottom: 16,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    header_title_container: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-    },
-    header_title: {},
-    header_title_spicial: {
-        textDecorationLine: 'underline',
-    },
-    header_divider_flex: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        marginTop: 8,
-        marginBottom: 8,
-    },
-    header_divider: {
-        height: 1,
-        width: 4,
-        marginLeft: 2,
-        marginRight: 2,
     },
     item_title: {
         fontSize: 12,
