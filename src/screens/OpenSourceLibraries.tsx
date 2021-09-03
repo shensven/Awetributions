@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Linking, StatusBar, Platform, FlatList} from 'react-native';
+import {View, Text, StyleSheet, Linking, StatusBar, FlatList} from 'react-native';
 import {List, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
@@ -72,7 +72,7 @@ const OpenSourceLibraries: React.FC = () => {
             } else {
                 Linking.openURL(url);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error.message);
         }
     };
@@ -111,7 +111,6 @@ const OpenSourceLibraries: React.FC = () => {
             style={[
                 styles.root,
                 {
-                    paddingBottom: Platform.OS === 'android' ? insets.bottom : 0,
                     paddingLeft: insets.left,
                     paddingRight: insets.right,
                 },
@@ -119,6 +118,8 @@ const OpenSourceLibraries: React.FC = () => {
             <FlatList
                 data={openSourceLibrariesArr}
                 renderItem={renderTouchableRipple}
+                ListFooterComponent={() => <View />}
+                ListFooterComponentStyle={{height: insets.bottom}}
                 keyExtractor={(item, index) => index.toString()}
             />
         </View>

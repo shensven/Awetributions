@@ -2,10 +2,11 @@ import React, {useContext} from 'react';
 import {Linking, ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {List, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTranslation} from 'react-i18next';
-import {SettingsContext} from '../util/SettingsManager';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
+import {SettingsContext} from '../util/SettingsManager';
 
 interface ListItemProps {
     label: string;
@@ -20,6 +21,7 @@ interface ListItemProps {
 const Settings: React.FC = () => {
     const navigation = useNavigation();
     const {t} = useTranslation();
+    const insets = useSafeAreaInsets();
     const {colors: PaperColor} = usePaperTheme();
 
     const {appAppearanceScheme, appI18nScheme} = useContext(SettingsContext);
@@ -96,7 +98,7 @@ const Settings: React.FC = () => {
             } else {
                 Linking.openURL(url);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error.message);
         }
     };
@@ -137,8 +139,11 @@ const Settings: React.FC = () => {
     };
 
     return (
-        <View style={styles.root}>
-            <ScrollView>
+        <View style={[styles.root, {paddingLeft: insets.left, paddingRight: insets.right}]}>
+            <ScrollView
+                contentContainerStyle={{
+                    paddingBottom: insets.bottom,
+                }}>
                 <List.Section>
                     <ListItem
                         label={t('Settings.OAuth2_Token')}
@@ -204,25 +209,10 @@ const styles = StyleSheet.create({
     root: {
         flex: 1,
     },
-
     item_right: {
         flexDirection: 'row',
         alignItems: 'center',
         marginRight: 8,
-    },
-
-    bottom_easter_egg: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        marginBottom: -96,
-    },
-    bottom_easter_egg_text: {
-        fontSize: 12,
     },
 });
 

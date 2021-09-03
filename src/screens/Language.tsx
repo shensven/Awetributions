@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {View, StyleSheet, ScrollView, Text} from 'react-native';
 import {TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
 import DeviceInfo from 'react-native-device-info';
 import {SettingsContext} from '../util/SettingsManager';
@@ -16,6 +17,7 @@ interface ToogleBtnProps {
 const Language: React.FC = () => {
     const {handleI18nScheme} = useContext(SettingsContext);
     const {colors: PaperColor} = usePaperTheme();
+    const insets = useSafeAreaInsets();
     const {t, i18n} = useTranslation();
 
     const absoluteWindowWidth = useAbsoluteWindowWidth();
@@ -34,11 +36,15 @@ const Language: React.FC = () => {
             setToogleBtnWidth((absoluteWindowWidth - 32) / 4);
             setToogleBtnHeight(((absoluteWindowWidth - 32) / 4) * 0.55);
         } else if (isLandscape === true && deviceType === 'Handset') {
-            setToogleBtnWidth((absoluteWindowHeight - 32) / 4);
-            setToogleBtnHeight(((absoluteWindowHeight - 32) / 4) * 0.55);
+            setToogleBtnWidth((absoluteWindowHeight - 32 - insets.left - insets.right) / 4);
+            setToogleBtnHeight(
+                ((absoluteWindowHeight - 32 - insets.left - insets.right) / 4) * 0.55,
+            );
         } else if (isLandscape === true && deviceType === 'Tablet') {
-            setToogleBtnWidth((absoluteWindowHeight - 32) / 6);
-            setToogleBtnHeight(((absoluteWindowHeight - 32) / 6) * 0.55);
+            setToogleBtnWidth((absoluteWindowHeight - 32 - insets.left - insets.right) / 6);
+            setToogleBtnHeight(
+                ((absoluteWindowHeight - 32 - insets.left - insets.right) / 6) * 0.55,
+            );
         }
     });
 
@@ -93,8 +99,8 @@ const Language: React.FC = () => {
     };
 
     return (
-        <View style={styles.root}>
-            <ScrollView>
+        <View style={[styles.root, {paddingLeft: insets.left, paddingRight: insets.right}]}>
+            <ScrollView contentContainerStyle={{paddingBottom: insets.bottom}}>
                 <View style={styles.bg}>
                     <ToogleBtn
                         label="English"
