@@ -1,5 +1,15 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Linking, Alert, Image, Vibration, Platform} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Linking,
+    Alert,
+    Image,
+    Vibration,
+    Platform,
+    ScrollView,
+} from 'react-native';
 import {Button, Snackbar, TouchableRipple, useTheme as usePaperTheme} from 'react-native-paper';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
@@ -95,12 +105,12 @@ const About: React.FC = () => {
                         GeniuSven
                     </Text>
                 </View>
-                <View style={styles.mid}>
-                    <Translator language={t('About.en')} translator="GeniuSven" />
-                    <Translator language={t('About.zh-Hans')} translator="GeniuSven" />
-                    <Translator language={t('About.zh-Hant')} translator="GeniuSven" />
-                </View>
             </View>
+            <ScrollView contentContainerStyle={styles.mid}>
+                <Translator language={t('About.en')} translator="GeniuSven" />
+                <Translator language={t('About.zh-Hans')} translator="GeniuSven" />
+                <Translator language={t('About.zh-Hant')} translator="GeniuSven" />
+            </ScrollView>
             <View style={styles.footer}>
                 <Button
                     theme={{
@@ -135,6 +145,7 @@ const styles = StyleSheet.create({
     },
     header: {
         alignItems: 'center',
+        marginBottom: 32,
     },
     header_btn: {
         borderRadius: 72,
@@ -161,7 +172,7 @@ const styles = StyleSheet.create({
     },
 
     mid: {
-        marginTop: 32,
+        // flex: 1,
         alignItems: 'center',
     },
     mid_description: {
@@ -171,6 +182,8 @@ const styles = StyleSheet.create({
     footer: {
         flexDirection: 'row',
         justifyContent: 'center',
+        marginTop: 16,
+        marginBottom: 16,
     },
     snackbar: {
         marginBottom: 24,
