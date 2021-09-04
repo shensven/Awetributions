@@ -100,27 +100,25 @@ const Language: React.FC = () => {
 
     return (
         <View style={[styles.root, {paddingLeft: insets.left, paddingRight: insets.right}]}>
-            <ScrollView contentContainerStyle={{paddingBottom: insets.bottom}}>
-                <View style={styles.bg}>
-                    <ToogleBtn
-                        label="English"
-                        description={t('Language.en')}
-                        i18nKey="en"
-                        onPress={() => handleI18nScheme('en')}
-                    />
-                    <ToogleBtn
-                        label="简体中文"
-                        description={t('Language.zh-Hans')}
-                        i18nKey="zh-Hans"
-                        onPress={() => handleI18nScheme('zh-Hans')}
-                    />
-                    <ToogleBtn
-                        label="繁體中文"
-                        description={t('Language.zh-Hant')}
-                        i18nKey="zh-Hant"
-                        onPress={() => handleI18nScheme('zh-Hant')}
-                    />
-                </View>
+            <ScrollView contentContainerStyle={[styles.bg, {paddingBottom: insets.bottom}]}>
+                <ToogleBtn
+                    label="English"
+                    description={t('Language.en')}
+                    i18nKey="en"
+                    onPress={() => handleI18nScheme('en')}
+                />
+                <ToogleBtn
+                    label="简体中文"
+                    description={t('Language.zh-Hans')}
+                    i18nKey="zh-Hans"
+                    onPress={() => handleI18nScheme('zh-Hans')}
+                />
+                <ToogleBtn
+                    label="繁體中文"
+                    description={t('Language.zh-Hant')}
+                    i18nKey="zh-Hant"
+                    onPress={() => handleI18nScheme('zh-Hant')}
+                />
             </ScrollView>
         </View>
     );

@@ -90,12 +90,7 @@ const OpenSourceLibraries: React.FC = () => {
                     right={() => (
                         <View style={styles.item_right}>
                             <Text
-                                style={[
-                                    styles.item_right_type,
-                                    {
-                                        color: PaperColors.placeholder,
-                                    },
-                                ]}>
+                                style={[styles.item_right_type, {color: PaperColors.placeholder}]}>
                                 {item.license}
                             </Text>
                             <Icon name="open-outline" size={12} color={PaperColors.text} />
@@ -107,14 +102,7 @@ const OpenSourceLibraries: React.FC = () => {
     };
 
     return (
-        <View
-            style={[
-                styles.root,
-                {
-                    paddingLeft: insets.left,
-                    paddingRight: insets.right,
-                },
-            ]}>
+        <View style={[styles.root, {paddingLeft: insets.left, paddingRight: insets.right}]}>
             <FlatList
                 data={openSourceLibrariesArr}
                 renderItem={renderTouchableRipple}

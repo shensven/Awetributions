@@ -5,7 +5,7 @@ import {NavigationContainer /*useTheme as useNavigationTheme*/} from '@react-nav
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import RNBootSplash from 'react-native-bootsplash';
-//@ts-ignore
+// @ts-ignore
 import * as TransparentStatusAndNavigationBar from 'react-native-transparent-status-and-navigation-bar';
 
 import {useTranslation} from 'react-i18next';

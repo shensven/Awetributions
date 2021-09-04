@@ -110,9 +110,7 @@ const OAuthToken: React.FC = () => {
                 </View>
                 <Button
                     mode="contained"
-                    theme={{
-                        roundness: 10,
-                    }}
+                    theme={{roundness: 10}}
                     style={styles.btn}
                     onPress={() => submit()}>
                     {currentLocalToken === null ? t('OAuth2Token.SAVE') : t('OAuth2Token.UPDATE')}

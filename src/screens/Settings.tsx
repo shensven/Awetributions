@@ -140,10 +140,7 @@ const Settings: React.FC = () => {
 
     return (
         <View style={[styles.root, {paddingLeft: insets.left, paddingRight: insets.right}]}>
-            <ScrollView
-                contentContainerStyle={{
-                    paddingBottom: insets.bottom,
-                }}>
+            <ScrollView contentContainerStyle={{paddingBottom: insets.bottom}}>
                 <List.Section>
                     <ListItem
                         label={t('Settings.OAuth2_Token')}

@@ -112,11 +112,7 @@ const About: React.FC = () => {
                 <Translator language={t('About.zh-Hant')} translator="GeniuSven" />
             </ScrollView>
             <View style={styles.footer}>
-                <Button
-                    theme={{
-                        roundness: 10,
-                    }}
-                    onPress={() => checkVersion()}>
+                <Button theme={{roundness: 10}} onPress={() => checkVersion()}>
                     {t('About.Check_for_Updates')}
                 </Button>
             </View>
@@ -127,9 +123,7 @@ const About: React.FC = () => {
                     label: t('About.DISSMISS'),
                     onPress: () => setHasEasterEgg(false),
                 }}
-                theme={{
-                    roundness: 6,
-                }}
+                theme={{roundness: 6}}
                 style={styles.snackbar}>
                 Made with ❤️ in Kunming
             </Snackbar>

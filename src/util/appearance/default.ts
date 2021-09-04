@@ -2,7 +2,7 @@ import {DefaultTheme as PaperDefaultTheme, DarkTheme as PaperDarkTheme} from 're
 import {
     DefaultTheme as NavigationDefaultTheme,
     DarkTheme as NavigationDarkTheme,
-    useTheme as useNavigationTheme,
+    /* useTheme as useNavigationTheme */
 } from '@react-navigation/native';
 
 // ----------------------------------------------------------------------
