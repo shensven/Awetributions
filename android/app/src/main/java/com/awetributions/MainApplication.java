@@ -15,6 +15,7 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import com.zoontek.rnbootsplash.RNBootSplashPackage;
 import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 import com.reactnativepagerview.PagerViewPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -34,6 +35,7 @@ public class MainApplication extends Application implements ReactApplication {
           new VectorIconsPackage();
           new RNInAppBrowserPackage();
           new PagerViewPackage();
+          new SafeAreaContextPackage();
           return packages;
         }
 
