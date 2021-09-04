@@ -1,6 +1,8 @@
 package com.awetributions;
 
 import android.os.Bundle;
+import android.os.Build;
+import android.view.WindowManager;
 import com.facebook.react.ReactActivity;
 import android.content.res.Configuration;
 import com.zoontek.rnbootsplash.RNBootSplash;
@@ -8,7 +10,6 @@ import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 import io.moox.rntransparentstatusandnavigationbar.RNTransparentStatusAndNavigationBar;
-
 
 public class MainActivity extends ReactActivity {
 
@@ -43,6 +44,13 @@ public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+    WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+    layoutParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+    getWindow().setAttributes(layoutParams);
+    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+  }
     super.onCreate(savedInstanceState);
     RNBootSplash.init(R.drawable.bootsplash, MainActivity.this); // <- display the generated bootsplash.xml drawable over our MainActivity
     RNTransparentStatusAndNavigationBar.init(MainActivity.this);
