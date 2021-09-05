@@ -8,9 +8,9 @@
             "enabled": false,
             "excludePackageNames": [
                 "@types/react",
-                "@types/react-native-vector-icons"
+                "@types/react-native-vector-icons",
                 "json",
-                "license-compliance",
+                "license-compliance"
             ]
         },
         {

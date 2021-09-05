@@ -55,7 +55,7 @@
         "typescript": "^3.8.3"
     },
     "resolutions": {
-        "@types/react": "17.0.19"
+        "@types/react": "17.0.20"
     },
     "jest": {
         "preset": "react-native",
