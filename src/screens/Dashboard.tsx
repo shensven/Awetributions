@@ -411,12 +411,12 @@ const Dashboard: React.FC = () => {
                             unit={t('Dashboard.commits/day')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.current_continuity')}
+                            label={t('Dashboard.current_streak')}
                             value="xx"
                             unit={t('Dashboard.day')}
                         />
                         <KeyValueEl
-                            label={t('Dashboard.max_continuity')}
+                            label={t('Dashboard.longest_streak')}
                             value="xx"
                             unit={t('Dashboard.day')}
                         />
@@ -525,12 +525,12 @@ const styles = StyleSheet.create({
         // borderRadius: 4,
     },
 
-    mid_title: {
-        fontSize: 16,
-        fontWeight: '800',
-        marginTop: 8,
-        marginLeft: 16,
-    },
+    // mid_title: {
+    //     fontSize: 16,
+    //     fontWeight: '800',
+    //     marginTop: 8,
+    //     marginLeft: 16,
+    // },
     mid_section_title: {
         marginLeft: 24,
         marginRight: 24,
@@ -541,7 +541,7 @@ const styles = StyleSheet.create({
     mid_section_title_left: {
         fontSize: 12,
     },
-    mid_section_title_right: {},
+    // mid_section_title_right: {},
     mid_section: {
         marginLeft: 16,
         marginRight: 16,
@@ -557,7 +557,7 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
     },
     mid_section_top_label: {
-        fontSize: 12,
+        fontSize: 11.5,
     },
     mid_section_bottom: {
         flexDirection: 'row',
@@ -572,10 +572,10 @@ const styles = StyleSheet.create({
         marginLeft: 1,
         marginBottom: 1,
     },
-    mid_section_bottom_value_spacial: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
+    // mid_section_bottom_value_spacial: {
+    //     fontSize: 20,
+    //     fontWeight: 'bold',
+    // },
 });
 
 export default Dashboard;
