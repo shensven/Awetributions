@@ -24,3 +24,6 @@ jobs:
 
             - name: Gradlew test
               run: cd android && chmod +x gradlew && ./gradlew test
+
+            - name: Jest
+              run: yarn jest
