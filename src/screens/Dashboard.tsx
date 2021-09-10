@@ -406,6 +406,16 @@ const Dashboard: React.FC = () => {
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
                         <KeyValueEl
+                            label={t('Dashboard.repo')}
+                            value={reposArray.length.toString()}
+                            unit={t('Dashboard.ge')}
+                        />
+                        <KeyValueEl
+                            label={t('Dashboard.max_one_day')}
+                            value="xx"
+                            unit={t('Dashboard.commits')}
+                        />
+                        <KeyValueEl
                             label={t('Dashboard.annual_average')}
                             value="x.xx"
                             unit={t('Dashboard.commits/day')}
@@ -419,16 +429,6 @@ const Dashboard: React.FC = () => {
                             label={t('Dashboard.longest_streak')}
                             value="xx"
                             unit={t('Dashboard.day')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.max_one_day')}
-                            value="xx"
-                            unit={t('Dashboard.commits')}
-                        />
-                        <KeyValueEl
-                            label={t('Dashboard.repo')}
-                            value={reposArray.length.toString()}
-                            unit={t('Dashboard.ge')}
                         />
                     </View>
                     <View style={styles.mid_section_title}>
