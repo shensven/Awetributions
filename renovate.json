@@ -25,6 +25,7 @@
                 "axios",
                 "i18next",
                 "i18next-http-backend",
+                "query-string",
                 "react-i18next",
                 "react-native-bootsplash",
                 "react-native-device-info",
