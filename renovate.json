@@ -21,7 +21,6 @@
                 "@react-native-community/hooks",
                 "@react-native-community/masked-view",
                 "@react-navigation/native",
-                "@react-navigation/native-stack",
                 "@react-navigation/stack",
                 "axios",
                 "i18next",
