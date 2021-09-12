@@ -7,6 +7,7 @@
 [![Test](https://github.com/shensven/Awetributions/actions/workflows/dev.yml/badge.svg?branch=dev)](https://github.com/shensven/Awetributions/actions/workflows/dev.yml)
 [![Build](https://github.com/shensven/Awetributions/actions/workflows/main.yml/badge.svg)](https://github.com/shensven/Awetributions/actions/workflows/main.yml)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/38ba286740994a94ad75d9fcf3b2310b)](https://app.codacy.com/gh/shensven/Awetributions?utm_source=github.com&utm_medium=referral&utm_content=shensven/Awetributions&utm_campaign=Badge_Grade_Settings)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fshensven%2FAwetributions.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fshensven%2FAwetributions?ref=badge_shield)
 
 ## FEATURES
 
@@ -45,3 +46,7 @@ yarn ios
 ```sh
 cd android && ./gradlew assembleRelease
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fshensven%2FAwetributions.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fshensven%2FAwetributions?ref=badge_large)
