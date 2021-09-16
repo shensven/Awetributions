@@ -269,7 +269,7 @@ PODS:
     - React-jsi (= 0.65.1)
     - React-perflogger (= 0.65.1)
   - React-jsinspector (0.65.1)
-  - react-native-pager-view (5.4.1):
+  - react-native-pager-view (5.4.4):
     - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
@@ -339,17 +339,17 @@ PODS:
     - React-perflogger (= 0.65.1)
   - RNBootSplash (3.2.5):
     - React-Core
-  - RNCAsyncStorage (1.15.7):
+  - RNCAsyncStorage (1.15.8):
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
-  - RNDeviceInfo (8.3.1):
+  - RNDeviceInfo (8.3.2):
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNInAppBrowser (3.6.3):
     - React-Core
-  - RNReanimated (2.2.1):
+  - RNReanimated (2.2.2):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -378,7 +378,7 @@ PODS:
     - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.7.0):
+  - RNScreens (3.7.2):
     - React-Core
     - React-RCTImage
   - RNVectorIcons (8.1.0):
@@ -579,7 +579,7 @@ SPEC CHECKSUMS:
   React-jsi: 12913c841713a15f64eabf5c9ad98592c0ec5940
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
-  react-native-pager-view: 43f51f45f37ec9715f6c188e4af46ccdf79872e8
+  react-native-pager-view: 5ab4d0b4b44d89f77310cb3eb8129745f274ce55
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
   React-RCTActionSheet: 7f3fa0855c346aa5d7c60f9ced16e067db6d29fa
@@ -594,13 +594,13 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 85187f19dd9c47a7c102f9994f9d14e4dc2110de
   ReactCommon: eafed38eec7b591c31751bfa7494801618460459
   RNBootSplash: 75faf048f66eebe1650e91afdb8c2205fefc1870
-  RNCAsyncStorage: 7102fe8985f889579a3ae148d957bbb3f308122b
+  RNCAsyncStorage: e8b8d6320a0dd90eb610fb0d0b1ef90596697c69
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNDeviceInfo: 7b82d1467b87f7e74d1c7ba9439a9a57d0c68ee9
+  RNDeviceInfo: ca017abd037def669329ed4f34796f4ef63d7035
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
-  RNReanimated: d29057cf85e771be4f0180ba1d00a7185e423a7d
-  RNScreens: 2a71d74b4e530f051f5684c8111d7591176722cf
+  RNReanimated: ad24db8af24e3fe1b5c462785bc3db8d5baae2ee
+  RNScreens: 0591543e343c7444ea1756b6265d81a4295922c9
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
