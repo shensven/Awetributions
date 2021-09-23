@@ -1,4 +1,4 @@
-# Awetributions
+# Awetributions (Release this winter)
 
 [![](https://img.shields.io/github/license/shensven/Awetributions)](./LICENSE)
 [![](https://img.shields.io/github/package-json/dependency-version/shensven/Awetributions/react)](./package.json)
