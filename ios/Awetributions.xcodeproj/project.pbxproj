@@ -13,9 +13,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		24FE8C4454E85DDE39FC3761 /* libPods-Awetributions-AwetributionsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E9BB46C301A0DB3903A15F /* libPods-Awetributions-AwetributionsTests.a */; };
-		7FFF067D53EC4CA0144B7DF2 /* libPods-Awetributions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC61E13AA33D0A79889C4BFE /* libPods-Awetributions.a */; };
+		175813E9A435A32AED76648D /* libPods-Awetributions-AwetributionsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E3327B4D3A4D55C6FD9425 /* libPods-Awetributions-AwetributionsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A40F2862B4EDA2650EBC713E /* libPods-Awetributions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 155D89BA204DEBFF6B31B7C1 /* libPods-Awetributions.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,19 +33,19 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AwetributionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwetributionsTests.m; sourceTree = "<group>"; };
 		0693E6DB269B5A5A00C4830C /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = Awetributions/BootSplash.storyboard; sourceTree = "<group>"; };
-		0C402BFAB2108501BC86E2E6 /* Pods-Awetributions-AwetributionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions-AwetributionsTests.release.xcconfig"; path = "Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Awetributions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awetributions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Awetributions/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Awetributions/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Awetributions/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Awetributions/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Awetributions/main.m; sourceTree = "<group>"; };
-		7946A2E95346075093E6091D /* Pods-Awetributions-AwetributionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions-AwetributionsTests.debug.xcconfig"; path = "Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		155D89BA204DEBFF6B31B7C1 /* libPods-Awetributions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Awetributions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4485F4D0C90B02A457444F39 /* Pods-Awetributions-AwetributionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions-AwetributionsTests.release.xcconfig"; path = "Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests.release.xcconfig"; sourceTree = "<group>"; };
+		44FF298BAECD28FA37D69881 /* Pods-Awetributions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions.release.xcconfig"; path = "Target Support Files/Pods-Awetributions/Pods-Awetributions.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Awetributions/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A878153E4FB3DC313D731ED2 /* Pods-Awetributions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions.release.xcconfig"; path = "Target Support Files/Pods-Awetributions/Pods-Awetributions.release.xcconfig"; sourceTree = "<group>"; };
-		AA7EEBC9991E14A2216E242F /* Pods-Awetributions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions.debug.xcconfig"; path = "Target Support Files/Pods-Awetributions/Pods-Awetributions.debug.xcconfig"; sourceTree = "<group>"; };
-		BC61E13AA33D0A79889C4BFE /* libPods-Awetributions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Awetributions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3E9BB46C301A0DB3903A15F /* libPods-Awetributions-AwetributionsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Awetributions-AwetributionsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8867FAA88DCA0383EB20CF23 /* Pods-Awetributions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions.debug.xcconfig"; path = "Target Support Files/Pods-Awetributions/Pods-Awetributions.debug.xcconfig"; sourceTree = "<group>"; };
+		A17EB415209E4206E5D9C7B4 /* Pods-Awetributions-AwetributionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Awetributions-AwetributionsTests.debug.xcconfig"; path = "Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3E3327B4D3A4D55C6FD9425 /* libPods-Awetributions-AwetributionsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Awetributions-AwetributionsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24FE8C4454E85DDE39FC3761 /* libPods-Awetributions-AwetributionsTests.a in Frameworks */,
+				175813E9A435A32AED76648D /* libPods-Awetributions-AwetributionsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FFF067D53EC4CA0144B7DF2 /* libPods-Awetributions.a in Frameworks */,
+				A40F2862B4EDA2650EBC713E /* libPods-Awetributions.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				BC61E13AA33D0A79889C4BFE /* libPods-Awetributions.a */,
-				E3E9BB46C301A0DB3903A15F /* libPods-Awetributions-AwetributionsTests.a */,
+				155D89BA204DEBFF6B31B7C1 /* libPods-Awetributions.a */,
+				C3E3327B4D3A4D55C6FD9425 /* libPods-Awetributions-AwetributionsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,10 +153,10 @@
 		B1C05AF534746481B8A36BC3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AA7EEBC9991E14A2216E242F /* Pods-Awetributions.debug.xcconfig */,
-				A878153E4FB3DC313D731ED2 /* Pods-Awetributions.release.xcconfig */,
-				7946A2E95346075093E6091D /* Pods-Awetributions-AwetributionsTests.debug.xcconfig */,
-				0C402BFAB2108501BC86E2E6 /* Pods-Awetributions-AwetributionsTests.release.xcconfig */,
+				8867FAA88DCA0383EB20CF23 /* Pods-Awetributions.debug.xcconfig */,
+				44FF298BAECD28FA37D69881 /* Pods-Awetributions.release.xcconfig */,
+				A17EB415209E4206E5D9C7B4 /* Pods-Awetributions-AwetributionsTests.debug.xcconfig */,
+				4485F4D0C90B02A457444F39 /* Pods-Awetributions-AwetributionsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -175,12 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AwetributionsTests" */;
 			buildPhases = (
-				75406D1B64DEE5EEE7E4CA30 /* [CP] Check Pods Manifest.lock */,
+				C7ACEF42F5B9F842ED67ABCD /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				4B7019F0CF1B5150CA626F47 /* [CP] Embed Pods Frameworks */,
-				875212C42BFD5B7E0B54B2E8 /* [CP] Copy Pods Resources */,
+				C01EAE942534F128B01BF8AE /* [CP] Embed Pods Frameworks */,
+				95149F5580BA5DF4864C79ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,14 +196,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Awetributions" */;
 			buildPhases = (
-				4759B010AD0C832CC5EA812D /* [CP] Check Pods Manifest.lock */,
+				4C65E6813027BDF7BA6CC804 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				DAEBB92F1C3C2BA66475D450 /* [CP] Embed Pods Frameworks */,
-				5CA4410B02006B9923B954ED /* [CP] Copy Pods Resources */,
+				8234364A1342BA655B72FBE8 /* [CP] Embed Pods Frameworks */,
+				A87BD8F724495AC45FA36489 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,7 +286,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		4759B010AD0C832CC5EA812D /* [CP] Check Pods Manifest.lock */ = {
+		4C65E6813027BDF7BA6CC804 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,24 +308,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4B7019F0CF1B5150CA626F47 /* [CP] Embed Pods Frameworks */ = {
+		8234364A1342BA655B72FBE8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Awetributions/Pods-Awetributions-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Awetributions/Pods-Awetributions-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Awetributions/Pods-Awetributions-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5CA4410B02006B9923B954ED /* [CP] Copy Pods Resources */ = {
+		95149F5580BA5DF4864C79ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A87BD8F724495AC45FA36489 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -342,7 +359,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Awetributions/Pods-Awetributions-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		75406D1B64DEE5EEE7E4CA30 /* [CP] Check Pods Manifest.lock */ = {
+		C01EAE942534F128B01BF8AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7ACEF42F5B9F842ED67ABCD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,40 +396,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		875212C42BFD5B7E0B54B2E8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Awetributions-AwetributionsTests/Pods-Awetributions-AwetributionsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DAEBB92F1C3C2BA66475D450 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Awetributions/Pods-Awetributions-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Awetributions/Pods-Awetributions-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Awetributions/Pods-Awetributions-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -450,7 +450,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7946A2E95346075093E6091D /* Pods-Awetributions-AwetributionsTests.debug.xcconfig */;
+			baseConfigurationReference = A17EB415209E4206E5D9C7B4 /* Pods-Awetributions-AwetributionsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6S52LG3NA5;
@@ -478,7 +478,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C402BFAB2108501BC86E2E6 /* Pods-Awetributions-AwetributionsTests.release.xcconfig */;
+			baseConfigurationReference = 4485F4D0C90B02A457444F39 /* Pods-Awetributions-AwetributionsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -503,7 +503,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA7EEBC9991E14A2216E242F /* Pods-Awetributions.debug.xcconfig */;
+			baseConfigurationReference = 8867FAA88DCA0383EB20CF23 /* Pods-Awetributions.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -532,7 +532,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A878153E4FB3DC313D731ED2 /* Pods-Awetributions.release.xcconfig */;
+			baseConfigurationReference = 44FF298BAECD28FA37D69881 /* Pods-Awetributions.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
