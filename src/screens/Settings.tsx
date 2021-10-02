@@ -7,6 +7,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTranslation} from 'react-i18next';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 import {SettingsContext} from '../util/SettingsManager';
+import {StackScreenProps} from '@react-navigation/stack';
+
+type StackParamList = {
+    OAuth2Token: undefined;
+    Appearance: undefined;
+    Language: undefined;
+    OpenSourceLibraries: undefined;
+    About: undefined;
+};
+
+type ScreenNavigationProp = StackScreenProps<StackParamList>['navigation'];
 
 interface ListItemProps {
     label: string;
@@ -19,7 +30,7 @@ interface ListItemProps {
 }
 
 const Settings: React.FC = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<ScreenNavigationProp>();
     const {t} = useTranslation();
     const insets = useSafeAreaInsets();
     const {colors: PaperColor} = usePaperTheme();
@@ -146,39 +157,27 @@ const Settings: React.FC = () => {
                         label={t('Settings.OAuth2_Token')}
                         leftIcon="logo-github"
                         hasArrow={true}
-                        onPress={() =>
-                            // @ts-ignore
-                            navigation.navigate('OAuth2Token')
-                        }
+                        onPress={() => navigation.navigate('OAuth2Token')}
                     />
                     <ListItem
                         label={t('Settings.Appearance')}
                         leftIcon="color-palette-outline"
                         hasArrow={true}
                         description={appearancePreferenceValue()}
-                        onPress={() =>
-                            // @ts-ignore
-                            navigation.navigate('Appearance')
-                        }
+                        onPress={() => navigation.navigate('Appearance')}
                     />
                     <ListItem
                         label={t('Settings.Language')}
                         leftIcon="language-outline"
                         hasArrow={true}
                         description={languagePreferenceValue()}
-                        onPress={() =>
-                            // @ts-ignore
-                            navigation.navigate('Language')
-                        }
+                        onPress={() => navigation.navigate('Language')}
                     />
                     <ListItem
                         label={t('Settings.OpenSourceLibraries')}
                         leftIcon="code-slash-outline"
                         hasArrow={true}
-                        onPress={() =>
-                            // @ts-ignore
-                            navigation.navigate('OpenSourceLibraries')
-                        }
+                        onPress={() => navigation.navigate('OpenSourceLibraries')}
                     />
                     <ListItem
                         label={t('Settings.Feedback')}
@@ -191,10 +190,7 @@ const Settings: React.FC = () => {
                         label={t('Settings.About')}
                         leftIcon="happy-outline"
                         hasArrow={true}
-                        onPress={() =>
-                            // @ts-ignore
-                            navigation.navigate('About')
-                        }
+                        onPress={() => navigation.navigate('About')}
                     />
                 </List.Section>
             </ScrollView>

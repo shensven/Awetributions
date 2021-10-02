@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useLayoutEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {
     View,
     Text,
@@ -12,12 +12,10 @@ import {
 import {IconButton, useTheme as usePaperTheme} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {StackScreenProps} from '@react-navigation/stack';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
 import PagerView from 'react-native-pager-view';
 import DeviceInfo from 'react-native-device-info';
-import queryString from 'query-string';
 import axios from 'axios';
 import appAxios from '../util/appAxios';
 import {
@@ -26,21 +24,43 @@ import {
     useAbsoluteWindowWidth,
 } from '../util/absoluteScreen';
 
-type StackParamList = {
-    Settings: undefined;
-};
-
-type ScreenNavigationProp = StackScreenProps<StackParamList>['navigation'];
-
 // const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const owner: string = 'shensven';
-const PER_PAGE: number = 9;
+const PER_PAGE: number = 100;
 const COMMIT_PER_PAGE: number = 40;
 
 const wait = (timeout: number) => {
     return new Promise(resolve => setTimeout(resolve, timeout));
 };
+
+interface Owner {
+    data: {
+        public_repos: number;
+    };
+}
+
+interface RspRepos {
+    data: {
+        name: string;
+    }[];
+    headers: {
+        link?: string;
+    };
+}
+
+interface Commit {
+    date: string;
+}
+
+interface RemoteCommit {
+    name: string;
+    commit: {
+        author: {
+            date: string;
+        };
+    };
+}
 
 const Dashboard: React.FC = () => {
     const navigation = useNavigation();
@@ -51,80 +71,114 @@ const Dashboard: React.FC = () => {
     const deviceType = DeviceInfo.getDeviceType();
 
     const [refreshing, setRefreshing] = useState<boolean>(false);
-    const onRefresh = useCallback(() => {
+
+    const [ownerReposCount, setOwnerReposCount] = useState<number>(-1);
+
+    const [lastReposPage, setLastReposPage] = useState<number>(-1);
+    const [reposArray, setReposArray] = useState<string[]>([]);
+
+    const [lastCommitsPage, setLastCommitsPage] = useState<number>(1);
+    const [commitsArray, setCommitsArray] = useState<[]>([]);
+
+    const onRefresh = React.useCallback(() => {
         setRefreshing(true);
         wait(3000).then(() => setRefreshing(false));
     }, []);
 
-    const [refreshIndex, setRefreshIndex] = useState<number>(0);
-
-    //OK
-    const [repos, setRepos] = useState<number>(0);
-    const getRepos = async () => {
-        const resp = await appAxios.get(`/users/${owner}`);
-        setRepos(resp.data.public_repos);
-    };
-
-    // Pedding
-    const [lastPage, setLastPage] = useState<number>(1);
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [repoArray, setRepoArray] = useState<string[]>([]);
-    const getArrayRepos = async () => {
-        if (lastPage === 1) {
-            //
-            // Get Firft Page
-            const resp = await appAxios.get(`/users/${owner}/repos`, {
-                params: {
-                    page: 1,
-                    per_page: PER_PAGE,
-                },
-            });
-
-            if ('link' in resp.headers) {
-                const params = resp.headers.link
-                    ?.split(',')[1]
-                    .split(';')[0]
-                    .split('<')[1]
-                    .split('>')[0]
-                    .split('?')[1];
-
-                const parsed = queryString.parse(params);
-                // setLastPage(Number(parsed.page));
-                // setCurrentPage(currentPage + 1);
-            }
-
-            // console.log(
-            //     resp.data.filter((item: {name: string}) => {
-            //         return item.name;
-            //     }),
-            // );
-        } else {
-            //
-            // Get Next Page
-            const resp = await appAxios.get(`/users/${owner}/repos`, {
-                params: {
-                    page: currentPage,
-                    per_page: PER_PAGE,
-                },
-            });
+    const getOwnerReposCount = async () => {
+        if (ownerReposCount === -1) {
+            const _resReposCount: Owner = await appAxios.get(`/users/${owner}`);
+            setOwnerReposCount(_resReposCount.data.public_repos);
         }
     };
 
-    useEffect(() => {
-        // getRepos();
-        // console.log('getRepos');
-    }, []);
+    const getFirstArray = async () => {
+        if (lastReposPage === -1) {
+            const _rspReposFirstArray: RspRepos = await appAxios.get(`users/${owner}/repos`, {
+                params: {per_page: PER_PAGE},
+            });
+            const _reposFirstArray: string[] = _rspReposFirstArray.data.map(
+                (item: {name: string}) => item.name,
+            );
+            setReposArray(_reposFirstArray);
 
-    useEffect(() => {
-        getArrayRepos();
-    }, [currentPage]);
+            let _rspReposLastPage: number = 1;
+            if ('link' in _rspReposFirstArray.headers) {
+                const _rspReposLastURL: string = (_rspReposFirstArray.headers.link as string)
+                    .split(',')[1]
+                    .split(';')[0]
+                    .split('<')[1]
+                    .split('>')[0];
+                _rspReposLastPage = Number(_rspReposLastURL.charAt(_rspReposLastURL.length - 1));
+            }
+            setLastReposPage(_rspReposLastPage);
+        }
+    };
 
-    useEffect(() => {
-        // getArrayRepos();
-    }, [lastPage]);
+    const getNextReposArray = async () => {
+        if (reposArray.length < ownerReposCount) {
+            let _tempReposArray: string[] = [];
+
+            for (let i = 1; i < lastReposPage; i++) {
+                const _rspReposNextArray = await appAxios.get(`users/${owner}/repos`, {
+                    params: {per_page: PER_PAGE, page: i + 1},
+                });
+                _rspReposNextArray.data.map((item: {name: string}) =>
+                    _tempReposArray.push(item.name),
+                );
+            }
+            setReposArray([...reposArray].concat(_tempReposArray));
+        }
+    };
+
+    const getFirstCommitsArray = async () => {
+        // const _tempObj: {name?: string; date?: string} = {};
+        if (reposArray.length === ownerReposCount) {
+            axios
+                .all(
+                    reposArray.map((repoName: string) =>
+                        appAxios.get(`/repos/${owner}/${repoName}/commits`),
+                    ),
+                )
+                .then(
+                    axios.spread((...res) => {
+                        res.map(item => {
+                            console.log(item);
+                        });
+                    }),
+                );
+        }
+
+        // const _resCommitsFirstArray = await appAxios.get(
+        //     `/repos/${owner}/${reposArray[0]}/commits`,
+        //     {
+        //         params: {
+        //             per_page: COMMIT_PER_PAGE,
+        //         },
+        //     },
+        // );
+        // const _commitsFirstArray: string[] = _resCommitsFirstArray.data.map(
+        //     (item: RemoteCommit) => item.commit.author.date,
+        // );
+        // setCommitsArray(_commitsFirstArray);
+        // setLastReposPage(_rspReposLastPage);
+    };
+
+    const getNextCommitsArray = async () => {
+        if (lastCommitsPage === 1) {
+        }
+    };
+
+    useLayoutEffect(() => {
+        // getOwnerReposCount();
+        // getFirstArray();
+        // getNextReposArray();
+        // getFirstCommitsArray();
+        // getNextCommitsArray();
+    }, [lastReposPage]);
 
     const RNHeaderRight: React.FC = () => {
-        const _navigation = useNavigation<ScreenNavigationProp>();
+        const _navigation = useNavigation();
         const {colors: _PaperColor} = usePaperTheme();
         return (
             <View style={styles.RN_header_btn}>
@@ -141,7 +195,10 @@ const Dashboard: React.FC = () => {
                     color={_PaperColor.text}
                     rippleColor={_PaperColor.ripple}
                     icon={() => <Ionicons name="cog-outline" size={24} color={_PaperColor.text} />}
-                    onPress={() => _navigation.navigate('Settings')}
+                    onPress={() => {
+                        // @ts-ignore
+                        _navigation.navigate('Settings');
+                    }}
                 />
             </View>
         );
@@ -320,11 +377,16 @@ const Dashboard: React.FC = () => {
                             style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.Today_Activity')}
                         </Text>
+                        {/* <Ionicons
+                            name="reorder-three-outline"
+                            size={16}
+                            color={PaperColor.textAccent}
+                        /> */}
                     </View>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
                         <KeyValueEl
-                            label="2021-09-12"
+                            label="2021-08-16"
                             value="x"
                             valueSize={20}
                             unit={t('Dashboard.commits')}
@@ -335,12 +397,17 @@ const Dashboard: React.FC = () => {
                             style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.Best_Ever')}
                         </Text>
+                        {/* <Ionicons
+                            name="reorder-three-outline"
+                            size={16}
+                            color={PaperColor.textAccent}
+                        /> */}
                     </View>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
                         <KeyValueEl
                             label={t('Dashboard.repo')}
-                            value={repoArray.length.toString()}
+                            value={reposArray.length.toString()}
                             unit={t('Dashboard.ge')}
                         />
                         <KeyValueEl
@@ -369,6 +436,11 @@ const Dashboard: React.FC = () => {
                             style={[styles.mid_section_title_left, {color: PaperColor.textAccent}]}>
                             {t('Dashboard.All_Contribution_Activity')}
                         </Text>
+                        {/* <Ionicons
+                            name="reorder-three-outline"
+                            size={16}
+                            color={PaperColor.textAccent}
+                        /> */}
                     </View>
                     <View
                         style={[styles.mid_section, {backgroundColor: PaperColor.cardBackground}]}>
@@ -398,6 +470,16 @@ const Dashboard: React.FC = () => {
                             unit={t('Dashboard.commits')}
                         />
                     </View>
+                    <Text>ownerReposCount: {ownerReposCount}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
+                    <Text>lastReposPage: {lastReposPage}</Text>
                 </View>
             </ScrollView>
         </View>
