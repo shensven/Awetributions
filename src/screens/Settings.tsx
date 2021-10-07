@@ -9,16 +9,6 @@ import InAppBrowser from 'react-native-inappbrowser-reborn';
 import {SettingsContext} from '../util/SettingsManager';
 import {StackScreenProps} from '@react-navigation/stack';
 
-type StackParamList = {
-    OAuth2Token: undefined;
-    Appearance: undefined;
-    Language: undefined;
-    OpenSourceLibraries: undefined;
-    About: undefined;
-};
-
-type ScreenNavigationProp = StackScreenProps<StackParamList>['navigation'];
-
 interface ListItemProps {
     label: string;
     leftIcon: string;
@@ -28,6 +18,16 @@ interface ListItemProps {
     arrowName?: string;
     onPress: () => void;
 }
+
+type StackParamList = {
+    OAuth2Token: undefined;
+    Appearance: undefined;
+    Language: undefined;
+    OpenSourceLibraries: undefined;
+    About: undefined;
+};
+
+type ScreenNavigationProp = StackScreenProps<StackParamList>['navigation'];
 
 const Settings: React.FC = () => {
     const navigation = useNavigation<ScreenNavigationProp>();
