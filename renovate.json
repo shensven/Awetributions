@@ -1,20 +1,11 @@
 {
     "extends": ["config:base"],
     "baseBranches": ["dev"],
+    "semanticCommits": "enabled",
     "major": false,
     "packageRules": [
         {
-            "matchDepTypes": ["devDependencies"],
-            "enabled": false,
-            "excludePackageNames": [
-                "@types/react",
-                "@types/react-native-vector-icons",
-                "json",
-                "license-compliance",
-                "react-native-flipper"
-            ]
-        },
-        {
+            "groupName": "dependencies",
             "matchDepTypes": ["dependencies"],
             "enabled": false,
             "excludePackageNames": [
@@ -39,6 +30,21 @@
                 "react-native-screens",
                 "react-native-transparent-status-and-navigation-bar",
                 "react-native-vector-icons"
+            ]
+        },
+        {
+            "groupName": "devDependencies",
+            "matchDepTypes": ["devDependencies"],
+            "enabled": false,
+            "excludePackageNames": [
+                "@types/jest",
+                "@types/react",
+                "@types/react-native",
+                "@types/react-native-vector-icons",
+                "@types/react-test-renderer",
+                "json",
+                "license-compliance",
+                "react-native-flipper"
             ]
         }
     ]
