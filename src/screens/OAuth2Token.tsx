@@ -15,17 +15,17 @@ const OAuthToken: React.FC = () => {
     const {t} = useTranslation();
     const insets = useSafeAreaInsets();
     const {colors: PaperColor} = usePaperTheme();
-    const [rootWidth, setRootWidth] = useState<number>(0);
+    const [rootPaddingHalf, setRootPaddingHalf] = useState<number>(0);
 
     DeviceInfo.isLandscape().then(isLandscape => {
         if (isLandscape === false && deviceType === 'Handset') {
-            setRootWidth(absoluteWindowWidth - 32);
+            setRootPaddingHalf(16);
         } else if (isLandscape === false && deviceType === 'Tablet') {
-            setRootWidth(absoluteWindowWidth * 0.6);
+            setRootPaddingHalf(absoluteWindowWidth * 0.25);
         } else if (isLandscape === true && deviceType === 'Handset') {
-            setRootWidth(absoluteWindowHeight * 0.6);
+            setRootPaddingHalf(absoluteWindowHeight * 0.25);
         } else if (isLandscape === true && deviceType === 'Tablet') {
-            setRootWidth(absoluteWindowHeight * 0.5);
+            setRootPaddingHalf(absoluteWindowHeight * 0.25);
         }
     });
 
@@ -60,21 +60,19 @@ const OAuthToken: React.FC = () => {
     const submit = () => {
         if (gitHubToken.length < 40) {
             Keyboard.dismiss();
-        } else {
-            storeToken();
-            Keyboard.dismiss();
-            getLocalToken();
-            setGitHubToken('');
+            return;
         }
+        storeToken();
+        Keyboard.dismiss();
+        getLocalToken();
+        setGitHubToken('');
     };
     return (
         <View style={styles.root}>
             <ScrollView
                 contentContainerStyle={{
-                    paddingLeft: insets.left,
-                    paddingRight: insets.right,
-                    width: rootWidth,
-                    alignSelf: 'center',
+                    paddingLeft: insets.left + rootPaddingHalf,
+                    paddingRight: insets.right + rootPaddingHalf,
                 }}>
                 <TextInput
                     mode="outlined"
