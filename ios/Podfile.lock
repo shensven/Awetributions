@@ -363,13 +363,13 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
-  - RNDeviceInfo (8.4.0):
+  - RNDeviceInfo (8.4.1):
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNInAppBrowser (3.6.3):
     - React-Core
-  - RNReanimated (2.2.2):
+  - RNReanimated (2.2.3):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -628,10 +628,10 @@ SPEC CHECKSUMS:
   RNBootSplash: 51eef7e143faeab63f81ddbb7c1de38b8fba66ed
   RNCAsyncStorage: 26f25150da507524a7815f2ada06ca0967f65633
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNDeviceInfo: 8a06046616c6b5c03787b04f265fa3b52b37c80b
+  RNDeviceInfo: 55175b0bd852c1c5d70d76efc04ed77799cef638
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
-  RNReanimated: ad24db8af24e3fe1b5c462785bc3db8d5baae2ee
+  RNReanimated: aaf2cf65595b293daae808015761a6014a97b284
   RNScreens: 6e1ea5787989f92b0671049b808aef64fa1ef98c
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
