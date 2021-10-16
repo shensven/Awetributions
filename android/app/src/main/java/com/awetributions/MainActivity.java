@@ -3,16 +3,13 @@ package com.awetributions;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.content.res.Configuration;
 import androidx.core.view.WindowCompat;
 import com.facebook.react.ReactActivity;
-import com.facebook.react.ReactActivityDelegate;
-import com.facebook.react.ReactRootView;
-import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 import com.zoontek.rnbootsplash.RNBootSplash;
 
 public class MainActivity extends ReactActivity {
@@ -24,16 +21,6 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "Awetributions";
-  }
-
-  @Override
-  protected ReactActivityDelegate createReactActivityDelegate() {
-    return new ReactActivityDelegate(this, getMainComponentName()) {
-      @Override
-      protected ReactRootView createRootView() {
-       return new RNGestureHandlerEnabledRootView(MainActivity.this);
-      }
-    };
   }
 
   /**
