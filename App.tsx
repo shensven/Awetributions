@@ -63,6 +63,7 @@ const App: React.FC = () => {
                                 ? 'light-content'
                                 : 'dark-content'
                         }
+                        backgroundColor="transparent"
                     />
                     <Stack.Navigator
                         initialRouteName="Dashboard"

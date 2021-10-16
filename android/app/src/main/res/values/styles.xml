@@ -5,13 +5,12 @@
         <!-- Customize your theme here. -->
         <item name="android:textColor">#000000</item>
 
-        <!-- The following block was added by shensven -->
         <item name="android:forceDarkAllowed">false</item>
+        <!-- Make the top status bar transparent -->
         <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <!-- Make the bottom navigation bar transparent -->
         <item name="android:navigationBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
-        <!-- <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item> -->
         <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
-        <!-- <item name="android:windowBackground">#111111</item> -->
     </style>
 
     <!-- Add the following lines (BootTheme should inherit from AppTheme) -->
