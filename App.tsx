@@ -5,8 +5,6 @@ import {NavigationContainer /*useTheme as useNavigationTheme*/} from '@react-nav
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import RNBootSplash from 'react-native-bootsplash';
-// @ts-ignore
-import * as TransparentStatusAndNavigationBar from 'react-native-transparent-status-and-navigation-bar';
 
 import {useTranslation} from 'react-i18next';
 import {SettingsContext, SettingsProvider} from './src/util/SettingsManager';
@@ -23,8 +21,6 @@ import Appearance from './src/screens/Appearance';
 import Language from './src/screens/Language';
 import OpenSourceLibraries from './src/screens/OpenSourceLibraries';
 import About from './src/screens/About';
-
-TransparentStatusAndNavigationBar.init();
 
 const Stack = createStackNavigator();
 
