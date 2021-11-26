@@ -51,7 +51,7 @@
         "license-compliance": "1.2.2",
         "metro-react-native-babel-preset": "^0.66.0",
         "react-native-codegen": "^0.0.7",
-        "react-native-flipper": "0.121.1",
+        "react-native-flipper": "0.122.0",
         "react-test-renderer": "17.0.2",
         "typescript": "^3.8.3"
     },
