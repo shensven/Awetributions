@@ -287,7 +287,7 @@ PODS:
     - React-jsi (= 0.65.1)
     - React-perflogger (= 0.65.1)
   - React-jsinspector (0.65.1)
-  - react-native-flipper (0.119.0):
+  - react-native-flipper (0.122.0):
     - React-Core
   - react-native-pager-view (5.4.9):
     - React-Core
@@ -359,11 +359,11 @@ PODS:
     - React-perflogger (= 0.65.1)
   - RNBootSplash (3.2.6):
     - React-Core
-  - RNCAsyncStorage (1.15.11):
+  - RNCAsyncStorage (1.15.13):
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
-  - RNDeviceInfo (8.4.6):
+  - RNDeviceInfo (8.4.8):
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
@@ -610,7 +610,7 @@ SPEC CHECKSUMS:
   React-jsi: 12913c841713a15f64eabf5c9ad98592c0ec5940
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
-  react-native-flipper: e079eb24149005c71ca9067a6ae49d74cfb3dfbd
+  react-native-flipper: 102931f77ac9c94294f2117b463be6f9d55fab39
   react-native-pager-view: 3ee7d4c7697fb3ef788346e834a60cca97ed8540
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339
@@ -626,9 +626,9 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 85187f19dd9c47a7c102f9994f9d14e4dc2110de
   ReactCommon: eafed38eec7b591c31751bfa7494801618460459
   RNBootSplash: 51eef7e143faeab63f81ddbb7c1de38b8fba66ed
-  RNCAsyncStorage: eb05c0284dd6b50b32f92fad55e2a41e03358c43
+  RNCAsyncStorage: ac55c090d35b880ac47a7807ab797854afc640ae
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNDeviceInfo: d2df20ff25747778277a6aa8c749e8b53cf16a2a
+  RNDeviceInfo: 0400a6d0c94186d1120c3cbd97b23abc022187a9
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
   RNReanimated: f58d4f027fcea2197b63588138decdf5f8ac5e89
