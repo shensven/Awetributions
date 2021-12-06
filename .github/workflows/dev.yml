@@ -6,8 +6,6 @@ on:
     pull_request:
         branches: [dev]
 
-    workflow_dispatch:
-
 jobs:
     unit-test:
         runs-on: ubuntu-latest
