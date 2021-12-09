@@ -1,77 +1,77 @@
 {
-    "App": {
-        "OAuth2_Token": "訪問令牌",
-        "Dashboard": "主面板",
-        "Settings": "設定",
-        "Appearance": " 外觀",
-        "Language": "語言",
-        "OpenSourceLibraries": "開放原始碼程式庫",
-        "About": "關於"
-    },
-    "Dashboard": {
-        "Dashboard": "主面板",
-        "commits": "次",
-        "commits/day": "次/天",
-        "day": "天",
-        "ge": "個",
-        "Today_Activity": "今日提交",
-        "Best_Ever": "歷史最佳",
-        "annual_average": "全年平均",
-        "max_one_day": "單日最多",
-        "career": "生涯",
-        "current_streak": "當前連續",
-        "longest_streak": "最長連續",
-        "repo": "倉庫",
-        "All_Contribution_Activity": "過去的提交活動",
-        "last_week": "最近一禮拜",
-        "last_month": "最近一月",
-        "last_half_year": "最近半年",
-        "last_365_days": "最近365天"
-    },
-    "Settings": {
-        "OAuth2_Token": "訪問令牌",
-        "Appearance": "外觀",
-        "Language": "語言",
-        "Light": "淺色",
-        "Dark": "深色",
-        "Automatic": "與系統同步",
-        "en": "英文",
-        "zh-Hans": "簡體中文",
-        "zh-Hant": "繁體中文",
-        "OpenSourceLibraries": "開放原始碼程式庫",
-        "Feedback": "軟體反饋",
-        "About": "關於"
-    },
-    "OAuth2Token": {
-        "Enter_Your_GitHub_Access_Token": "輸入您的 GitHub 訪問令牌",
-        "CURRENT_TOKEN": "當前令牌",
-        "SAVE": "保存",
-        "UPDATE": "更新"
-    },
-    "Appearance": {
-        "systemAppearanceScheme": "系統外觀",
-        "appAppearanceScheme": "程式外觀",
-        "appAppearanceIndex": "程式外觀索引",
-        "Light": "淺色",
-        "Dark": "深色",
-        "Automatic": "與系統同步"
-    },
-    "Language": {
-        "en": "英文",
-        "zh-Hans": "簡體中文",
-        "zh-Hant": "繁體中文"
-    },
-    "About": {
-        "Awetributions": "Awetributions",
-        "Version": "版本",
-        "Codesign": "代碼設計",
-        "en": "英文本地化",
-        "zh-Hans": "簡體中文本地化",
-        "zh-Hant": "繁體中文本地化",
-        "Check_for_Updates": "檢查更新",
-        "AlertTitle": "前往應用商店",
-        "AlertDismiss": "取消",
-        "AlertGo": "Go",
-        "DISSMISS": "取消"
-    }
+  "App": {
+    "OAuth2_Token": "訪問令牌",
+    "Dashboard": "主面板",
+    "Settings": "設定",
+    "Appearance": " 外觀",
+    "Language": "語言",
+    "OpenSourceLibraries": "開放原始碼程式庫",
+    "About": "關於"
+  },
+  "Dashboard": {
+    "Dashboard": "主面板",
+    "commits": "次",
+    "commits/day": "次/天",
+    "day": "天",
+    "ge": "個",
+    "Today_Activity": "今日提交",
+    "Best_Ever": "歷史最佳",
+    "annual_average": "全年平均",
+    "max_one_day": "單日最多",
+    "career": "生涯",
+    "current_streak": "當前連續",
+    "longest_streak": "最長連續",
+    "repo": "倉庫",
+    "All_Contribution_Activity": "過去的提交活動",
+    "last_week": "最近一禮拜",
+    "last_month": "最近一月",
+    "last_half_year": "最近半年",
+    "last_365_days": "最近365天"
+  },
+  "Settings": {
+    "OAuth2_Token": "訪問令牌",
+    "Appearance": "外觀",
+    "Language": "語言",
+    "Light": "淺色",
+    "Dark": "深色",
+    "Automatic": "與系統同步",
+    "en": "英文",
+    "zh-Hans": "簡體中文",
+    "zh-Hant": "繁體中文",
+    "OpenSourceLibraries": "開放原始碼程式庫",
+    "Feedback": "軟體反饋",
+    "About": "關於"
+  },
+  "OAuth2Token": {
+    "Enter_Your_GitHub_Access_Token": "輸入您的 GitHub 訪問令牌",
+    "CURRENT_TOKEN": "當前令牌",
+    "SAVE": "保存",
+    "UPDATE": "更新"
+  },
+  "Appearance": {
+    "systemAppearanceScheme": "系統外觀",
+    "appAppearanceScheme": "程式外觀",
+    "appAppearanceIndex": "程式外觀索引",
+    "Light": "淺色",
+    "Dark": "深色",
+    "Automatic": "與系統同步"
+  },
+  "Language": {
+    "en": "英文",
+    "zh-Hans": "簡體中文",
+    "zh-Hant": "繁體中文"
+  },
+  "About": {
+    "Awetributions": "Awetributions",
+    "Version": "版本",
+    "Codesign": "代碼設計",
+    "en": "英文本地化",
+    "zh-Hans": "簡體中文本地化",
+    "zh-Hant": "繁體中文本地化",
+    "Check_for_Updates": "檢查更新",
+    "AlertTitle": "前往應用商店",
+    "AlertDismiss": "取消",
+    "AlertGo": "Go",
+    "DISSMISS": "取消"
+  }
 }

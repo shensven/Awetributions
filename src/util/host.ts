@@ -1,3 +1,3 @@
 export default {
-    url: 'https://api.github.com/',
+  url: 'https://api.github.com/',
 };
